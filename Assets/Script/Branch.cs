@@ -23,7 +23,7 @@ public class Branch : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown("z"))
+            if (Input.GetMouseButtonDown(0))
             {
                 if (BranchRot >= 3) BranchRot = 0;
                 else BranchRot += 1;

@@ -23,7 +23,7 @@ public class Switch : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if (Input.GetKeyDown("z"))
+            if (Input.GetMouseButtonDown(0))
             {
                 if (SwitchFlg == false)
                 {
