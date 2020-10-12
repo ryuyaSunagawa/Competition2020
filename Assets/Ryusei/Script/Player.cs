@@ -16,27 +16,14 @@ public class Player : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void FixedUpdate()
+    {
         var cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
         Vector3 direction = cameraForward * Input.GetAxis("Vertical") +
                 Camera.main.transform.right * Input.GetAxis("Horizontal");
 
-        transform.position += direction / 100;
-
-        //if (Input.GetKey("w"))
-        //{
-        //    transform.position -= transform.right * speed * Time.deltaTime;
-        //}
-        //if (Input.GetKey("s"))
-        //{
-        //    transform.position += transform.right * speed * Time.deltaTime;
-        //}
-        //if (Input.GetKey("d"))
-        //{
-        //    transform.position += transform.forward * speed * Time.deltaTime;
-        //}
-        //if (Input.GetKey("a"))
-        //{
-        //    transform.position -= transform.forward * speed * Time.deltaTime;
-        //}
+        transform.position += direction / 20;
     }
 }

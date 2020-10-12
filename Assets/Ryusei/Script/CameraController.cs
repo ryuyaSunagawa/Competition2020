@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     {
         this.mainCamera = Camera.main.gameObject; //カメラオブジェクトを代入
         this.fieldObject = GameObject.Find("Player");
+        //this.fieldObject = GameObject.Find("Floor1");
     }
     void Update()
     {
@@ -19,7 +20,8 @@ public class CameraController : MonoBehaviour
     }
     private void rotateCamera()
     {
-        Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * this.rotateSpeed, 0, 0);
+        Vector3 angle = new Vector3(Input.GetAxis("Mouse X") * this.rotateSpeed, Input.GetAxis("Mouse Y") * this.rotateSpeed, 0);
         this.mainCamera.transform.RotateAround(this.fieldObject.transform.position, Vector3.up, angle.x);
+        this.mainCamera.transform.RotateAround(this.fieldObject.transform.position, transform.right, angle.y);
     }
 }
