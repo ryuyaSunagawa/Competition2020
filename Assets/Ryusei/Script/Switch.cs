@@ -6,6 +6,7 @@ public class Switch : MonoBehaviour
 {
 
     public bool SwitchFlg;         //スイッチが押されているかいないか
+    bool SwitchHitFlg;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +17,7 @@ public class Switch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        if(SwitchHitFlg == true)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -40,4 +36,21 @@ public class Switch : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            SwitchHitFlg = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            SwitchHitFlg = false;
+        }
+    }
+
 }

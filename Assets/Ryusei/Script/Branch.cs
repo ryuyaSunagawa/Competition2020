@@ -6,6 +6,7 @@ public class Branch : MonoBehaviour
 {
 
     public int BranchRot = 0;
+    bool BranchFlg;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +17,7 @@ public class Branch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
+        if(BranchFlg == true)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -31,6 +27,24 @@ public class Branch : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, BranchRot * 90, 0);
                 Debug.Log(BranchRot);
             }
+        }
+
+        Debug.Log(BranchFlg);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            BranchFlg = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            BranchFlg = false;
         }
     }
 }
