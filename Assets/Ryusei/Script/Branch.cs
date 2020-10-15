@@ -7,7 +7,7 @@ public class Branch : MonoBehaviour
 
     public int BranchRot = 0;
     bool BranchFlg;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,8 @@ public class Branch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(BranchFlg == true)
+
+        if (BranchFlg == true)
         {
             if (Input.GetMouseButtonDown(0))
             {
