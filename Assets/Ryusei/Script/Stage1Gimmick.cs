@@ -34,7 +34,7 @@ public class Stage1Gimmick : MonoBehaviour
         BranchScript2 = BranchObj2.GetComponent<Branch>();      //ブランチ[1]のスクリプト取得
         BranchScript3 = BranchObj3.GetComponent<Branch>();      //ブランチ[1]のスクリプト取得
 
-        for(int i = 0; i <= 8; i++)
+        for(int i = 0; i <= 11; i++)
         {
             LineScript[i] = LineObj[i].GetComponent<Line>();
         }
@@ -84,7 +84,7 @@ public class Stage1Gimmick : MonoBehaviour
         }
 
         //2個目の分岐がLineに電気を流しているか
-        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 1)
+        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 0 && BranchScript2.BranchRot % 2 == 1)
         {
             LineScript[8].ElectricityFlg = true;
         }
@@ -97,7 +97,20 @@ public class Stage1Gimmick : MonoBehaviour
         //豆電球に電気が流れているかのフラグ
         if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 0 && (BranchScript2.BranchRot == 1 || BranchScript2.BranchRot == 2) && BranchScript3.BranchRot % 2 != 0)
         {
+
             LightObj.GetComponent<Renderer>().material.color = Color.red;
+            for (int i = 9; i <= 11; i++)
+            {
+                LineScript[i].ElectricityFlg = true;
+            }
+
+        }
+        else
+        {
+            for (int i = 9; i <= 11; i++)
+            {
+                LineScript[i].ElectricityFlg = false;
+            }
         }
 
     }
