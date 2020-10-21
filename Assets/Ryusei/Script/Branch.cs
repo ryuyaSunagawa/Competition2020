@@ -26,11 +26,8 @@ public class Branch : MonoBehaviour
                 else BranchRot += 1;
 
                 transform.rotation = Quaternion.Euler(0, BranchRot * 90, 0);
-                Debug.Log(BranchRot);
             }
         }
-
-        Debug.Log(BranchFlg);
     }
 
     void OnTriggerEnter(Collider other)

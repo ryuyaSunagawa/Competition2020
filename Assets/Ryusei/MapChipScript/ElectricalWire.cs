@@ -6,6 +6,7 @@ public class ElectricalWire : MonoBehaviour
 {
 
     bool EnergizedFlg;
+    bool Stay;
     BoxCollider collider;
     GameObject PowerButton;
 
@@ -27,9 +28,37 @@ public class ElectricalWire : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        i++;
-        Debug.Log(i);
+        //i++;
+        //Debug.Log(i);
 
+        //if (other.gameObject.tag == "EnergizedOn" && PowerButton.tag == "EnergizedOn")
+        //{
+        //    this.tag = "EnergizedOn";
+        //    GetComponent<Renderer>().material.color = Color.yellow;
+        //}
+        //else if (other.gameObject.tag == "EnergizedOff" && PowerButton.tag == "EnergizedOff")
+        //{
+        //    this.tag = "EnergizedOff";
+        //    GetComponent<Renderer>().material.color = Color.black;
+        //}
+
+        //collider.size = new Vector3(0, 0, 0); //
+        //Invoke("DelayMethod", 0.02f);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        this.tag = "EnergizedOff";
+        GetComponent<Renderer>().material.color = Color.black;
+    }
+
+    void DelayMethod()
+    {
+        //collider.size = new Vector3(1, 1, 1);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.tag == "EnergizedOn" && PowerButton.tag == "EnergizedOn")
         {
             this.tag = "EnergizedOn";
@@ -40,18 +69,5 @@ public class ElectricalWire : MonoBehaviour
             this.tag = "EnergizedOff";
             GetComponent<Renderer>().material.color = Color.black;
         }
-
-        collider.size = new Vector3(0, 0, 0); //
-        Invoke("DelayMethod", 0.02f);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
-    }
-
-    void DelayMethod()
-    {
-        collider.size = new Vector3(1, 1, 1);
     }
 }
