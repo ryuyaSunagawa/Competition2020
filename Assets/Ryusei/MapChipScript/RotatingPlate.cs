@@ -27,7 +27,8 @@ public class RotatingPlate : MonoBehaviour
                 if (BranchRot >= 3) BranchRot = 0;
                 else BranchRot += 1;
 
-                this.tag = "EnergizedOff";
+                this.tag = "BlackOut";
+                Invoke("DelayMethod", 0.02f);
                 RotatingWire[0].GetComponent<Renderer>().material.color = Color.black;
                 RotatingWire[1].GetComponent<Renderer>().material.color = Color.black;
 
@@ -42,7 +43,10 @@ public class RotatingPlate : MonoBehaviour
         {
             BranchFlg = true;
         }
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.tag == "EnergizedOn")
         {
             this.tag = "EnergizedOn";
@@ -63,5 +67,15 @@ public class RotatingPlate : MonoBehaviour
         {
             BranchFlg = false;
         }
+        //else
+        //{
+        //    other.gameObject.tag = "BlackOut";
+        //}
+    }
+
+    void DelayMethod()
+    {
+        //collider.size = new Vector3(1, 1, 1);
+        this.tag = "EnergizedOff";
     }
 }

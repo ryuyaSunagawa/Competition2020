@@ -27,10 +27,31 @@ public class ElectricalWire : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        i++;
-        Debug.Log(i);
+        //i++;
+        //Debug.Log(i);
+        //if (other.gameObject.tag == "EnergizedOn" && PowerButton.tag == "EnergizedOn")
+        //{
+        //    this.tag = "EnergizedOn";
+        //    GetComponent<Renderer>().material.color = Color.yellow;
+        //}
+        //else if (other.gameObject.tag == "EnergizedOff" && PowerButton.tag == "EnergizedOff")
+        //{
+        //    this.tag = "EnergizedOff";
+        //    GetComponent<Renderer>().material.color = Color.black;
+        //}
 
-        if (other.gameObject.tag == "EnergizedOn" && PowerButton.tag == "EnergizedOn")
+        //collider.size = new Vector3(0, 0, 0); //
+        //Invoke("DelayMethod", 0.02f);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.tag == "BlackOut")
+        {
+            this.tag = "BlackOut";
+        }
+        else if (other.gameObject.tag == "EnergizedOn" && PowerButton.tag == "EnergizedOn")
         {
             this.tag = "EnergizedOn";
             GetComponent<Renderer>().material.color = Color.yellow;
@@ -41,17 +62,25 @@ public class ElectricalWire : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.black;
         }
 
-        collider.size = new Vector3(0, 0, 0); //
-        Invoke("DelayMethod", 0.02f);
+        if (gameObject.tag == "BlackOut")
+        {
+            GetComponent<Renderer>().material.color = Color.black;
+            Invoke("DelayMethod", 0.02f);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-
+        //this.tag = "EnergizedOff";
+        //GetComponent<Renderer>().material.color = Color.black;
+        if (gameObject.name == "ElectricalWire (7)") Debug.Log(" ElectricalWire (7)");
+        this.tag = "BlackOut";
     }
 
     void DelayMethod()
     {
-        collider.size = new Vector3(1, 1, 1);
+        //collider.size = new Vector3(1, 1, 1);
+        this.tag = "EnergizedOff";
     }
 }

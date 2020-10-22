@@ -8,6 +8,9 @@ TagManager:
   - EnergizedOff
   - PowerButton
   - RotatingPlate
+  - RotatingEnergizedOn
+  - RotatingEnergizedOff
+  - BlackOut
   layers:
   - Default
   - TransparentFX

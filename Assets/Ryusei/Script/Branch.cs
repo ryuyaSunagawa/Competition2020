@@ -30,7 +30,7 @@ public class Branch : MonoBehaviour
             }
         }
 
-        Debug.Log(BranchFlg);
+        //Debug.Log(BranchFlg);
     }
 
     void OnTriggerEnter(Collider other)
