@@ -74,7 +74,6 @@ public class ElectricalWire : MonoBehaviour
     {
         //this.tag = "EnergizedOff";
         //GetComponent<Renderer>().material.color = Color.black;
-        if (gameObject.name == "ElectricalWire (7)") Debug.Log(" ElectricalWire (7)");
         this.tag = "BlackOut";
     }
 
