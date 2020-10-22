@@ -21,8 +21,6 @@ public class PowerButton : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                collider.size = new Vector3(0, 0, 0);
-                Invoke("DelayMethod", 0.02f);
                 if (SwitchFlg == false)
                 {
                     this.gameObject.transform.Translate(0, -0.1f, 0);

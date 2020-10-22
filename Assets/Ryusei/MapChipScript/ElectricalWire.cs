@@ -42,6 +42,10 @@ public class ElectricalWire : MonoBehaviour
 
         //collider.size = new Vector3(0, 0, 0); //
         //Invoke("DelayMethod", 0.02f);
+        if (other.gameObject.tag != "Player")
+        {
+            this.tag = "BlackOut";
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -50,6 +54,12 @@ public class ElectricalWire : MonoBehaviour
         if (other.gameObject.tag == "BlackOut")
         {
             this.tag = "BlackOut";
+        }
+
+        if (gameObject.tag == "BlackOut")
+        {
+            GetComponent<Renderer>().material.color = Color.black;
+            Invoke("DelayMethod", 0.02f);
         }
         else if (other.gameObject.tag == "EnergizedOn" && PowerButton.tag == "EnergizedOn")
         {
@@ -62,19 +72,16 @@ public class ElectricalWire : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.black;
         }
 
-        if (gameObject.tag == "BlackOut")
-        {
-            GetComponent<Renderer>().material.color = Color.black;
-            Invoke("DelayMethod", 0.02f);
-        }
-
     }
 
     private void OnTriggerExit(Collider other)
     {
         //this.tag = "EnergizedOff";
         //GetComponent<Renderer>().material.color = Color.black;
-        this.tag = "BlackOut";
+        if (other.gameObject.tag != "Player")
+        {
+            this.tag = "BlackOut";
+        }
     }
 
     void DelayMethod()
