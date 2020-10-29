@@ -21,7 +21,7 @@ public class ElectricDoor : MonoBehaviour
 
     public void OpenDoor()
     {
-        if (transform.position.y <= FirstPosition.y + 5f)
+        if (transform.position.y <= FirstPosition.y + 2f)
         {
             transform.position += new Vector3(0, 0.1f, 0);
 
