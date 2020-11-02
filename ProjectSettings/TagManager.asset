@@ -10,6 +10,7 @@ TagManager:
   - RotatingPlate
   - BlackOut
   - ElectricalDoor
+  - MiniLight
   layers:
   - Default
   - TransparentFX

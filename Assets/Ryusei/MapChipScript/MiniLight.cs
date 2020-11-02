@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalLight : MonoBehaviour
+public class MiniLight : MonoBehaviour
 {
-
     int changeColor;    //0,白 1,黄色
     int beforeColor;
 
@@ -13,7 +12,7 @@ public class GoalLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,12 +37,12 @@ public class GoalLight : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "EnergizedOn")
+        if (other.gameObject.tag == "EnergizedOn")  //点灯
         {
             //GetComponent<Renderer>().material.color = Color.yellow;
             changeColor = 1;
         }
-        else if (other.gameObject.tag == "EnergizedOff")
+        else if (other.gameObject.tag == "EnergizedOff")    //消灯
         {
             //GetComponent<Renderer>().material.color = Color.white;
             changeColor = 0;
