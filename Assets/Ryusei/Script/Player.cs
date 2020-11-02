@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float applySpeed = 0.2f;       // 振り向きの適用速度
     [SerializeField] private CameraController refCamera;  // カメラの水平回転を参照する用
 
-    void Update()
+    void FixedUpdate()
     {
         // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
         velocity = Vector3.zero;

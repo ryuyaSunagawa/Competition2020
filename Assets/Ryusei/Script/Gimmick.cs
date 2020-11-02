@@ -29,7 +29,7 @@ public class Gimmick : MonoBehaviour
         BranchScript2 = BranchObj2.GetComponent<Branch>();      //ブランチ[1]のスクリプト取得
         
         //ギミックの初期数値の設定
-        BranchScript2.BranchRot = 1;    //ブランチ２の回転初期値１
+        BranchScript2.branchRot = 1;    //ブランチ２の回転初期値１
     }
 
     // Update is called once per frame
@@ -37,13 +37,13 @@ public class Gimmick : MonoBehaviour
     {
 
         //扉に電気が流れているかのフラグ
-        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot == 1)
+        if (SwitchScript.SwitchFlg == true && BranchScript1.branchRot == 1)
         {
             DoorObj.GetComponent<Door>().OpenDoor();
         }
 
         //豆電球に電気が流れているかのフラグ
-        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot == 0 && BranchScript2.BranchRot == 0)
+        if (SwitchScript.SwitchFlg == true && BranchScript1.branchRot == 0 && BranchScript2.branchRot == 0)
         {
             LightObj.GetComponent<Renderer>().material.color = Color.red;
         }

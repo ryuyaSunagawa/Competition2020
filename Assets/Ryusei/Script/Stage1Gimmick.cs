@@ -73,7 +73,7 @@ public class Stage1Gimmick : MonoBehaviour
         }
 
         //扉に電気が流れているかのフラグ
-        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 0)
+        if (SwitchScript.SwitchFlg == true && BranchScript1.branchRot % 2 != 0)
         {
 
             DoorObj.GetComponent<Door>().OpenDoor();
@@ -98,7 +98,7 @@ public class Stage1Gimmick : MonoBehaviour
         }
 
         //2個目の分岐が上に電気を流しているか
-        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 0 && BranchScript2.BranchRot % 2 == 1)
+        if (SwitchScript.SwitchFlg == true && BranchScript1.branchRot % 2 != 0 && BranchScript2.branchRot % 2 == 1)
         {
             LineObj[8].GetComponent<Renderer>().material.color = Color.yellow;
             LineScript[8].ElectricityFlg = true;
@@ -109,7 +109,7 @@ public class Stage1Gimmick : MonoBehaviour
             LineScript[8].ElectricityFlg = false;
         }
 
-        if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 0 && (BranchScript2.BranchRot == 1 || BranchScript1.BranchRot % 2 != 0 && BranchScript2.BranchRot == 2))
+        if (SwitchScript.SwitchFlg == true && BranchScript1.branchRot % 2 != 0 && (BranchScript2.branchRot == 1 || BranchScript1.branchRot % 2 != 0 && BranchScript2.branchRot == 2))
         {
             LineObj[9].GetComponent<Renderer>().material.color = Color.yellow;
         }
@@ -119,7 +119,7 @@ public class Stage1Gimmick : MonoBehaviour
         }
 
             //豆電球に電気が流れているかのフラグ
-            if (SwitchScript.SwitchFlg == true && BranchScript1.BranchRot % 2 != 0 && (BranchScript2.BranchRot == 1 || BranchScript2.BranchRot == 2) && BranchScript3.BranchRot % 2 != 0)
+            if (SwitchScript.SwitchFlg == true && BranchScript1.branchRot % 2 != 0 && (BranchScript2.branchRot == 1 || BranchScript2.branchRot == 2) && BranchScript3.branchRot % 2 != 0)
         {
 
             LightObj.GetComponent<Renderer>().material.color = Color.red;

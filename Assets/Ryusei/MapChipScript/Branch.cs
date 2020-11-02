@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Branch : MonoBehaviour
 {
-
-    public int BranchRot = 0;
-    bool BranchFlg;
+    public int branchNum;
+    public int branchRot = 0;
+    bool branchFlg;
     
     // Start is called before the first frame update
     void Start()
@@ -18,14 +18,16 @@ public class Branch : MonoBehaviour
     void Update()
     {
 
-        if (BranchFlg == true)
+        if (branchFlg == true)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (BranchRot >= 3) BranchRot = 0;
-                else BranchRot += 1;
+                if (branchRot >= 3) branchRot = 0;
+                else branchRot += 1;
 
-                transform.rotation = Quaternion.Euler(0, BranchRot * 90, 0);
+                ++branchNum;
+
+                transform.rotation = Quaternion.Euler(0, branchRot * 90, 0);
             }
         }
     }
@@ -34,7 +36,7 @@ public class Branch : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            BranchFlg = true;
+            branchFlg = true;
         }
     }
 
@@ -42,7 +44,7 @@ public class Branch : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            BranchFlg = false;
+            branchFlg = false;
         }
     }
 }
