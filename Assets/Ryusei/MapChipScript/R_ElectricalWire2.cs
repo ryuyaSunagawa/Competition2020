@@ -60,7 +60,7 @@ public class R_ElectricalWire2 : MonoBehaviour
         if (other.gameObject.tag != "Player" && other.gameObject.tag != "ElectricalDoor")
         {
             this.tag = "BlackOut";
-        }else if(other.gameObject.tag == "Player")
+        }else if(other.gameObject.tag == "Player" && gameObject.tag == "EnergizedOn")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); //シーン再読み込み(感電)
         }

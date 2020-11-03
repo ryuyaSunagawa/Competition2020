@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniLight : MonoBehaviour
+public class PumpkinLight : MonoBehaviour
 {
-    int changeColor;
+    int changeColor;    //0,白 1,黄色
     int beforeColor;
-
-    MeshRenderer meshRenderer;//
-    bool MatChange = false;//
-    [SerializeField] Material[] materials1;//
-    [SerializeField] Material[] materials2;//
 
     public bool hasLight;
 
     // Start is called before the first frame update
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+
     }
 
     // Update is called once per frame
@@ -27,20 +22,17 @@ public class MiniLight : MonoBehaviour
         {
             if (changeColor == 0)
             {
-                //GetComponent<Renderer>().material.color = Color.white;
-                MatChange = false;
+                GetComponent<Renderer>().material.color = Color.white;
                 hasLight = false;
             }
             else
             {
-                //GetComponent<Renderer>().material.color = Color.yellow;
-                MatChange = true;
+                GetComponent<Renderer>().material.color = Color.yellow;
                 hasLight = true;
             }
 
         }
         beforeColor = changeColor;
-        meshRenderer.materials = MatChange ? materials2 : materials1;//
     }
 
     private void OnTriggerStay(Collider other)
