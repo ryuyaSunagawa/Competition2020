@@ -44,7 +44,7 @@ public class StageCamera : MonoBehaviour
 
 	private void OnDrawGizmos()
 	{
-		if( beTargetCenter ) transform.LookAt( centerObj );
+		//if( beTargetCenter ) transform.LookAt( centerObj );
 		//transform.position = ( transform.position - centerObj.position ).normalized * centerDistance;
 		Debug.Log( ( transform.position - centerObj.position ).normalized * centerDistance );
 		Gizmos.color = Color.green;
