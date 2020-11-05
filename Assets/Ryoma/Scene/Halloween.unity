@@ -33768,7 +33768,6 @@ GameObject:
   - component: {fileID: 1560724855}
   - component: {fileID: 1560724854}
   - component: {fileID: 1560724853}
-  - component: {fileID: 1560724857}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -33790,7 +33789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSpeed: 6
   player: {fileID: 275221010}
-  distance: 15
+  distance: 25
   vRotation: {x: 0, y: 0, z: 0, w: 0}
   hRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!81 &1560724854
@@ -33858,22 +33857,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 22.428001, y: 0, z: 0}
---- !u!114 &1560724857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560724852}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cd4d3ba47d2604c930c1851c6fe11d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  centerObj: {fileID: 275221010}
-  speed: 88
-  centerDistance: 20
-  beTargetCenter: 1
 --- !u!1 &1561044615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a6f37af31b1028448bee6b17ea23388e,

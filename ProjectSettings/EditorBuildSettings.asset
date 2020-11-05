@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Ryusei/Scene/stage1.unity
     guid: c14ebc7f04b20ea48a56925051f11941
+  - enabled: 1
+    path: Assets/Ryoma/Scene/Halloween.unity
+    guid: 7d0ddc522ff0b45468e9f34263a11332
   m_configObjects: {}
