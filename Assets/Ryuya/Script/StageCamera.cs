@@ -23,7 +23,7 @@ public class StageCamera : MonoBehaviour
     {
 		initialVec = ( new Vector3( 0f, 0f, -10f ) * centerDistance ) - centerObj.position;
 		//中心からの距離を計算し、代入
-		transform.position = ( transform.position - centerObj.position ).normalized * centerDistance;
+		//transform.position = ( transform.position - centerObj.position ).normalized * centerDistance;
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class StageCamera : MonoBehaviour
 		float xAxis = speed * Input.GetAxis( "Mouse X" ) * Time.deltaTime;
 		float yAxis = speed * Input.GetAxis( "Mouse Y" ) * Time.deltaTime;
 
-		Debug.Log( yAxis );
+		//Debug.Log( yAxis );
 
 		this.transform.LookAt( centerObj );
 		//水平方向回転
@@ -45,7 +45,8 @@ public class StageCamera : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		if( beTargetCenter ) transform.LookAt( centerObj );
-		transform.position = ( transform.position - centerObj.position ).normalized * centerDistance;
+		//transform.position = ( transform.position - centerObj.position ).normalized * centerDistance;
+		Debug.Log( ( transform.position - centerObj.position ).normalized * centerDistance );
 		Gizmos.color = Color.green;
 		Gizmos.DrawLine( centerObj.position, transform.position.normalized * centerDistance );
 	}
