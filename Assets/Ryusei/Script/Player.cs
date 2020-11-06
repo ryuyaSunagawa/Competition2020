@@ -11,30 +11,33 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
-        velocity = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
-            velocity.z += 1;
-        if (Input.GetKey(KeyCode.A))
-            velocity.x -= 1;
-        if (Input.GetKey(KeyCode.S))
-            velocity.z -= 1;
-        if (Input.GetKey(KeyCode.D))
-            velocity.x += 1;
-
-        // 速度ベクトルの長さを1秒でmoveSpeedだけ進むように調整
-        velocity = velocity.normalized * moveSpeed * Time.deltaTime;
-
-        // いずれかの方向に移動している場合
-        if (velocity.magnitude > 0)
+        if (refCamera.startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
-            // プレイヤーの回転(transform.rotation)の更新
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                                                  Quaternion.LookRotation(refCamera.hRotation * velocity),
-                                                  applySpeed);
+            // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
+            velocity = Vector3.zero;
+            if (Input.GetKey(KeyCode.W))
+                velocity.z += 1;
+            if (Input.GetKey(KeyCode.A))
+                velocity.x -= 1;
+            if (Input.GetKey(KeyCode.S))
+                velocity.z -= 1;
+            if (Input.GetKey(KeyCode.D))
+                velocity.x += 1;
 
-            // プレイヤーの位置(transform.position)の更新
-            transform.position += refCamera.hRotation * velocity;
+            // 速度ベクトルの長さを1秒でmoveSpeedだけ進むように調整
+            velocity = velocity.normalized * moveSpeed * Time.deltaTime;
+
+            // いずれかの方向に移動している場合
+            if (velocity.magnitude > 0)
+            {
+                // プレイヤーの回転(transform.rotation)の更新
+                transform.rotation = Quaternion.Slerp(transform.rotation,
+                                                      Quaternion.LookRotation(refCamera.hRotation * velocity),
+                                                      applySpeed);
+
+                // プレイヤーの位置(transform.position)の更新
+                transform.position += refCamera.hRotation * velocity;
+            }
         }
     }
 }
