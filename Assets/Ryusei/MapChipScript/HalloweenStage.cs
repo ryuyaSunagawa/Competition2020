@@ -9,6 +9,7 @@ public class HalloweenStage : MonoBehaviour
     const int BRANCHLIMIT = 7;  //このステージで星獲得のために回転盤を回してもいい回数
     const int STAR = 3;         //スターの最大数
 
+    const int STAGE = 1;        //このステージの番号
     //ミニライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] miniLight;
     MiniLight[] miniLightScript = new MiniLight[MINILIGHT];
@@ -123,21 +124,9 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
+            //LoadUserState.Instance.SetProgress(STAGE);
 
             Invoke("DelayHyouka", 0.1f);
-
-            ////獲得星数ごとの処理
-            //switch (star)
-            //{
-            //    case 1:
-            //        break;
-            //    case 2:
-            //        break;
-            //    case 3:
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
     }
 
@@ -149,4 +138,12 @@ public class HalloweenStage : MonoBehaviour
         }
         clearText.SetActive(true);
     }
+
+    //public void SetProgress(int value)
+    //{
+    //    if (progressedStageNum < value)
+    //    {
+    //        progressedStageNum = value;
+    //    }
+    //}
 }

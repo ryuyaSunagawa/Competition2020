@@ -20,10 +20,22 @@ public class Branch : MonoBehaviour
 
         if (branchFlg == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (branchRot >= 3) branchRot = 0;
                 else branchRot += 1;
+
+                ++branchNum;
+
+                transform.rotation = Quaternion.Euler(0, branchRot * 90, 0);
+            }
+        }
+        if (branchFlg == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                if (branchRot <= 0) branchRot = 3;
+                else branchRot -= 1;
 
                 ++branchNum;
 
