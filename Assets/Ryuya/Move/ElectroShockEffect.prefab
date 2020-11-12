@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 420378035453535701}
   m_Layer: 0
   m_Name: ElectroShockEffect
-  m_TagString: Untagged
+  m_TagString: ElectroParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

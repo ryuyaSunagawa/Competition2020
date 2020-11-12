@@ -13,6 +13,8 @@ TagManager:
   - MiniLight
   - GoalLight
   - StageManager
+  - UI_Image
+  - UI_Text
   layers:
   - Default
   - TransparentFX
