@@ -169,8 +169,8 @@ public class LoadUserState : ISerializationCallbackReceiver
 		return progressedStageNum;
 	}
 
-	public void SetPlayerData(  )
+	public void SetPlayerData( int num )
 	{
-
+		progressedStageNum = num;
 	}
 }
