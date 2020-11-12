@@ -12,6 +12,7 @@ TagManager:
   - ElectricalDoor
   - MiniLight
   - GoalLight
+  - StageManager
   layers:
   - Default
   - TransparentFX

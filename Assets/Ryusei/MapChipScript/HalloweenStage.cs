@@ -124,7 +124,7 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
-            //LoadUserState.Instance.SetProgress(STAGE);
+            //LoadUserState.Instance.SetPlayerData(1);
 
             Invoke("DelayHyouka", 0.1f);
         }

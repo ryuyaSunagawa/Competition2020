@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class R_ElectricalWire2 : MonoBehaviour
 {
-
     GameObject PowerButton;
     int changeColor;    //0,黒 1,黄色
     int beforeColor;
