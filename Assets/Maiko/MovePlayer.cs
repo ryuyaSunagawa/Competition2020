@@ -22,23 +22,17 @@ public class MovePlayer : MonoBehaviour
     {
         anim.SetBool("Idle",true);
         anim.SetBool("Walk", false);
-        anim.SetBool("Rejoice", false);
-        anim.SetBool("Survey", false);
 
         if (Input.GetKey("w"))
         {
             anim.SetBool("Idle", false);
             anim.SetBool("Walk", true);
-            anim.SetBool("Rejoice", false);
-            anim.SetBool("Survey", false);
             transform.position += transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey("s"))
         {
             anim.SetBool("Idle", false);
             anim.SetBool("Walk", true);
-            anim.SetBool("Rejoice", false);
-            anim.SetBool("Survey", false);
             transform.position += transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKeyUp("d"))
@@ -48,22 +42,6 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKeyUp("a"))
         {
             transform.Rotate(new Vector3(0, 90, 0));
-        }
-
-        if (Input.GetKey(KeyCode.Alpha5))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", false);
-            anim.SetBool("Rejoice", true);
-            anim.SetBool("Survey", false);
-        }
-        if (Input.GetKey(KeyCode.Alpha9))
-        {
-            anim.SetBool("Walk", false);
-            anim.SetBool("Idle", false);
-            anim.SetBool("Rejoice", false);
-            anim.SetBool("Survey", true);
-
         }
     }
 }
