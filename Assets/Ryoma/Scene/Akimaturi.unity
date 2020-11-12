@@ -405,6 +405,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4496909535752763645, guid: 86e7d235682a8804eb5adfbfb5c3d565,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796331579863556294, guid: 86e7d235682a8804eb5adfbfb5c3d565,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e7d235682a8804eb5adfbfb5c3d565, type: 3}
 --- !u!1 &18528251
@@ -18867,6 +18877,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496909535752763645, guid: 86e7d235682a8804eb5adfbfb5c3d565,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796331579863556294, guid: 86e7d235682a8804eb5adfbfb5c3d565,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e7d235682a8804eb5adfbfb5c3d565, type: 3}
@@ -44088,6 +44108,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 661437655351422026, guid: 381f5bf8cc2461b4e866f6e504bc5b51,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 661437656497072320, guid: 381f5bf8cc2461b4e866f6e504bc5b51,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
+      objectReference: {fileID: 0}
     - target: {fileID: 849210948893867442, guid: 381f5bf8cc2461b4e866f6e504bc5b51,
         type: 3}
       propertyPath: m_Name
@@ -51560,6 +51590,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: I_Cable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859254351101702251, guid: d7e816d915ca39c4ca0ab89ac53f858b,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859254351101702251, guid: d7e816d915ca39c4ca0ab89ac53f858b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.011
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e816d915ca39c4ca0ab89ac53f858b, type: 3}
