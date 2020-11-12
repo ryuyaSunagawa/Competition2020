@@ -63,9 +63,9 @@ public class HalloweenStage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("star"+star);
-        Debug.Log("lightnum"+lightNum);
-        Debug.Log("branchTrun" + branchTurn);
+        //Debug.Log("star"+star);
+        //Debug.Log("lightnum"+lightNum);
+        //Debug.Log("branchTrun" + branchTurn);
 
         //ミニライトがいくつ点灯しているか取得
         for (int i = 0; i < MINILIGHT; i++)
@@ -124,7 +124,7 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
-            //LoadUserState.Instance.SetPlayerData(1);
+            LoadUserState.Instance.SetPlayerData(1);
 
             Invoke("DelayHyouka", 0.1f);
         }
@@ -138,12 +138,4 @@ public class HalloweenStage : MonoBehaviour
         }
         clearText.SetActive(true);
     }
-
-    //public void SetProgress(int value)
-    //{
-    //    if (progressedStageNum < value)
-    //    {
-    //        progressedStageNum = value;
-    //    }
-    //}
 }
