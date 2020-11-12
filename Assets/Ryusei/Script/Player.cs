@@ -8,9 +8,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 5.0f;        // 移動速度
     [SerializeField] private float applySpeed = 0.2f;       // 振り向きの適用速度
     [SerializeField] private CameraController refCamera;  // カメラの水平回転を参照する用
+    Animator anim;
 
+    private void Start()
+    {
+       anim = GetComponent<Animator>(); 
+    }
+    
     void FixedUpdate()
     {
+        anim.SetBool("Idle", true);
+        anim.SetBool("Walk", false);
+
         if (refCamera.startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
             // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
@@ -30,6 +39,8 @@ public class Player : MonoBehaviour
             // いずれかの方向に移動している場合
             if (velocity.magnitude > 0)
             {
+                anim.SetBool("Idle", false);
+                anim.SetBool("Walk", true);
                 // プレイヤーの回転(transform.rotation)の更新
                 transform.rotation = Quaternion.Slerp(transform.rotation,
                                                       Quaternion.LookRotation(refCamera.hRotation * velocity),

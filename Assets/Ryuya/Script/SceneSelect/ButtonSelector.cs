@@ -20,6 +20,12 @@ public class ButtonSelector : MonoBehaviour
 	public void ButtonClicked( string sceneName )
 	{
 		SceneManager.LoadScene( sceneName );
+		GameManager.Instance.nowScene = sceneName;
+		if( sceneName != "StageSelectScene" && sceneName != "TitleScene" )
+		{
+			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
+		}
+		GameManager.Instance.isPlaying = true;
 	}
 
 	public void ButtonClicked_End()

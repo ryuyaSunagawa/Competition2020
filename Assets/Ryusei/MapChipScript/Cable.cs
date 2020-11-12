@@ -13,7 +13,10 @@ public class Cable : MonoBehaviour
     [SerializeField] Material[] materials1;//
     [SerializeField] Material[] materials2;//
 
-    public bool hasLight;
+	ParticleSystem electroShock = new ParticleSystem();
+	bool particleIsSet = false;
+
+	public bool hasLight;
 
     GameObject PowerButton;
 
@@ -23,7 +26,15 @@ public class Cable : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
 
         PowerButton = GameObject.FindGameObjectWithTag("PowerButton");
-    }
+
+		electroShock = this.GetComponentInChildren<ParticleSystem>();
+		if ( electroShock != null )
+		{
+			electroShock.Stop( true );
+			particleIsSet = true;
+			Debug.Log( "toretayo" );
+		}
+	}
 
     // Update is called once per frame
     void Update()
@@ -33,15 +44,23 @@ public class Cable : MonoBehaviour
             if (changeColor == 0)
             {
                 MatChange = false;
-                hasLight = false;
-            }
-            else
-            {
-                MatChange = true;
-                hasLight = true;
-            }
+				hasLight = false;
+				if ( particleIsSet == true )
+				{
+					electroShock.Stop( true );
+				}
+			}
+			else
+			{
+				MatChange = true;
+				hasLight = true;
+				if ( particleIsSet == true )
+				{
+					electroShock.Play( true );
+				}
+			}
 
-        }
+		}
         beforeColor = changeColor;
         meshRenderer.materials = MatChange ? materials2 : materials1;//
     }
@@ -56,6 +75,7 @@ public class Cable : MonoBehaviour
         else if (other.gameObject.tag == "Player" && gameObject.tag == "EnergizedOn")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); //シーン再読み込み(感電)
+			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
         }
     }
 
