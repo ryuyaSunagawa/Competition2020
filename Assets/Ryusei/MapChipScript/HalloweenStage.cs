@@ -13,6 +13,7 @@ public class HalloweenStage : MonoBehaviour
     //ミニライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] miniLight;
     MiniLight[] miniLightScript = new MiniLight[MINILIGHT];
+	[SerializeField] Light[] pumpkinLight;
 
     int lightNum = 0;
 
@@ -57,15 +58,20 @@ public class HalloweenStage : MonoBehaviour
         }
         clearText.SetActive(false);
 
+		foreach( Light pumpkin in pumpkinLight )
+		{
+			pumpkin.enabled = false;
+		}
+
         goalLightScript = goalLight.GetComponent<GoalLight>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("star"+star);
-        Debug.Log("lightnum"+lightNum);
-        Debug.Log("branchTrun" + branchTurn);
+        //Debug.Log("star"+star);
+        //Debug.Log("lightnum"+lightNum);
+        //Debug.Log("branchTrun" + branchTurn);
 
         //ミニライトがいくつ点灯しているか取得
         for (int i = 0; i < MINILIGHT; i++)
@@ -124,7 +130,7 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
-            //LoadUserState.Instance.SetProgress(STAGE);
+            LoadUserState.Instance.SetPlayerData(STAGE);
 
             Invoke("DelayHyouka", 0.1f);
         }
@@ -137,7 +143,12 @@ public class HalloweenStage : MonoBehaviour
             starImage[i].SetActive(true);
         }
         clearText.SetActive(true);
-    }
+
+		foreach ( Light pumpkin in pumpkinLight )
+		{
+			pumpkin.enabled = true;
+		}
+	}
 
     //public void SetProgress(int value)
     //{

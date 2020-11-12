@@ -12,6 +12,8 @@ TagManager:
   - ElectricalDoor
   - MiniLight
   - GoalLight
+  - UI_Image
+  - UI_Text
   layers:
   - Default
   - TransparentFX
