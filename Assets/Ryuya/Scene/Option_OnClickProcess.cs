@@ -58,6 +58,7 @@ public class Option_OnClickProcess : MonoBehaviour
 		{
 			SceneManager.LoadScene( "TitleScene" );
 			GameManager.Instance.nowScene = "TitleScene";
+			//GameManager.Instance.isPause = false;
 		}
 	}
 
@@ -67,6 +68,7 @@ public class Option_OnClickProcess : MonoBehaviour
 		{
 			SceneManager.LoadScene( "StageSelectScene" );
 			GameManager.Instance.nowScene = "StageSelectScene";
+			//GameManager.Instance.isPause = false;
 		}
 	}
 
@@ -74,6 +76,7 @@ public class Option_OnClickProcess : MonoBehaviour
 	{
 		SceneManager.LoadScene( GameManager.Instance.nowScene );
 		SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
+		//GameManager.Instance.isPause = false;
 	}
 
 	public void GameEnd()

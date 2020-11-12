@@ -75,6 +75,7 @@ public class Cable : MonoBehaviour
         else if (other.gameObject.tag == "Player" && gameObject.tag == "EnergizedOn")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); //シーン再読み込み(感電)
+			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
         }
     }
 

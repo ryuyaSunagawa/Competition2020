@@ -69,6 +69,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	void Start()
     {
 		DontDestroyOnLoad( this );
+		LoadUserState.Instance.SetPlayerData( 1 );
 		LoadUserState.Instance.Save();
     }
 
