@@ -14158,6 +14158,7 @@ MonoBehaviour:
   vRotation: {x: 0, y: 0, z: 0, w: 0}
   hRotation: {x: 0, y: 0, z: 0, w: 0}
   startZoom: 0
+  scrollSpeed: 0.1
 --- !u!81 &507973428
 AudioListener:
   m_ObjectHideFlags: 0
