@@ -24,14 +24,17 @@ public class Player : MonoBehaviour
         {
             // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
             velocity = Vector3.zero;
-            if (Input.GetKey(KeyCode.W))
-                velocity.z += 1;
-            if (Input.GetKey(KeyCode.A))
-                velocity.x -= 1;
-            if (Input.GetKey(KeyCode.S))
-                velocity.z -= 1;
-            if (Input.GetKey(KeyCode.D))
-                velocity.x += 1;
+            //if (Input.GetKey(KeyCode.W))
+            //    velocity.z += 1;
+            //if (Input.GetKey(KeyCode.A))
+            //    velocity.x -= 1;
+            //if (Input.GetKey(KeyCode.S))
+            //    velocity.z -= 1;
+            //if (Input.GetKey(KeyCode.D))
+            //    velocity.x += 1;
+
+            velocity.x = Input.GetAxis("Horizontal");
+            velocity.z = Input.GetAxis("Vertical");
 
             // 速度ベクトルの長さを1秒でmoveSpeedだけ進むように調整
             velocity = velocity.normalized * moveSpeed * Time.deltaTime;

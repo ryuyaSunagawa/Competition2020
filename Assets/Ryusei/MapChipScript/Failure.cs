@@ -16,6 +16,9 @@ public class Failure : MonoBehaviour
 
     RectTransform cursorPosition;
 
+    float scrollTime;
+    bool isScroll;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,33 +46,37 @@ public class Failure : MonoBehaviour
 
             cursorImage.SetActive(true);
 
-            if (Input.GetKeyDown(KeyCode.W)){
-                if (cursor == 0)
-                {
-                    cursor = -1;
-                }
-                else
-                {
-                    cursor += 1;
-                }
-
-            }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (isScroll) // 次のボタンが押せるまでのインターバル
             {
-                if (cursor == -1)
+                scrollTime += Time.deltaTime;
+                if (scrollTime >= 0.15f)
                 {
-                    cursor = 0;
+                    isScroll = false;
+                    scrollTime = 0;
                 }
-                else
-                {
-                    cursor -= 1;
-                }
+            }
+
+            // マウスホイールの回転値を変数 scroll に渡す
+            //scroll = Input.GetAxis("Mouse ScrollWheel");
+
+            if (!isScroll && (Input.GetAxis("Closs_Vertical") < 0 || Input.GetKeyDown(KeyCode.W)))
+            {
+                if (cursor == -1) cursor = 0;
+                else cursor -= 1;
+
+                isScroll = true;
+            }else if (!isScroll && (Input.GetAxis("Closs_Vertical") > 0 || Input.GetKeyDown(KeyCode.S)))
+            {
+                if (cursor == 0) cursor = -1;
+                else cursor += 1;
+
+                isScroll = true;
             }
 
             cursorPosition.localPosition = new Vector3(0, cursor*70, 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("B"))
         {
             if(cursor == 0)
             {
