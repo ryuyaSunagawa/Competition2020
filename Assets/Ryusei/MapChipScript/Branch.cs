@@ -20,7 +20,7 @@ public class Branch : MonoBehaviour
 
         if (branchFlg == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("RB"))
             {
                 if (branchRot >= 3) branchRot = 0;
                 else branchRot += 1;
@@ -32,7 +32,7 @@ public class Branch : MonoBehaviour
         }
         if (branchFlg == true)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetButtonDown("LB"))
             {
                 if (branchRot <= 0) branchRot = 3;
                 else branchRot -= 1;
