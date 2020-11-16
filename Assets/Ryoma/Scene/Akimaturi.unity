@@ -34452,6 +34452,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231660536}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1232872025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5245365205873953318, guid: b5c8c02407ec5e84db987e6bd529d43a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1417050570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1232872026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232872025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.8, y: 2, z: 4.8}
+  m_Center: {x: 0, y: 1, z: -0.1}
 --- !u!1 &1235170885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5190677181758157601, guid: aa24ac9e0b0a5a849b1fc484752006dc,
@@ -40485,7 +40504,7 @@ PrefabInstance:
     - target: {fileID: 4864054111563141276, guid: b5c8c02407ec5e84db987e6bd529d43a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.74739
+      value: 10.49
       objectReference: {fileID: 0}
     - target: {fileID: 4864054111563141276, guid: b5c8c02407ec5e84db987e6bd529d43a,
         type: 3}
