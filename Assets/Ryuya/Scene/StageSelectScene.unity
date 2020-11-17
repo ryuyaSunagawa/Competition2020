@@ -505,7 +505,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage1
+  m_Text: "\u30B9\u30C6\u30FC\u30B81\n"
 --- !u!222 &545357930
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0000061989, y: -121.25}
+  m_AnchoredPosition: {x: 0, y: -121.25}
   m_SizeDelta: {x: 182.14993, y: 191.4115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992162223
@@ -1427,7 +1427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage4
+  m_Text: "\u30B9\u30C6\u30FC\u30B84"
 --- !u!222 &1046622635
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2121,7 +2121,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage2
+  m_Text: "\u30B9\u30C6\u30FC\u30B82"
 --- !u!222 &1512588688
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2431,7 +2431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage3
+  m_Text: "\u30B9\u30C6\u30FC\u30B83"
 --- !u!222 &1844908456
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2583,7 +2583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage5
+  m_Text: "\u30B9\u30C6\u30FC\u30B85"
 --- !u!222 &2042281438
 CanvasRenderer:
   m_ObjectHideFlags: 0
