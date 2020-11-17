@@ -28310,6 +28310,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1232076994247102999, guid: a1ed9c64320cce24398127d6d7e6543d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1ed9c64320cce24398127d6d7e6543d, type: 3}
 --- !u!1 &1992738910
@@ -31774,6 +31779,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectricalSource
       objectReference: {fileID: 0}
+    - target: {fileID: 3856172564188620745, guid: 204f44d6b4bc23b499730a5f350dcff1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4261036039749781126, guid: 204f44d6b4bc23b499730a5f350dcff1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31838,6 +31848,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 660954561524876662, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660954561524876662, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 660954561524876662, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4837393142752075107, guid: 1881114cfc8ab0e4c86207c7ffef4355,
         type: 3}
       propertyPath: refCamera
@@ -31851,12 +31876,12 @@ PrefabInstance:
     - target: {fileID: 4948160845073398415, guid: 1881114cfc8ab0e4c86207c7ffef4355,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.25
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 4948160845073398415, guid: 1881114cfc8ab0e4c86207c7ffef4355,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.67
+      value: -5.02
       objectReference: {fileID: 0}
     - target: {fileID: 4948160845073398415, guid: 1881114cfc8ab0e4c86207c7ffef4355,
         type: 3}
