@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoRenderGoalLight : MonoBehaviour
+public class NoRenderMiniLight : MonoBehaviour
 {
-
     int changeColor;
     int beforeColor;
 
     public bool hasLight;
 
+    int childCount; //子オブジェクトの数
+    [SerializeField]GameObject[] childObject;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        childCount = transform.childCount; //子オブジェクトの数取得
+        for (int i = 0; i < childCount; i++)
+        {
+            childObject[i] = transform.GetChild(i).gameObject;
+        }
     }
 
     // Update is called once per frame
@@ -23,12 +29,18 @@ public class NoRenderGoalLight : MonoBehaviour
         {
             if (changeColor == 0)
             {
-                GetComponentInChildren<Light>().enabled = false;
+                for (int i = 0; i < childCount; i++)
+                {
+                    childObject[i].GetComponentInChildren<Light>().enabled = false;
+                }
                 hasLight = false;
             }
             else
             {
-                GetComponentInChildren<Light>().enabled = true;
+                for (int i = 0; i < childCount; i++)
+                {
+                    childObject[i].GetComponentInChildren<Light>().enabled = true;
+                }
                 hasLight = true;
             }
 
