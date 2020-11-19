@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if ( !GameManager.Instance.isPause && startZoom) //最初のズーム処理が終わったら動かせるようになる
+        if ( !GameManager.Instance.cameraRotateFlg && startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
             // 水平回転の更新
 			
@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
             hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * turnSpeed, 0);  //垂直回転
 
 			/*****  水平回転補正処理  *****/
-			float cAxisY = Input.GetAxis( "Mouse Y" ) * turnSpeed;   //水平方向スティック傾斜量取得
+			float cAxisY = Input.GetAxis( "R_Vertical" ) * turnSpeed;   //水平方向スティック傾斜量取得
 			float cBeforeRotX = rotationX;							 //加算前回転スタック
 			rotationX += cAxisY;									 //コントローラー傾斜量分加算
 			if ( rotationX >= 80f )
@@ -90,8 +90,6 @@ public class CameraController : MonoBehaviour
 			/******************************/
 
 			vRotation *= Quaternion.Euler(cAxisY, 0, 0);  //水平回転
-
-			Debug.Log( ( hRotation * vRotation ).eulerAngles );
 
             // カメラの回転(transform.rotation)の更新
             transform.rotation = hRotation * vRotation;

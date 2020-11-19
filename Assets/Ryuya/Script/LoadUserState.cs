@@ -28,7 +28,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 	//保存されるデータ群
 	[SerializeField] public int progressedStageNum;		//ステージ進行度
 	[SerializeField] public int stageVolume;			//ステージ数
-	[SerializeField] public List<int> stageStarNum;		//スター獲得量
+	[SerializeField] public List<int> stageStarNum = new List<int>(6) { 0, 0, 0, 0, 0, 0 };		//スター獲得量
 
 	//-------------------------------------------
 	//シリアライズ・デシリアライズ時コールバック

@@ -49,7 +49,6 @@ public class ReturnManager : MonoBehaviour
 	{
 		float fadeLimitDelta = Time.unscaledDeltaTime * fadeTime * ( fading == false ? 1: -1 );
 		canvasGroup.alpha += fadeLimitDelta;
-		Debug.Log( fadeLimitDelta );
 
 		if ( ( changing && canvasGroup.alpha >= fadeLimit ) ||
 			 ( !changing && canvasGroup.alpha <= 0 ) )
