@@ -15,7 +15,7 @@ public class AkimaturiStage : MonoBehaviour
     const int STAGE = 2;        //このステージの番号
     //ミニライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] miniLight;
-    MiniLight[] miniLightScript = new MiniLight[MINILIGHT];
+    NoRenderMiniLight[] miniLightScript = new NoRenderMiniLight[MINILIGHT];
 
     int miniLightNum = 0;
 
@@ -24,7 +24,7 @@ public class AkimaturiStage : MonoBehaviour
 
     //ゴールライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] goalLight;
-    GoalLight[] goalLightScript = new GoalLight[GOALLIGHT];
+    NoRenderGoalLight[] goalLightScript = new NoRenderGoalLight[GOALLIGHT];
 
     int goalLightNum = 0;
 
@@ -51,7 +51,7 @@ public class AkimaturiStage : MonoBehaviour
         for (int i = 0; i < MINILIGHT; i++)
         {
             //missionLight[i] = GameObject.FindGameObjectWithTag("MiniLight");
-            miniLightScript[i] = miniLight[i].GetComponent<MiniLight>();
+            miniLightScript[i] = miniLight[i].GetComponent<NoRenderMiniLight>();
         }
 
         for (int i = 0; i < BRANCH; i++)
@@ -73,7 +73,7 @@ public class AkimaturiStage : MonoBehaviour
 
         for(int i = 0; i < GOALLIGHT; i++)
         {
-            goalLightScript[i] = goalLight[i].GetComponent<GoalLight>();
+            goalLightScript[i] = goalLight[i].GetComponent<NoRenderGoalLight>();
         }
     }
 
