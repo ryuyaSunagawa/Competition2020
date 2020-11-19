@@ -165,7 +165,6 @@ public class HalloweenStage : MonoBehaviour
 	private void OnDestroy()
 	{
 		GameManager.Instance.isPause = false;
-		GameManager.Instance.isPlaying = false;
 		GameManager.Instance.isClear = false;
 		Time.timeScale = 1f;
 	}

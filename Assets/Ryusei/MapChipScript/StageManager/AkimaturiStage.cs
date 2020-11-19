@@ -184,7 +184,6 @@ public class AkimaturiStage : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.Instance.isPause = false;
-        GameManager.Instance.isPlaying = false;
         Time.timeScale = 1f;
     }
 }

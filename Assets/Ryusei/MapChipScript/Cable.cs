@@ -32,7 +32,6 @@ public class Cable : MonoBehaviour
 		{
 			electroShock.Stop( true );
 			particleIsSet = true;
-			Debug.Log( "toretayo" );
 		}
 	}
 

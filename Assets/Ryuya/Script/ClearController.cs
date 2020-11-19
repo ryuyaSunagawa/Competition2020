@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClearController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ClearController : MonoBehaviour
 	[SerializeField, Range( 0f, 1f )] float fadeLimit = 1f;
 	[SerializeField] bool isClearCanvas;
 	[SerializeField] ClearReturnManager clearButton;
+	[SerializeField] Button nextButton;
 
 	// Start is called before the first frame update
 	void Start()
@@ -34,6 +36,7 @@ public class ClearController : MonoBehaviour
 		{
 			Invoke( "RaiseFrag", 1.0f );
 			fadeFlg = clearFlg;
+			nextButton.Select();
 		}
   //      if( clearFlg != fadeFlg )
 		//{

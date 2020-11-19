@@ -12,6 +12,7 @@ public class PauseUIManager : MonoBehaviour
 
 	[SerializeField, Range( 1f, 20f )] float fadeTime = 1f;
 	[SerializeField, Range( 0f, 1f )] float fadeLimit = 1f;
+	[SerializeField] Button backGameButton;
 	float fadeVar = 0f;
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class PauseUIManager : MonoBehaviour
 		{
 			fadeFlg = false;
 		}
+		Debug.Log( GameManager.Instance.isPlaying );
 
 		if( fadeFlg )
 		{
@@ -50,6 +52,7 @@ public class PauseUIManager : MonoBehaviour
 			( pausing && ( canvasGroup.alpha <= 0 ) ) )
 		{
 			pausing = !pausing;
+			backGameButton.Select();
 		}
 	}
 }

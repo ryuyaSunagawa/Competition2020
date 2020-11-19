@@ -18,6 +18,9 @@ public class ReturnManager : MonoBehaviour
 	[SerializeField, Range( 0f, 1f )] float fadeLimit = 1f;
 	float fadeVar = 0f;
 
+	[SerializeField] Button backTitleButton;
+	[SerializeField] Button backGameButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +56,13 @@ public class ReturnManager : MonoBehaviour
 		if ( ( changing && canvasGroup.alpha >= fadeLimit ) ||
 			 ( !changing && canvasGroup.alpha <= 0 ) )
 		{
+			if( canvasGroup.alpha >= fadeLimit )
+			{
+				backTitleButton.Select();
+			} else
+			{
+				backGameButton.Select();
+			}
 			fading = !fading;
 		}
 	}

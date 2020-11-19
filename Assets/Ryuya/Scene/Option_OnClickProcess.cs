@@ -84,9 +84,12 @@ public class Option_OnClickProcess : MonoBehaviour
 
 	public void RestartButton()
 	{
+		GameManager.Instance.isPause = false;
+		GameManager.Instance.isClear = false;
+		GameManager.Instance.isFail = false;
+		GameManager.Instance.isPlaying = true;
 		SceneManager.LoadScene( GameManager.Instance.nowScene );
 		SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
-		//GameManager.Instance.isPause = false;
 	}
 
 	public void GameEnd()
