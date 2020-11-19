@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AkimaturiStage : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class AkimaturiStage : MonoBehaviour
     [SerializeField] GameObject[] starImage;
     [SerializeField] GameObject[] grayStar;
     [SerializeField] GameObject clearText;
+	[SerializeField] ClearController clearCanvas;
 
     int star = 0;   //獲得星数
 
@@ -169,11 +171,14 @@ public class AkimaturiStage : MonoBehaviour
             grayStar[i].SetActive(true);
         }
         clearText.SetActive(true);
+		clearCanvas.clearFlg = true;
+		Cursor.lockState = CursorLockMode.None;
     }
 
     private void OnEnable()
     {
-        Debug.Log("enable");
+		GameManager.Instance.nowScene = SceneManager.GetActiveScene().name;
+		//Debug.Log( SceneManager.GetActiveScene().name );
     }
 
     private void OnDestroy()

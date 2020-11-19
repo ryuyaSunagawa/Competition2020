@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ReturnManager : MonoBehaviour
+public class ClearReturnManager : MonoBehaviour
 {
 	[HideInInspector] public bool changing = false;
 	bool fading = false;
@@ -11,43 +11,41 @@ public class ReturnManager : MonoBehaviour
 
 	[SerializeField] CanvasGroup canvasGroup;
 
-	[SerializeField, Header( "戻るボタン" )] Button backButton;
-	[SerializeField, Header( "キャンセルボタン" )] Button cancelButton;
-
 	[SerializeField, Range( 1f, 20f )] float fadeTime = 1f;
 	[SerializeField, Range( 0f, 1f )] float fadeLimit = 1f;
 	float fadeVar = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	// Start is called before the first frame update
+	void Start()
+	{
 		canvasGroup.alpha = 0f;
 		canvasGroup.blocksRaycasts = false;
-    }
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 		if ( ( changing && !fading ) ||
 			 ( !changing && fading ) )
 		{
 			fadeFlg = true;
-		} else
+		}
+		else
 		{
 			fadeFlg = false;
 		}
 
-		if( fadeFlg )
+		if ( fadeFlg )
 		{
 			FadeProcess();
 		}
 
 		canvasGroup.blocksRaycasts = changing;
-    }
+	}
 
 	void FadeProcess()
 	{
-		float fadeLimitDelta = Time.unscaledDeltaTime * fadeTime * ( fading == false ? 1: -1 );
+		float fadeLimitDelta = Time.unscaledDeltaTime * fadeTime * ( fading == false ? 1 : -1 );
 		canvasGroup.alpha += fadeLimitDelta;
 
 		if ( ( changing && canvasGroup.alpha >= fadeLimit ) ||

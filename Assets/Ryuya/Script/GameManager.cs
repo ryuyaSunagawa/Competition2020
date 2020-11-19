@@ -25,11 +25,39 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	{
 		set
 		{
-			_isPause = value;
+			if( !isFail && !isClear )	_isPause = value;
 		}
 		get
 		{
 			return _isPause;
+		}
+	}
+
+	//失敗フラグ
+	bool _isFail = false;
+	public bool isFail
+	{
+		set
+		{
+			_isFail = value;
+		}
+		get
+		{
+			return _isFail;
+		}
+	}
+
+	//クリア画面フラグ
+	bool _isClear = false;
+	public bool isClear
+	{
+		set
+		{
+			_isClear = value;
+		}
+		get
+		{
+			return _isClear;
 		}
 	}
 
@@ -58,6 +86,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		get
 		{
 			return _nowScene;
+		}
+	}
+
+	public bool cameraRotateFlg
+	{
+		get
+		{
+			return ( !_isPause && !_isFail ) ? false : true;
 		}
 	}
 
@@ -95,7 +131,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
 			//カーソルのロック
 			Cursor.lockState = CursorLockMode.Locked;
-			print( "OK" );
 		}
 	}
 
@@ -111,8 +146,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
 	}
 
+	public int CheckPauseStarting()
+	{
+		int scene = SceneManager.sceneCount;
+		int count = 0;
+		for ( int i = 0; i < scene; i++ )
+		{
+			if ( SceneManager.GetSceneAt( i ).name == "PauseScene" )
+			{
+				count++;
+			}
+		}
+
+		return count;
+	}
+
 	private void OnDestroy()
 	{
-		Debug.Log( "destroyGameManager" );
 	}
 }

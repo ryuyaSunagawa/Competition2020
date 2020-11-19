@@ -72,10 +72,11 @@ public class Cable : MonoBehaviour
         {
             this.tag = "BlackOut";
         }
-        else if (other.gameObject.tag == "Player" && gameObject.tag == "EnergizedOn")
+        else if ( !GameManager.Instance.isFail && other.gameObject.tag == "Player" && gameObject.tag == "EnergizedOn")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); //シーン再読み込み(感電)
-			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
+			GameManager.Instance.isFail = true;
+			//SceneManager.LoadScene(SceneManager.GetActiveScene().name); //シーン再読み込み(感電)
+			//SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
         }
     }
 
