@@ -23,12 +23,12 @@ public class NoRenderGoalLight : MonoBehaviour
         {
             if (changeColor == 0)
             {
-                GetComponentInChildren<Light>().enabled = false;
+                //GetComponentInChildren<Light>().enabled = false;
                 hasLight = false;
             }
             else
             {
-                GetComponentInChildren<Light>().enabled = true;
+                //GetComponentInChildren<Light>().enabled = true;
                 hasLight = true;
             }
 

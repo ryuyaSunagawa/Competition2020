@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HalloweenStage : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class HalloweenStage : MonoBehaviour
     [SerializeField] GameObject[] starImage;
     [SerializeField] GameObject[] grayStar;
     [SerializeField] GameObject clearText;
+	[SerializeField] ClearController clearCanvas;
 
     int star = 0;   //獲得星数
 
@@ -130,7 +132,6 @@ public class HalloweenStage : MonoBehaviour
             LoadUserState.Instance.SetPlayerData(1);
             LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
             LoadUserState.Instance.Save();
-
         }
     }
 
@@ -147,17 +148,25 @@ public class HalloweenStage : MonoBehaviour
             grayStar[i].SetActive(true);
         }
         clearText.SetActive(true);
+		clearCanvas.clearFlg = true;
+		Cursor.lockState = CursorLockMode.None;
     }
 
 	private void OnEnable()
 	{
-		Debug.Log( "enable" );
+		GameManager.Instance.nowScene = SceneManager.GetActiveScene().name;
+
+		//if ( GameManager.Instance.CheckPauseStarting() == 0 )
+		//{
+		//	SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
+		//}
 	}
 
 	private void OnDestroy()
 	{
 		GameManager.Instance.isPause = false;
 		GameManager.Instance.isPlaying = false;
+		GameManager.Instance.isClear = false;
 		Time.timeScale = 1f;
 	}
 }

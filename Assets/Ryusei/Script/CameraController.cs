@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if ( !GameManager.Instance.isPause && startZoom) //最初のズーム処理が終わったら動かせるようになる
+        if ( !GameManager.Instance.cameraRotateFlg && startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
             // 水平回転の更新
 			
@@ -90,8 +90,6 @@ public class CameraController : MonoBehaviour
 			/******************************/
 
 			vRotation *= Quaternion.Euler(cAxisY, 0, 0);  //水平回転
-
-			Debug.Log( ( hRotation * vRotation ).eulerAngles );
 
             // カメラの回転(transform.rotation)の更新
             transform.rotation = hRotation * vRotation;
