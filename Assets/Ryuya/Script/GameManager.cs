@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
-	//private void Awake()
-	//{
-	//	DontDestroyOnLoad( this );
-	//}
-
 	//プレイ中か
 	bool _isPlaying = false;
 	public bool isPlaying
@@ -69,6 +65,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	void Start()
     {
 		DontDestroyOnLoad( this );
+		Debug.Log( LoadUserState.Instance.stageStarNum.Capacity );
+		LoadUserState.Instance.Delete();
 		LoadUserState.Instance.SetPlayerData( 1 );
 		LoadUserState.Instance.Save();
     }
@@ -99,5 +97,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			Cursor.lockState = CursorLockMode.Locked;
 			print( "OK" );
 		}
+	}
+
+	public void ChangeScene( string stageName )
+	{
+		SceneManager.LoadScene( stageName );
+		SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
+	}
+
+	public void ChangeScene( int stageNumber )
+	{
+		SceneManager.LoadScene( stageNumber );
+		SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
+	}
+
+	private void OnDestroy()
+	{
+		Debug.Log( "destroyGameManager" );
 	}
 }

@@ -26,7 +26,9 @@ public class LoadUserState : ISerializationCallbackReceiver
 	[SerializeField] private static string _jsonText = "";
 
 	//保存されるデータ群
-	[SerializeField] int progressedStageNum;    //ステージ進行度
+	[SerializeField] public int progressedStageNum;		//ステージ進行度
+	[SerializeField] public int stageVolume;			//ステージ数
+	[SerializeField] public List<int> stageStarNum;		//スター獲得量
 
 	//-------------------------------------------
 	//シリアライズ・デシリアライズ時コールバック
@@ -171,6 +173,14 @@ public class LoadUserState : ISerializationCallbackReceiver
 
 	public void SetPlayerData( int num )
 	{
-		progressedStageNum = num;
+		if( progressedStageNum < num )
+		{
+			progressedStageNum = num;
+		}
+	}
+
+	public void SetStarNum( int stageNumber, int starNum )
+	{
+		stageStarNum[ stageNumber ] = starNum;
 	}
 }

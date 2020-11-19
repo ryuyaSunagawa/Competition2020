@@ -18,6 +18,16 @@ public class Option_OnClickProcess : MonoBehaviour
 		GameManager.Instance.sleepOption = true;
 	}
 
+	public void HideWhereUI( ReturnManager retMgr )
+	{
+		retMgr.changing = false;
+	}
+
+	public void DisplayWhereUI( ReturnManager retMgr )
+	{
+		retMgr.changing = true;
+	}
+
 	public void BackSelectOption()
 	{
 		whereText.color = new Color( 0, 0, 0, 255 );

@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float distance = 32.0f;    // 注視対象プレイヤーからカメラを離す距離
     [SerializeField] private Quaternion vRotation;     // カメラの垂直回転(見下ろし回転)
     [SerializeField] public Quaternion hRotation;      // カメラの水平回転
+	float rotationX = 0f;
 
     private float scroll;   // カメラズームの取得
     int speed = 1;          // カメラズームの速度
@@ -39,16 +40,58 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (startZoom) //最初のズーム処理が終わったら動かせるようになる
+        if ( !GameManager.Instance.isPause && startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
             // 水平回転の更新
+			
 
             //マウスの処理--------------------------------------------------------------------
             hRotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * turnSpeed, 0);  //垂直回転
-            vRotation *= Quaternion.Euler(Input.GetAxis("Mouse Y") * turnSpeed, 0, 0);  //水平回転
+
+			/*****  マウス水平回転補正処理  *****/
+			float mAxisY = Input.GetAxis( "Mouse Y" ) * turnSpeed;	//水平方向マウス移動量取得
+			float mBeforeRotX = rotationX;							//加算前回転スタック
+			rotationX += mAxisY;									//コントローラー移動分加算
+			if ( rotationX >= 80f )
+			{
+				float difRot = 80f - rotationX;						//80度以上になった場合の余分回転量取得
+				rotationX += difRot;								//余分回転量だけ回転を補正
+				mAxisY += difRot;									//余分回転量だけマウス移動量を補正
+			}
+			else if ( rotationX <= -80f )
+			{
+				float difRot = -80f - rotationX;                    //80度以上になった場合の余分回転量取得
+				rotationX += difRot;								//余分回転量だけ回転を補正
+				mAxisY += difRot;									//余分回転量だけマウス移動料を補正
+			}
+			/************************************/
+
+			vRotation *= Quaternion.Euler(mAxisY, 0, 0);  //水平回転
+
             //コントローラの処理--------------------------------------------------------------
             hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * turnSpeed, 0);  //垂直回転
-            vRotation *= Quaternion.Euler(Input.GetAxis("R_Vertical") * turnSpeed, 0, 0);  //水平回転
+
+			/*****  水平回転補正処理  *****/
+			float cAxisY = Input.GetAxis( "Mouse Y" ) * turnSpeed;   //水平方向スティック傾斜量取得
+			float cBeforeRotX = rotationX;							 //加算前回転スタック
+			rotationX += cAxisY;									 //コントローラー傾斜量分加算
+			if ( rotationX >= 80f )
+			{
+				float difRot = 80f - rotationX;						 //80度以上になった場合の余分回転量取得
+				rotationX += difRot;								 //余分回転量だけ回転を補正
+				cAxisY += difRot;									 //余分回転量だけコントローラー傾斜量を補正
+			}
+			else if ( rotationX <= -80f )
+			{
+				float difRot = -80f - rotationX;					 //80度以上になった場合の余分回転量取得
+				rotationX += difRot;								 //余分回転量だけ回転を補正
+				cAxisY += difRot;									 //余分回転量だけコントローラー傾斜量を補正
+			}
+			/******************************/
+
+			vRotation *= Quaternion.Euler(cAxisY, 0, 0);  //水平回転
+
+			Debug.Log( ( hRotation * vRotation ).eulerAngles );
 
             // カメラの回転(transform.rotation)の更新
             transform.rotation = hRotation * vRotation;
@@ -97,7 +140,11 @@ public class CameraController : MonoBehaviour
             distance -= 0.2f;
             // player位置から距離distanceだけ手前に引いた位置を設定
             transform.position = player.position + new Vector3(0, 1.5f, 0) - transform.rotation * Vector3.forward * distance;
-            if (distance <= zoomMax) startZoom = true;
+			if ( distance <= zoomMax )
+			{
+				startZoom = true;
+				rotationX = transform.localEulerAngles.x;
+			}
         }
     }
 }
