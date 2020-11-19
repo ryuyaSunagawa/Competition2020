@@ -1054,8 +1054,9 @@ PrefabInstance:
         type: 3}
       propertyPath: refCamera
       value: 
-      objectReference: {fileID: 1268974352}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8020175616521818092, guid: ea6c464b714309a42a6ae9681446bbc5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ea6c464b714309a42a6ae9681446bbc5, type: 3}
 --- !u!1001 &602283173
 PrefabInstance:
@@ -3170,6 +3171,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1256275068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256275066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505fcb4c38143de4bb341d4bf87439fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
+  moveSpeed: 5
+  applySpeed: 0.2
+  refCamera: {fileID: 1268974352}
 --- !u!1 &1265107823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,16 +3374,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1268974348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8943b06cedaa4814daa924a18fe1dabf, type: 3}
+  m_Script: {fileID: 11500000, guid: 26a8636e7178ce842bab2764c503a112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 6
+  turnSpeed: 1
+  conTurnSpeed: 0.5
   player: {fileID: 180349764}
   distance: 32
   vRotation: {x: 0, y: 0, z: 0, w: 0}
   hRotation: {x: 0, y: 0, z: 0, w: 0}
   startZoom: 0
-  scrollSpeed: 0.025
+  scrollSpeed: 0.1
 --- !u!1001 &1297015303
 PrefabInstance:
   m_ObjectHideFlags: 0

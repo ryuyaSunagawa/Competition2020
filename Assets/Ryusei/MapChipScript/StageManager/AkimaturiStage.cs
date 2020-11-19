@@ -151,9 +151,10 @@ public class AkimaturiStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
-            //LoadUserState.Instance.SetPlayerData(1);
-
             Invoke("DelayHyouka", 0.1f);
+            LoadUserState.Instance.SetPlayerData(1);
+            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+            LoadUserState.Instance.Save();
         }
     }
 
@@ -163,10 +164,22 @@ public class AkimaturiStage : MonoBehaviour
         {
             starImage[i].SetActive(true);
         }
-        for (int i = 0; i < GRAYSTAR; i++)
+        for (int i = 0; i < (GRAYSTAR + 1) - star; i++) //星がないところにグレー星表示
         {
             grayStar[i].SetActive(true);
         }
         clearText.SetActive(true);
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("enable");
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.isPause = false;
+        GameManager.Instance.isPlaying = false;
+        Time.timeScale = 1f;
     }
 }

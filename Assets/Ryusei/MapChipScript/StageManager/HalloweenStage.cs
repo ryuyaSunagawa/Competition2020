@@ -8,6 +8,7 @@ public class HalloweenStage : MonoBehaviour
     const int BRANCH = 3;       //このステージの回転盤の数
     const int BRANCHLIMIT = 7;  //このステージで星獲得のために回転盤を回してもいい回数
     const int STAR = 3;         //スターの最大数
+    const int GRAYSTAR = 2;     //グレイスター最大数
 
     const int STAGE = 1;        //このステージの番号
     //ミニライト-------------------------------------------------------------------------------
@@ -33,6 +34,7 @@ public class HalloweenStage : MonoBehaviour
     List<Branch> branchScr = new List<Branch>();
 
     [SerializeField] GameObject[] starImage;
+    [SerializeField] GameObject[] grayStar;
     [SerializeField] GameObject clearText;
 
     int star = 0;   //獲得星数
@@ -55,6 +57,12 @@ public class HalloweenStage : MonoBehaviour
         {
             starImage[i].SetActive(false);
         }
+
+        for (int i = 0; i < GRAYSTAR; i++)
+        {
+            grayStar[i].SetActive(false);
+        }
+
         clearText.SetActive(false);
 
         goalLightScript = goalLight.GetComponent<GoalLight>();
@@ -102,12 +110,6 @@ public class HalloweenStage : MonoBehaviour
         }
         branchTurn = ahan;
 
-
-        //for(int i = 0; i < BRANCH; i++)
-        //{
-        //    branchTrun = branchTrun + branchScript[i].branchNum;
-        //}
-
         //回転盤のスターを失ったか失ってないか
         if (branchTurn <= BRANCHLIMIT && hasBranchStar)  //7手以下の間スターを所持
         {
@@ -124,9 +126,11 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
-            //LoadUserState.Instance.SetPlayerData(1);
-
             Invoke("DelayHyouka", 0.1f);
+            LoadUserState.Instance.SetPlayerData(1);
+            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+            LoadUserState.Instance.Save();
+
         }
     }
 
@@ -135,6 +139,12 @@ public class HalloweenStage : MonoBehaviour
         for (int i = 0; i < star; i++)  //starの数にあわせて星の画像表示
         {
             starImage[i].SetActive(true);
+        }
+        clearText.SetActive(true);
+
+        for (int i = 0; i < (GRAYSTAR + 1) - star; i++) //星がないところにグレー星表示
+        {
+            grayStar[i].SetActive(true);
         }
         clearText.SetActive(true);
     }
