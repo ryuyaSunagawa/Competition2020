@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonSelector : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 	public void ButtonClicked( string sceneName )
 	{
 		SceneManager.LoadScene( sceneName );
@@ -24,8 +12,8 @@ public class ButtonSelector : MonoBehaviour
 		if( sceneName != "StageSelectScene" && sceneName != "TitleScene" )
 		{
 			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
+			GameManager.Instance.isPlaying = true;
 		}
-		GameManager.Instance.isPlaying = true;
 	}
 
 	public void ButtonClicked_End()

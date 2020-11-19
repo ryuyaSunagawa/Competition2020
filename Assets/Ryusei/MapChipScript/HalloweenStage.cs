@@ -138,4 +138,16 @@ public class HalloweenStage : MonoBehaviour
         }
         clearText.SetActive(true);
     }
+
+	private void OnEnable()
+	{
+		Debug.Log( "enable" );
+	}
+
+	private void OnDestroy()
+	{
+		GameManager.Instance.isPause = false;
+		GameManager.Instance.isPlaying = false;
+		Time.timeScale = 1f;
+	}
 }

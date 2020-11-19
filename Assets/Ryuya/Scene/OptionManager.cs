@@ -75,6 +75,8 @@ public class OptionManager : MonoBehaviour
 				color.a = optionAlphaVar / alphaUpLimit;
 
 				myText.color = color;
+
+
 			}
 		}
     }

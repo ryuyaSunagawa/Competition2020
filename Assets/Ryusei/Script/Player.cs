@@ -17,9 +17,6 @@ public class Player : MonoBehaviour
     
     void FixedUpdate()
     {
-        anim.SetBool("Idle", true);
-        anim.SetBool("Walk", false);
-
         if (refCamera.startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
             // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
@@ -42,16 +39,20 @@ public class Player : MonoBehaviour
             // いずれかの方向に移動している場合
             if (velocity.magnitude > 0)
             {
-                anim.SetBool("Idle", false);
-                anim.SetBool("Walk", true);
-                // プレイヤーの回転(transform.rotation)の更新
-                transform.rotation = Quaternion.Slerp(transform.rotation,
+				anim.SetBool( "Idle", false );
+				anim.SetBool( "Walk", true );
+				// プレイヤーの回転(transform.rotation)の更新
+				transform.rotation = Quaternion.Slerp(transform.rotation,
                                                       Quaternion.LookRotation(refCamera.hRotation * velocity),
                                                       applySpeed);
 
                 // プレイヤーの位置(transform.position)の更新
                 transform.position += refCamera.hRotation * velocity;
-            }
+            } else
+			{
+				anim.SetBool( "Idle", true );
+				anim.SetBool( "Walk", false );
+			}
         }
     }
 }
