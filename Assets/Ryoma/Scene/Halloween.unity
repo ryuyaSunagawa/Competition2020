@@ -1902,12 +1902,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99185775}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &101004604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1232076993980221101, guid: a1ed9c64320cce24398127d6d7e6543d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992620342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &101653781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3264,7 +3258,7 @@ PrefabInstance:
     - target: {fileID: 2837598605664487648, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2837598605664487648, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
@@ -3331,6 +3325,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2837598605664487660, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2837598605664487661, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
       propertyPath: fadeTime
@@ -3340,6 +3339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FailedCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837598605664487662, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837598606093902207, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
@@ -12719,7 +12723,7 @@ PrefabInstance:
     - target: {fileID: 2682276546301075018, guid: 504442498bb69bc4ca2d819a42d1124d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2682276546301075018, guid: 504442498bb69bc4ca2d819a42d1124d,
         type: 3}
@@ -13294,7 +13298,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574219784
 GameObject:
@@ -17304,12 +17308,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6f37af31b1028448bee6b17ea23388e, type: 3}
---- !u!1 &745190776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 575325265065976846, guid: a1ed9c64320cce24398127d6d7e6543d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992620342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &748379958
 GameObject:
   m_ObjectHideFlags: 0
@@ -20169,12 +20167,6 @@ Transform:
   m_Father: {fileID: 1043172859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &850586294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1232076994610003428, guid: a1ed9c64320cce24398127d6d7e6543d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992620342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &858981936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21022,12 +21014,6 @@ MonoBehaviour:
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
   hasLight: 0
---- !u!1 &904484444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1232076993916320642, guid: a1ed9c64320cce24398127d6d7e6543d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992620342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907425858 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8674126480680932402, guid: b031e8eedf5733f4587c35d1d14d3696,
@@ -24526,7 +24512,7 @@ Transform:
   - {fileID: 977737501}
   - {fileID: 2046453403}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043664207 stripped
 GameObject:
@@ -29844,7 +29830,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1286457004 stripped
 GameObject:
@@ -30424,7 +30410,7 @@ Transform:
   - {fileID: 704355371}
   - {fileID: 1582499943}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308223372
 GameObject:
@@ -32544,6 +32530,18 @@ Transform:
   m_Father: {fileID: 704355371}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413839821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5041300951345688086, guid: a1ed9c64320cce24398127d6d7e6543d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1992620342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1414260544
 GameObject:
   m_ObjectHideFlags: 0
@@ -36463,7 +36461,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 22.428001, y: 0, z: 0}
 --- !u!114 &1560724857
 MonoBehaviour:
@@ -42092,12 +42090,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815455451}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1815746119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1935270152270985176, guid: a1ed9c64320cce24398127d6d7e6543d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992620342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1815910295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43826,12 +43818,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899718704}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1908696030 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1232076995576229862, guid: a1ed9c64320cce24398127d6d7e6543d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1992620342}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1913534302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46079,7 +46065,7 @@ PrefabInstance:
     - target: {fileID: 1232076994247102995, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1232076994247102995, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
@@ -46196,6 +46182,11 @@ PrefabInstance:
       propertyPath: fadeTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3525375222633624695, guid: a1ed9c64320cce24398127d6d7e6543d,
+        type: 3}
+      propertyPath: firstButton
+      value: 
+      objectReference: {fileID: 1413839821}
     - target: {fileID: 5041300951345688086, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -46210,6 +46201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529547620441951178, guid: a1ed9c64320cce24398127d6d7e6543d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6549790462363003643, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
@@ -48532,14 +48528,6 @@ MonoBehaviour:
   - {fileID: 861356051}
   - {fileID: 1669721095}
   - {fileID: 799631354}
-  starImage:
-  - {fileID: 850586294}
-  - {fileID: 101004604}
-  - {fileID: 904484444}
-  grayStar:
-  - {fileID: 1815746119}
-  - {fileID: 745190776}
-  clearText: {fileID: 1908696030}
   clearCanvas: {fileID: 1992620344}
 --- !u!4 &2053825912
 Transform:
@@ -48553,7 +48541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2054881829
 PrefabInstance:

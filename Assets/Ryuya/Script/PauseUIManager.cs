@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PauseUIManager : MonoBehaviour
 {
 	bool pausing = false;
-	bool fadeFlg = false;
 
 	[SerializeField] CanvasGroup canvasGroup; 
 
@@ -27,15 +26,6 @@ public class PauseUIManager : MonoBehaviour
     {
 		if ( ( GameManager.Instance.isPause && !pausing ) ||
 			 ( !GameManager.Instance.isPause && pausing ) )
-		{
-			fadeFlg = true;
-		} else
-		{
-			fadeFlg = false;
-		}
-		Debug.Log( GameManager.Instance.isPlaying );
-
-		if( fadeFlg )
 		{
 			FadeProcess();
 		}

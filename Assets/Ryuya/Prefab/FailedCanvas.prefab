@@ -242,9 +242,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2837598604987335047}
+    m_SelectOnDown: {fileID: 2837598605597677002}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -463,9 +463,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2837598605597677002}
+    m_SelectOnDown: {fileID: 2837598604704798428}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -606,9 +606,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2837598605798668603}
+    m_SelectOnDown: {fileID: 2837598605798668603}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -904,9 +904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2837598604704798428}
+    m_SelectOnDown: {fileID: 2837598604987335047}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1065,6 +1065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 2837598605664487660}
   fadeTime: 2.5
+  firstButton: {fileID: 2837598605798668603}
 --- !u!1 &2837598605798668549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,9 +1156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 2837598605019391962}
+    m_SelectOnDown: {fileID: 2837598605019391962}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1508,10 +1509,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0eff51158e66f4db96f561c6ae1d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changing: 0
-  canvasGroup: {fileID: 2837598606093902200}
-  backButton: {fileID: 2837598605019391962}
-  cancelButton: {fileID: 2837598605597677002}
+  firstButton: {fileID: 2837598604987335047}
+  finishButton: {fileID: 2837598605019391962}
+  isSelect: 0
   fadeTime: 2
   fadeLimit: 1
 --- !u!1 &2837598606545561336

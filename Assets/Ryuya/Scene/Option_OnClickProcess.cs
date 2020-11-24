@@ -20,12 +20,12 @@ public class Option_OnClickProcess : MonoBehaviour
 
 	public void HideWhereUI( ReturnManager retMgr )
 	{
-		retMgr.changing = false;
+		retMgr.isSelect = false;
 	}
 
 	public void DisplayWhereUI( ReturnManager retMgr )
 	{
-		retMgr.changing = true;
+		retMgr.isSelect = true;
 	}
 
 	public void BackSelectOption()
@@ -60,6 +60,11 @@ public class Option_OnClickProcess : MonoBehaviour
 		cancelButton.image.color = new Color( 255, 255, 255, 0 );
 		cancelButton.enabled = false;
 		cancelButton.GetComponentInChildren<Text>().color = new Color( 255, 255, 255, 0 );
+	}
+
+	public void ChangeSelectButton( Button nextButton )
+	{
+		nextButton.Select();
 	}
 
 	public void BackTitleOption()

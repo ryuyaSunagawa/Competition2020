@@ -89,11 +89,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
-	public bool cameraRotateFlg
+	public bool canCameraRotate
 	{
 		get
 		{
-			return ( !_isPause && !_isFail ) ? false : true;
+			return ( !_isPause && !_isFail && !_isClear ) ? false : true;
 		}
 	}
 
@@ -101,7 +101,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	void Start()
     {
 		DontDestroyOnLoad( this );
-		Debug.Log( LoadUserState.Instance.stageStarNum.Capacity );
+		//Debug.Log( LoadUserState.Instance.stageStarNum.Capacity );
 		LoadUserState.Instance.Delete();
 		LoadUserState.Instance.SetPlayerData( 1 );
 		LoadUserState.Instance.Save();
@@ -111,6 +111,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     void Update()
     {
 		PauseButtonManage();
+
+		if( Input.GetButtonDown( "A" ) && ( nowScene == "StageSelectScene" ) )
+		{
+			ChangeScene( "TitleScene", false );
+		}
     }
 
 	void PauseButtonManage()
@@ -134,16 +139,18 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
-	public void ChangeScene( string stageName )
+	public void ChangeScene( string stageName, bool wantAddPause )
 	{
 		SceneManager.LoadScene( stageName );
-		SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
+		if ( wantAddPause ) SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
+		nowScene = stageName;
 	}
 
-	public void ChangeScene( int stageNumber )
+	public void ChangeScene( int stageNumber, bool wantAddPause )
 	{
 		SceneManager.LoadScene( stageNumber );
-		SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
+		if( wantAddPause )	SceneManager.LoadScene( "Pause", LoadSceneMode.Additive );
+		nowScene = SceneManager.GetSceneByBuildIndex( stageNumber ).name;
 	}
 
 	public int CheckPauseStarting()

@@ -33,11 +33,8 @@ public class HalloweenStage : MonoBehaviour
     int branchTurn;    //回転盤を回した回数
     bool hasBranchStar = true;
     List<Branch> branchScr = new List<Branch>();
-
-    [SerializeField] GameObject[] starImage;
-    [SerializeField] GameObject[] grayStar;
-    [SerializeField] GameObject clearText;
-	[SerializeField] ClearController clearCanvas;
+	
+	[SerializeField] ClearCanvasController clearCanvas;
 
     int star = 0;   //獲得星数
 
@@ -54,18 +51,6 @@ public class HalloweenStage : MonoBehaviour
         {
             branchScript[i] = branch[i].GetComponent<Branch>();
         }
-
-        for(int i = 0; i < STAR; i++)
-        {
-            starImage[i].SetActive(false);
-        }
-
-        for (int i = 0; i < GRAYSTAR; i++)
-        {
-            grayStar[i].SetActive(false);
-        }
-
-        clearText.SetActive(false);
 
         goalLightScript = goalLight.GetComponent<GoalLight>();
     }
@@ -128,42 +113,26 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasGoalLightStar = false;
-            Invoke("DelayHyouka", 0.1f);
-            LoadUserState.Instance.SetPlayerData(1);
-            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
-            LoadUserState.Instance.Save();
-        }
-    }
 
-    void DelayHyouka()
-    {
-        for (int i = 0; i < star; i++)  //starの数にあわせて星の画像表示
-        {
-            starImage[i].SetActive(true);
-        }
-        clearText.SetActive(true);
+			//クリア評価処理(ClearCanvasControllerへ)
+			clearCanvas.ClearRate( star );
 
-        for (int i = 0; i < (GRAYSTAR + 1) - star; i++) //星がないところにグレー星表示
-        {
-            grayStar[i].SetActive(true);
-        }
-        clearText.SetActive(true);
-		clearCanvas.clearFlg = true;
-		Cursor.lockState = CursorLockMode.None;
+			//ステージ情報保存
+			LoadUserState.Instance.SetPlayerData( 1 );
+			LoadUserState.Instance.stageStarNum[ STAGE - 1 ] = star;
+			LoadUserState.Instance.Save();
+		}
     }
 
 	private void OnEnable()
 	{
+		Time.timeScale = 1f;
 		GameManager.Instance.nowScene = SceneManager.GetActiveScene().name;
-
-		//if ( GameManager.Instance.CheckPauseStarting() == 0 )
-		//{
-		//	SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
-		//}
 	}
 
 	private void OnDestroy()
 	{
+		Time.timeScale = 1f;
 		GameManager.Instance.isPause = false;
 		GameManager.Instance.isClear = false;
 		Time.timeScale = 1f;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FailUIController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FailUIController : MonoBehaviour
 	float fadeValue = 0f;
 	[SerializeField] CanvasGroup canvasGroup;
 	[SerializeField, Range( 1f, 20f ), Header( "フェードスピード" )] float fadeTime = 1f;
+	[SerializeField] Button firstButton;
 	//[SerializeField, Range( 0f, 1f )] float fadeLimit = 1f;
 
 	// Start is called before the first frame update
@@ -18,6 +20,7 @@ public class FailUIController : MonoBehaviour
     {
 		isFailed = false;
 		canvasGroup.alpha = 0;
+		canvasGroup.interactable = false;
 		canvasGroup.blocksRaycasts = false;
     }
 
@@ -26,13 +29,16 @@ public class FailUIController : MonoBehaviour
     {
 		if( GameManager.Instance.isFail != firstFailedFlg )
 		{
+			canvasGroup.interactable = true;
 			Cursor.lockState = CursorLockMode.None;
+			firstFailedFlg = true;
 		}
         if( GameManager.Instance.isFail != doneFadeFlg )
 		{
 			canvasGroup.alpha += Time.unscaledDeltaTime * fadeTime;
 			if( canvasGroup.alpha == 1 )
 			{
+				firstButton.Select();
 				canvasGroup.blocksRaycasts = true;
 				doneFadeFlg = true;
 			}

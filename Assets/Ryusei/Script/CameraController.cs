@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if ( !GameManager.Instance.cameraRotateFlg && startZoom) //最初のズーム処理が終わったら動かせるようになる
+        if ( !GameManager.Instance.canCameraRotate && startZoom) //最初のズーム処理が終わったら動かせるようになる
         {
             // 水平回転の更新
 			

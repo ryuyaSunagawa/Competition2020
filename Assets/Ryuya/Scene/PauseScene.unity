@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 322931333}
   - component: {fileID: 322931332}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WhereText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,9 +1148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1441575720}
+    m_SelectOnDown: {fileID: 1297656388}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1502,7 +1502,7 @@ GameObject:
   - component: {fileID: 1131934268}
   - component: {fileID: 1131934269}
   m_Layer: 5
-  m_Name: WhereReturn
+  m_Name: WhereCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1556,6 +1556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0eff51158e66f4db96f561c6ae1d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstButton: {fileID: 0}
+  doChange: 0
   changing: 0
   canvasGroup: {fileID: 1131934268}
   backButton: {fileID: 1672656159}
@@ -1922,9 +1924,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 797899381}
+    m_SelectOnDown: {fileID: 1672656159}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2076,9 +2078,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1672656159}
+    m_SelectOnDown: {fileID: 797899381}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2241,9 +2243,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_Mode: 4
+    m_SelectOnUp: {fileID: 1297656388}
+    m_SelectOnDown: {fileID: 1441575720}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -2343,7 +2345,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672656157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4660ccb88e4f7e04ca4e57732511fe54, type: 3}
   m_Name: 
@@ -2430,7 +2432,7 @@ GameObject:
   - component: {fileID: 1957098987}
   - component: {fileID: 1957098986}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: WherePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

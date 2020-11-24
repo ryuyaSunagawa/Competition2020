@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PauseManager : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+	public void ButtonMove( Button nextButton )
+	{
+		nextButton.Select();
+	}
+
+	public void PanelMove( ReturnManager returnMgr )
+	{
+		returnMgr.firstButton.Select();
+	}
+}

@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (refCamera.startZoom && ( !GameManager.Instance.isClear || !GameManager.Instance.isFail ) ) //最初のズーム処理が終わったら動かせるようになる
+        if (refCamera.startZoom && ( !GameManager.Instance.isClear && !GameManager.Instance.isFail ) ) //最初のズーム処理が終わったら動かせるようになる
         {
             // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
             velocity = Vector3.zero;

@@ -158,7 +158,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 #else
 		filePath = Application.persistentDataPath + "/" + filePath;
 #endif
-		Debug.Log( Application.persistentDataPath );
+		//Debug.Log( Application.persistentDataPath );
 		return filePath;
 	}
 

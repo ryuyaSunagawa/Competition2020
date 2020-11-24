@@ -41,7 +41,7 @@ public class AkimaturiStage : MonoBehaviour
     [SerializeField] GameObject[] starImage;
     [SerializeField] GameObject[] grayStar;
     [SerializeField] GameObject clearText;
-	[SerializeField] ClearController clearCanvas;
+	[SerializeField] ClearCanvasController clearCanvas;
 
     int star = 0;   //獲得星数
 

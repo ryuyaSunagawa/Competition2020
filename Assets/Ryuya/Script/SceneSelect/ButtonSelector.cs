@@ -28,7 +28,7 @@ public class ButtonSelector : MonoBehaviour
 
 	public void Fail_DisplayWhereBack( ReturnManager retMgr )
 	{
-		retMgr.changing = true;
+		retMgr.isSelect = true;
 	}
 
 	public void Fail_LeaveOff( string sceneName )
@@ -51,7 +51,7 @@ public class ButtonSelector : MonoBehaviour
 		GameManager.Instance.isPause = false;
 	}
 
-	public void ButtonClicked_End()
+	public void EndButtonClicked()
 	{
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
