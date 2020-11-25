@@ -54,7 +54,6 @@ public class SSOverviewManager : MonoBehaviour
 	{
 		//アルファ値を加算
 		myCanvasGroup.alpha += Time.unscaledDeltaTime * ( fadeSpeed * ( isSelect == true ? 1 : -1 ) );
-		Debug.Log( myCanvasGroup.alpha );
 
 		//指定値に達したら
 		if( isSelect == true && myCanvasGroup.alpha >= 1f )

@@ -46170,7 +46170,7 @@ PrefabInstance:
     - target: {fileID: 1232076995576229862, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1634788886327470146, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
@@ -46207,6 +46207,11 @@ PrefabInstance:
       propertyPath: firstButton
       value: 
       objectReference: {fileID: 1413839821}
+    - target: {fileID: 4393313790397070917, guid: a1ed9c64320cce24398127d6d7e6543d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 165
+      objectReference: {fileID: 0}
     - target: {fileID: 5041300951345688086, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
