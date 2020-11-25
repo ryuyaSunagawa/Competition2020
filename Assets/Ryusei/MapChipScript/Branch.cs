@@ -18,7 +18,7 @@ public class Branch : MonoBehaviour
     void Update()
     {
 
-        if (branchFlg == true)
+        if (branchFlg == true && (!GameManager.Instance.isClear && !GameManager.Instance.isFail))
         {
             if (Input.GetButtonDown("RB"))
             {
@@ -29,9 +29,6 @@ public class Branch : MonoBehaviour
 
                 transform.rotation = Quaternion.Euler(0, branchRot * 90, 0);
             }
-        }
-        if (branchFlg == true)
-        {
             if (Input.GetButtonDown("LB"))
             {
                 if (branchRot <= 0) branchRot = 3;
