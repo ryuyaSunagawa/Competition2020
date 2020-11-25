@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonSelector : MonoBehaviour
 {
@@ -49,6 +51,13 @@ public class ButtonSelector : MonoBehaviour
 		GameManager.Instance.isFail = false;
 		GameManager.Instance.isClear = false;
 		GameManager.Instance.isPause = false;
+	}
+
+	public void ShowOverview( SSOverviewManager ssom )
+	{
+		ssom.isSelect = true;
+		ssom.nowButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
+		ssom.ss = EventSystem.current.currentSelectedGameObject.GetComponent<StageSelector>();
 	}
 
 	public void EndButtonClicked()
