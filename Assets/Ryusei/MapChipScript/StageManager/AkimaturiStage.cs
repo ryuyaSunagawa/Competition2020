@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class AkimaturiStage : MonoBehaviour
 {
     const int MINILIGHT = 2;    //このステージのミニライト数
-    const int GOALLIGHT = 1;    //このステージのゴールライトの数
+    const int GOALLIGHT = 2;    //このステージのゴールライトの数
     const int BRANCH = 5;       //このステージの回転盤の数
     const int BRANCHLIMIT = 7;  //このステージで星獲得のために回転盤を回してもいい回数
     const int STAR = 3;         //スターの最大数
@@ -152,7 +152,7 @@ public class AkimaturiStage : MonoBehaviour
         }
 
         //全てのゴールライトがついたかどうか
-        if (goalLightNum >= GOALLIGHT && hasGoalLightStar)
+        if (goalLightNum >= GOALLIGHT - 1 && hasGoalLightStar)
         {
             ++star;
             hasGoalLightStar = false;
