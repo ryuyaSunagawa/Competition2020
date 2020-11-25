@@ -20429,6 +20429,26 @@ PrefabInstance:
       propertyPath: refCamera
       value: 
       objectReference: {fileID: 1560724853}
+    - target: {fileID: 4837393142752075117, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5513953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837393142752075117, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0074603558
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837393142752075117, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.040099964
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837393142752075117, guid: 1881114cfc8ab0e4c86207c7ffef4355,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.36033785
+      objectReference: {fileID: 0}
     - target: {fileID: 4948160845073398415, guid: 1881114cfc8ab0e4c86207c7ffef4355,
         type: 3}
       propertyPath: m_LocalPosition.x

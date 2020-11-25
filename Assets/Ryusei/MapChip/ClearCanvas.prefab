@@ -693,12 +693,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1586441976811948787}
-        m_MethodName: 
+      - m_Target: {fileID: 2835539996751786996}
+        m_MethodName: ChangeNextStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -910,15 +910,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3045969695180163594}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1928706662911700114}
+        m_MethodName: ButtonClicked
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: StageSelectScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1928706662911700114
@@ -1000,6 +1000,7 @@ MonoBehaviour:
   changing: 0
   canvasGroup: {fileID: 7781869767175109047}
   fadeTime: 1
+  firstButton: {fileID: 0}
 --- !u!1 &3840313987245630828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,12 +1355,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8741533888667066907}
-        m_MethodName: 
+      - m_Target: {fileID: 7580042646816838748}
+        m_MethodName: Fail_Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
