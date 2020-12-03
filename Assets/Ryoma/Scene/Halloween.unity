@@ -14959,6 +14959,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: cf2ec40c673cd1940ba321bb77fd90ca, type: 2}
   - {fileID: 2100000, guid: 6536659bec6c9484db5f7904b0769940, type: 2}
   hasLight: 0
+--- !u!114 &648167231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2500594229579203335, guid: 504442498bb69bc4ca2d819a42d1124d,
+    type: 3}
+  m_PrefabInstance: {fileID: 554935754}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b7aa9be64958446b34a7a88e360447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &649054614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17382,6 +17394,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6f37af31b1028448bee6b17ea23388e, type: 3}
+--- !u!1 &744492888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744492889}
+  m_Layer: 0
+  m_Name: StageCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744492889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744492888}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 14.29, y: 0.48, z: -6.07555}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &748379958
 GameObject:
   m_ObjectHideFlags: 0
@@ -36680,12 +36722,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 6
+  conTurnSpeed: 2
   player: {fileID: 278216936}
   distance: 25
   vRotation: {x: 0, y: 0, z: 0, w: 0}
   hRotation: {x: 0, y: 0, z: 0, w: 0}
   startZoom: 0
   scrollSpeed: 0.1
+  centerObj: {fileID: 744492889}
+  goalZoomOut: 0
 --- !u!81 &1560724854
 AudioListener:
   m_ObjectHideFlags: 0
@@ -48937,6 +48982,8 @@ MonoBehaviour:
   - {fileID: 1669721095}
   - {fileID: 799631354}
   clearCanvas: {fileID: 1992620344}
+  refCamera: {fileID: 1560724853}
+  player: {fileID: 648167231}
 --- !u!4 &2053825912
 Transform:
   m_ObjectHideFlags: 0

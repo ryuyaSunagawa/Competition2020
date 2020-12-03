@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float turnSpeed = 1.0f;   // 回転速度
+    [SerializeField] private float turnSpeed = 6.0f;   // 回転速度
+    [SerializeField] private float conTurnSpeed = 2.0f;   // 回転速度
     [SerializeField] private Transform player;         // 注視対象プレイヤー
 
     [SerializeField] private float distance = 32.0f;    // 注視対象プレイヤーからカメラを離す距離
@@ -21,6 +22,12 @@ public class CameraController : MonoBehaviour
     [SerializeField]  float scrollSpeed = 0.1f;      //スクロール速度
     float scrollTime;
     bool isScroll;
+
+    //明かりがついたらゴールを中心にカメラを回す
+    [SerializeField] Transform centerObj;
+
+    //ゴール時に引いて回転する処理
+    public bool goalZoomOut;
 
     void Start()
     {
@@ -69,10 +76,10 @@ public class CameraController : MonoBehaviour
 			vRotation *= Quaternion.Euler(mAxisY, 0, 0);  //水平回転
 
             //コントローラの処理--------------------------------------------------------------
-            hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * turnSpeed, 0);  //垂直回転
+            hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * conTurnSpeed, 0);  //垂直回転
 
 			/*****  水平回転補正処理  *****/
-			float cAxisY = Input.GetAxis( "R_Vertical" ) * turnSpeed;   //水平方向スティック傾斜量取得
+			float cAxisY = Input.GetAxis( "R_Vertical" ) * conTurnSpeed;   //水平方向スティック傾斜量取得
 			float cBeforeRotX = rotationX;							 //加算前回転スタック
 			rotationX += cAxisY;									 //コントローラー傾斜量分加算
 			if ( rotationX >= 80f )
@@ -143,6 +150,29 @@ public class CameraController : MonoBehaviour
 				startZoom = true;
 				rotationX = transform.localEulerAngles.x;
 			}
+        }
+        if (goalZoomOut)
+        {
+            // player位置から距離distanceだけ手前に引いた位置を設定
+            transform.position = centerObj.position + new Vector3(0, 1.5f, 0) - transform.rotation * Vector3.forward * distance;
+
+            if (distance >= zoomMin)
+            {
+                //goalZoomOut = false;
+                rotationX = transform.localEulerAngles.x;
+
+                hRotation *= Quaternion.Euler(0, 0.5f, 0);  //垂直回転
+                // カメラの回転(transform.rotation)の更新
+                transform.rotation = hRotation * vRotation;
+            }
+            else
+            {
+                distance += 0.2f;
+                vRotation = Quaternion.Euler(30, 0, 0);         //25度固定の垂直回転
+                hRotation = centerObj.rotation;                    //プレイヤーの向きに合わせて初期位置変更
+                // カメラの回転(transform.rotation)の更新
+                transform.rotation = hRotation * vRotation;
+            }
         }
     }
 }
