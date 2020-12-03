@@ -10,8 +10,6 @@ public class Player : MonoBehaviour
     [SerializeField] private CameraController refCamera;  // カメラの水平回転を参照する用
     Animator anim;
 
-    public bool good;
-
     private void Start()
     {
        anim = GetComponent<Animator>(); 
@@ -19,7 +17,6 @@ public class Player : MonoBehaviour
     
     void FixedUpdate()
     {
-        Debug.Log(good);
         if (refCamera.startZoom && ( !GameManager.Instance.isClear && !GameManager.Instance.isFail ) ) //最初のズーム処理が終わったら動かせるようになる
         {
             // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
@@ -57,26 +54,5 @@ public class Player : MonoBehaviour
 				anim.SetBool( "Walk", false );
 			}
         }
-
-        if (GameManager.Instance.isFail)
-        {
-            anim.SetBool("Idle", false);
-            anim.SetBool("Walk", false);
-            anim.SetBool("Over", true);
-        }
-        if (good)
-        {
-            anim.SetBool("Idle", false);
-            anim.SetBool("Walk", false);
-            anim.SetBool("Clear", true);
-        }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "EnergizedOn")
-    //    {
-    //        shock = true;
-    //    }
-    //}
 }
