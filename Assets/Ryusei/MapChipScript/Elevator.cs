@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    bool UpDownFlg;
+    bool UpDownFlg = true;
     bool ElevatorFlg;
     bool ElectricFlg;
     Vector3 FirstPosition;
 
     [SerializeField] GameObject player;
     [SerializeField] GameObject left;
+
+    float time;     //エレベータの扉が閉まるのを待つ時間
+    bool timerFlg;  //timeを動かすためのフラグ
 
     // Start is called before the first frame update
     void Start()
@@ -22,19 +25,38 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y >= player.transform.position.y)
-        {
-            UpDownFlg = true;
-            ElevatorFlg = true;
-            Down();
-        }
+        //if (transform.position.y >= player.transform.position.y)
+        //{
+        //    UpDownFlg = true;
+        //    ElevatorFlg = true;
+        //    Down();
+        //}
+        //Debug.Log("ElevatorFlg" + ElevatorFlg);
+        //Debug.Log("ElectricFlg" + ElectricFlg);
+        //Debug.Log(timerFlg);
+
+        if (timerFlg) time += Time.deltaTime;  //扉が閉まるのを待ってから動く
 
         if (ElevatorFlg && ElectricFlg)
-        {
-            if (Input.GetMouseButtonDown(0))
+        { 
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    timerFlg = true;
+
+            //    //if (1 < time)
+            //    //{
+            //    //    if (UpDownFlg == false) UpDownFlg = true; //昇降
+            //    //    else if (UpDownFlg == true) UpDownFlg = false; //昇降
+            //    //}
+            //}
+
+            if (2.0f < time)
             {
-                if(UpDownFlg == false) UpDownFlg = true; //昇降
+                if (UpDownFlg == false) UpDownFlg = true; //昇降
                 else if (UpDownFlg == true) UpDownFlg = false; //昇降
+
+                time = 0;
+                timerFlg = false;
             }
 
             if (UpDownFlg == false) Up(); //昇降
@@ -44,7 +66,7 @@ public class Elevator : MonoBehaviour
 
     void Up()
     {
-        if (transform.position.y <= FirstPosition.y + 3.3f)
+        if (transform.position.y <= FirstPosition.y + 5.2f)
         {
             transform.position += new Vector3(0, 0.03f, 0);
         }
@@ -64,6 +86,7 @@ public class Elevator : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             ElevatorFlg = true;
+            timerFlg = true;
         }
     }
 

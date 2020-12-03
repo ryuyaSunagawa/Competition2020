@@ -92,7 +92,7 @@ public class TestCam : MonoBehaviour
 
             vRotation *= Quaternion.Euler(cAxisY, 0, 0);  //水平回転
 
-            Debug.Log((hRotation * vRotation).eulerAngles);
+            //Debug.Log((hRotation * vRotation).eulerAngles);
 
             // カメラの回転(transform.rotation)の更新
             transform.rotation = hRotation * vRotation;
