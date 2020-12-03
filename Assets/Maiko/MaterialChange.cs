@@ -21,8 +21,11 @@ public class MaterialChange : MonoBehaviour
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+		if ( isPumpkinObject )
+		{
 			ChangePanelActive( false );
-    }
+		}
+	}
 
     // Update is called once per frame
     void Update()

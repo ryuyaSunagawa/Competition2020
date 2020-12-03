@@ -36,7 +36,7 @@ public class HalloweenStage : MonoBehaviour
 	
 	[SerializeField] ClearCanvasController clearCanvas;
 
-    int star = 0;   //獲得星数
+    public int star = 0;   //獲得星数
 
     [SerializeField] private CameraController refCamera;  // カメラを参照する用
     [SerializeField] Player player;

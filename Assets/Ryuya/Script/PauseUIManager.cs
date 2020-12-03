@@ -27,6 +27,7 @@ public class PauseUIManager : MonoBehaviour
 		if ( ( GameManager.Instance.isPause && !pausing ) ||
 			 ( !GameManager.Instance.isPause && pausing ) )
 		{
+			GameManager.Instance.sleepOption = true;
 			FadeProcess();
 		}
 
@@ -41,6 +42,7 @@ public class PauseUIManager : MonoBehaviour
 		if( ( !pausing && ( canvasGroup.alpha >= fadeLimit ) ) ||
 			( pausing && ( canvasGroup.alpha <= 0 ) ) )
 		{
+			GameManager.Instance.sleepOption = false;
 			pausing = !pausing;
 			backGameButton.Select();
 		}

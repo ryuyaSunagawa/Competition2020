@@ -173,11 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 1957098986}
-  whereText: {fileID: 322931332}
-  titleButton: {fileID: 284768399}
-  sselectButton: {fileID: 249751771}
-  cancelButton: {fileID: 166690757}
 --- !u!114 &166690757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,11 +541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &249751771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,11 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &280833930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,11 +792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &284768399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,11 +1053,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &364975751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,11 +1213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &797899385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,7 +1220,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797899379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4660ccb88e4f7e04ca4e57732511fe54, type: 3}
   m_Name: 
@@ -1556,16 +1526,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0eff51158e66f4db96f561c6ae1d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstButton: {fileID: 0}
-  doChange: 0
-  changing: 0
-  canvasGroup: {fileID: 1131934268}
-  backButton: {fileID: 1672656159}
-  cancelButton: {fileID: 166690757}
+  firstButton: {fileID: 284768399}
+  finishButton: {fileID: 1672656159}
+  isSelect: 0
   fadeTime: 4
   fadeLimit: 1
-  backTitleButton: {fileID: 284768399}
-  backGameButton: {fileID: 1441575720}
 --- !u!1 &1187008512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,11 +1701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &1210027403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1849,11 +1809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &1268606873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,11 +1958,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &1297656392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2168,11 +2118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 0}
-  whereText: {fileID: 0}
-  titleButton: {fileID: 0}
-  sselectButton: {fileID: 0}
-  cancelButton: {fileID: 0}
 --- !u!114 &1441575724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2201,7 +2146,6 @@ GameObject:
   - component: {fileID: 1672656161}
   - component: {fileID: 1672656160}
   - component: {fileID: 1672656159}
-  - component: {fileID: 1672656163}
   - component: {fileID: 1672656162}
   m_Layer: 5
   m_Name: FinishButton
@@ -2333,27 +2277,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a696fc9e8fce4e449aed48f7fba965f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelImg: {fileID: 1957098986}
-  whereText: {fileID: 322931332}
-  titleButton: {fileID: 284768399}
-  sselectButton: {fileID: 249751771}
-  cancelButton: {fileID: 166690757}
---- !u!114 &1672656163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672656157}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4660ccb88e4f7e04ca4e57732511fe54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myImage: {fileID: 1672656160}
-  myText: {fileID: 0}
-  alphaRange: 255
-  whichOption: 1
 --- !u!1 &1787998007
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Option_OnClickProcess : MonoBehaviour
 {
-	[SerializeField] Image panelImg;
-	[SerializeField] Text whereText;
-	[SerializeField] Button titleButton;
-	[SerializeField] Button sselectButton;
-	[SerializeField] Button cancelButton;
 
 	//オプション画面の終了イベント
 	public void SleepOption()
@@ -26,40 +21,6 @@ public class Option_OnClickProcess : MonoBehaviour
 	public void DisplayWhereUI( ReturnManager retMgr )
 	{
 		retMgr.isSelect = true;
-	}
-
-	public void BackSelectOption()
-	{
-		whereText.color = new Color( 0, 0, 0, 255 );
-		whereText.enabled = true;
-		panelImg.color = new Color( 255, 255, 255, 255 );
-		panelImg.enabled = true;
-		titleButton.image.color = new Color( 255, 255, 255, 255 );
-		titleButton.enabled = true;
-		titleButton.GetComponentInChildren<Text>().color = new Color( 0, 0, 0, 255 );
-		sselectButton.image.color = new Color( 255, 255, 255, 255 );
-		sselectButton.enabled = true;
-		sselectButton.GetComponentInChildren<Text>().color = new Color( 0, 0, 0, 255 );
-		cancelButton.image.color = new Color( 255, 255, 255, 255 );
-		cancelButton.enabled = true;
-		cancelButton.GetComponentInChildren<Text>().color = new Color( 0, 0, 0, 255 );
-	}
-
-	public void CancelOption()
-	{
-		whereText.color = new Color( 0, 0, 0, 0 );
-		whereText.enabled = false;
-		panelImg.color = new Color( 255, 255, 255, 0 );
-		panelImg.enabled = false;
-		titleButton.image.color = new Color( 255, 255, 255, 0 );
-		titleButton.enabled = false;
-		titleButton.GetComponentInChildren<Text>().color = new Color( 255, 255, 255, 0 );
-		sselectButton.image.color = new Color( 255, 255, 255, 0 );
-		sselectButton.enabled = false;
-		sselectButton.GetComponentInChildren<Text>().color = new Color( 255, 255, 255, 0 );
-		cancelButton.image.color = new Color( 255, 255, 255, 0 );
-		cancelButton.enabled = false;
-		cancelButton.GetComponentInChildren<Text>().color = new Color( 255, 255, 255, 0 );
 	}
 
 	public void ChangeSelectButton( Button nextButton )

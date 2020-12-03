@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Ryoma/Scene/Akimaturi.unity
     guid: b358082f621a52d42884cf543e1684d6
+  - enabled: 1
+    path: Assets/Ryoma/Scene/Christmas.unity
+    guid: a4af499b3d0c397438da315678d7fd21
   - enabled: 0
     path: Assets/Ryuya/Scene/TestScene/s1.unity
     guid: ad518d1ff09ea504c831ff40001a1553
