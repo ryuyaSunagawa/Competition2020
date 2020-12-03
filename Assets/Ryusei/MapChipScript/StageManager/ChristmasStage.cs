@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class HalloweenStage : MonoBehaviour
+public class ChristmasStage : MonoBehaviour
 {
     const int MINILIGHT = 4;    //このステージのミニライト数
-    const int BRANCH = 3;       //このステージの回転盤の数
+    const int BRANCH = 4;       //このステージの回転盤の数
     const int BRANCHLIMIT = 7;  //このステージで星獲得のために回転盤を回してもいい回数
     const int STAR = 3;         //スターの最大数
     const int GRAYSTAR = 2;     //グレイスター最大数
 
-    const int STAGE = 1;        //このステージの番号
+    const int STAGE = 3;        //このステージの番号
     //ミニライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] miniLight;
     MiniLight[] miniLightScript = new MiniLight[MINILIGHT];
@@ -22,7 +22,7 @@ public class HalloweenStage : MonoBehaviour
     bool hasLightStar = true;   //ミニライトで星獲得をの処理を1回に
 
     //ゴールライト-------------------------------------------------------------------------------
-    [SerializeField]GameObject goalLight;
+    [SerializeField] GameObject goalLight;
     GoalLight goalLightScript;
 
     bool hasGoalLightStar = true;
@@ -33,8 +33,8 @@ public class HalloweenStage : MonoBehaviour
     int branchTurn;    //回転盤を回した回数
     bool hasBranchStar = true;
     List<Branch> branchScr = new List<Branch>();
-	
-	[SerializeField] ClearCanvasController clearCanvas;
+
+    [SerializeField] ClearCanvasController clearCanvas;
 
     [SerializeField] Player player;     //クリア時のアニメーション用
     [SerializeField] private CameraController refCamera;  // カメラを参照する用
@@ -50,7 +50,7 @@ public class HalloweenStage : MonoBehaviour
             miniLightScript[i] = miniLight[i].GetComponent<MiniLight>();
         }
 
-        for(int i = 0; i < BRANCH; i++)
+        for (int i = 0; i < BRANCH; i++)
         {
             branchScript[i] = branch[i].GetComponent<Branch>();
         }
@@ -72,7 +72,8 @@ public class HalloweenStage : MonoBehaviour
             {
                 ++lightNum;
                 isLightnum[i] = true;
-            }else if(!miniLightScript[i].hasLight && isLightnum[i]) //消灯したらlightNumから-1し点灯フラグをfalse
+            }
+            else if (!miniLightScript[i].hasLight && isLightnum[i]) //消灯したらlightNumから-1し点灯フラグをfalse
             {
                 --lightNum;
                 isLightnum[i] = false;
@@ -85,7 +86,7 @@ public class HalloweenStage : MonoBehaviour
             ++star;
             hasLightStar = false;
         }
-        else if(lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
+        else if (lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
         {
             --star;
             hasLightStar = true;
@@ -94,7 +95,7 @@ public class HalloweenStage : MonoBehaviour
         //回転盤を何回回転させたか取得
         //branchTrun = branchScript[0].branchNum + branchScript[1].branchNum + branchScript[2].branchNum;
         int ahan = 0;
-        foreach( Branch br in branchScript )
+        foreach (Branch br in branchScript)
         {
             ahan += br.branchNum;
         }
@@ -105,7 +106,8 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasBranchStar = false;
-        }else if(branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
+        }
+        else if (branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
         {
             --star;
             hasBranchStar = true;
@@ -117,32 +119,32 @@ public class HalloweenStage : MonoBehaviour
             ++star;
             hasGoalLightStar = false;
 
-            //クリアアニメーションを再生
-            player.good = true;
             //ズームアウトして回転させる
             refCamera.goalZoomOut = true;
+            //クリアアニメーションを再生
+            player.good = true;
 
             //クリア評価処理(ClearCanvasControllerへ)
-            clearCanvas.ClearRate( star );
+            clearCanvas.ClearRate(star);
 
-			//ステージ情報保存
-			LoadUserState.Instance.SetPlayerData( 1 );
-			LoadUserState.Instance.stageStarNum[ STAGE - 1 ] = star;
-			LoadUserState.Instance.Save();
-		}
+            //ステージ情報保存
+            LoadUserState.Instance.SetPlayerData(1);
+            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+            LoadUserState.Instance.Save();
+        }
     }
 
-	private void OnEnable()
-	{
-		Time.timeScale = 1f;
-		GameManager.Instance.nowScene = SceneManager.GetActiveScene().name;
-	}
+    private void OnEnable()
+    {
+        Time.timeScale = 1f;
+        GameManager.Instance.nowScene = SceneManager.GetActiveScene().name;
+    }
 
-	private void OnDestroy()
-	{
-		Time.timeScale = 1f;
-		GameManager.Instance.isPause = false;
-		GameManager.Instance.isClear = false;
-		Time.timeScale = 1f;
-	}
+    private void OnDestroy()
+    {
+        Time.timeScale = 1f;
+        GameManager.Instance.isPause = false;
+        GameManager.Instance.isClear = false;
+        Time.timeScale = 1f;
+    }
 }

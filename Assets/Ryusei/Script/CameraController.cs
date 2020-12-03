@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float turnSpeed = 1.0f;   // 回転速度
+    [SerializeField] private float turnSpeed = 6.0f;   // マウスカメラ速度
+    [SerializeField] private float conTurnSpeed = 1.0f;   // コントローラカメラ速度
     [SerializeField] private Transform player;         // 注視対象プレイヤー
 
     [SerializeField] private float distance = 32.0f;    // 注視対象プレイヤーからカメラを離す距離
@@ -74,10 +75,10 @@ public class CameraController : MonoBehaviour
 			vRotation *= Quaternion.Euler(mAxisY, 0, 0);  //水平回転
 
             //コントローラの処理--------------------------------------------------------------
-            hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * turnSpeed, 0);  //垂直回転
+            hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * conTurnSpeed, 0);  //垂直回転
 
 			/*****  水平回転補正処理  *****/
-			float cAxisY = Input.GetAxis( "R_Vertical" ) * turnSpeed;   //水平方向スティック傾斜量取得
+			float cAxisY = Input.GetAxis( "R_Vertical" ) * conTurnSpeed;   //水平方向スティック傾斜量取得
 			float cBeforeRotX = rotationX;							 //加算前回転スタック
 			rotationX += cAxisY;									 //コントローラー傾斜量分加算
 			if ( rotationX >= 80f )

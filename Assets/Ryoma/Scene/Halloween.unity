@@ -32426,6 +32426,18 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
   - {fileID: 2100000, guid: c18dd98502a54a74aa21064e256bf69f, type: 2}
   hasLight: 0
+--- !u!114 &1386986520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2500594229579203335, guid: 504442498bb69bc4ca2d819a42d1124d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667604467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b7aa9be64958446b34a7a88e360447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391176893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d1c0012f63f64e488706bcfa42c6a62,
@@ -36448,6 +36460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 6
+  conTurnSpeed: 1
   player: {fileID: 561510587}
   distance: 25
   vRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -38913,6 +38926,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.z
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500594229579203329, guid: 504442498bb69bc4ca2d819a42d1124d,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2500594229579203329, guid: 504442498bb69bc4ca2d819a42d1124d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2500594229579203335, guid: 504442498bb69bc4ca2d819a42d1124d,
         type: 3}
@@ -48768,6 +48791,7 @@ MonoBehaviour:
   - {fileID: 1669721095}
   - {fileID: 799631354}
   clearCanvas: {fileID: 1992620344}
+  player: {fileID: 1386986520}
   refCamera: {fileID: 1560724853}
 --- !u!4 &2053825912
 Transform:
