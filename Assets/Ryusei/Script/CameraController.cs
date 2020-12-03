@@ -22,6 +22,11 @@ public class CameraController : MonoBehaviour
     float scrollTime;
     bool isScroll;
 
+    //明かりがついたらゴールを中心にカメラを回す
+    [SerializeField] Transform centerObj;
+    //ゴール時に引いて回転する処理
+    public bool goalZoomOut;
+
     void Start()
     {
         // カーソルを画面中央にロックする
@@ -143,6 +148,27 @@ public class CameraController : MonoBehaviour
 				startZoom = true;
 				rotationX = transform.localEulerAngles.x;
 			}
+        }
+        if (goalZoomOut)
+        {
+            // player位置から距離distanceだけ手前に引いた位置を設定
+            transform.position = centerObj.position + new Vector3(0, 1.5f, 0) - transform.rotation * Vector3.forward * distance;
+
+            if (distance >= zoomMin)
+            {
+                //goalZoomOut = false;
+                rotationX = transform.localEulerAngles.x;
+
+                hRotation *= Quaternion.Euler(0, 0.5f, 0);  //垂直回転
+            }
+            else
+            {
+                distance += 0.2f;
+                vRotation = Quaternion.Euler(30, 0, 0);         //25度固定の垂直回転
+                hRotation = centerObj.rotation;                    //プレイヤーの向きに合わせて初期位置変更
+            }
+            // カメラの回転(transform.rotation)の更新
+            transform.rotation = hRotation * vRotation;
         }
     }
 }

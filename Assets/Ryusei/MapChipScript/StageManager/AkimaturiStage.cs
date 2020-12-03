@@ -46,6 +46,8 @@ public class AkimaturiStage : MonoBehaviour
 	[SerializeField, Header( "クリア後のライトの強さ" ), Range( 0f, 1f )] float clearLightIntencity = 1f;
 	[SerializeField, Header( "クリア後のスカイボックス" )] Material clearSkybox;
 
+    [SerializeField] private CameraController refCamera;  // カメラを参照する用
+
     int star = 0;   //獲得星数
 
     // Start is called before the first frame update
@@ -157,8 +159,11 @@ public class AkimaturiStage : MonoBehaviour
             ++star;
             hasGoalLightStar = false;
 
-			//クリア評価
-			clearCanvas.ClearRate( star );
+            //ズームアウトして回転させる
+            refCamera.goalZoomOut = true;
+
+            //クリア評価
+            clearCanvas.ClearRate( star );
 			//クリア後のスカイボックス変更
 			RenderSettings.skybox = clearSkybox;
 			//沈むように溶けていくような夜に駆けてる感じにする

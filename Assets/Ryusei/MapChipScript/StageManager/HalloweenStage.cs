@@ -36,6 +36,8 @@ public class HalloweenStage : MonoBehaviour
 	
 	[SerializeField] ClearCanvasController clearCanvas;
 
+    [SerializeField] private CameraController refCamera;  // カメラを参照する用
+
     int star = 0;   //獲得星数
 
     // Start is called before the first frame update
@@ -114,8 +116,11 @@ public class HalloweenStage : MonoBehaviour
             ++star;
             hasGoalLightStar = false;
 
-			//クリア評価処理(ClearCanvasControllerへ)
-			clearCanvas.ClearRate( star );
+            //ズームアウトして回転させる
+            refCamera.goalZoomOut = true;
+
+            //クリア評価処理(ClearCanvasControllerへ)
+            clearCanvas.ClearRate( star );
 
 			//ステージ情報保存
 			LoadUserState.Instance.SetPlayerData( 1 );

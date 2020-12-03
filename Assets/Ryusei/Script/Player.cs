@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private CameraController refCamera;  // カメラの水平回転を参照する用
     Animator anim;
 
+    bool shock;
+
     private void Start()
     {
        anim = GetComponent<Animator>(); 
@@ -53,6 +55,21 @@ public class Player : MonoBehaviour
 				anim.SetBool( "Idle", true );
 				anim.SetBool( "Walk", false );
 			}
+        }
+
+        if (shock)
+        {
+            anim.SetBool("Idle", false);
+            anim.SetBool("Walk", false);
+            anim.SetBool("Over", true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "EnergizedOn")
+        {
+            shock = true;
         }
     }
 }
