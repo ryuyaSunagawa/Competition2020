@@ -74,6 +74,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			return _sleepOption;
 		}
 	}
+
 	
 	//シーン
 	string _nowScene = "TitleScene";
@@ -103,7 +104,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		DontDestroyOnLoad( this );
 		//Debug.Log( LoadUserState.Instance.stageStarNum.Capacity );
 		LoadUserState.Instance.Delete();
-		LoadUserState.Instance.SetPlayerData( 1 );
+		LoadUserState.Instance.SetPlayerData( 2 );
 		LoadUserState.Instance.Save();
     }
 
@@ -112,7 +113,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
 		PauseButtonManage();
 
-		if( Input.GetButtonDown( "A" ) && ( nowScene == "StageSelectScene" ) )
+		if( Input.GetButtonDown( "B" ) && ( nowScene == "StageSelectScene" ) )
 		{
 			ChangeScene( "TitleScene", false );
 		}
@@ -120,23 +121,26 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
 	void PauseButtonManage()
 	{
-		if ( _isPlaying && !_isPause && Input.GetButtonDown( "Cancel" ) )
+		if ( _isPlaying && !_isPause && !_isClear && !_isFail && Input.GetButtonDown( "Cancel" ) && !sleepOption )
 		{
 			_isPause = true;
 			Time.timeScale = 0f;
+			Debug.Log( "in" );
 
 			//カーソルロックの解除
 			Cursor.lockState = CursorLockMode.None;
 		}
-		else if ( _isPlaying && _isPause && ( Input.GetButtonDown( "Cancel" ) || sleepOption ) )
+		else if ( _isPlaying && _isPause && !_isClear && !_isFail && ( Input.GetButtonDown( "Cancel" ) && !sleepOption ) )
 		{
 			_isPause = false;
 			Time.timeScale = 1f;
-			sleepOption = false;
+			//sleepOption = false;
 
+			Debug.Log( "out" );
 			//カーソルのロック
 			Cursor.lockState = CursorLockMode.Locked;
 		}
+		//Debug.Log( sleepOption );
 	}
 
 	public void ChangeScene( string stageName, bool wantAddPause )

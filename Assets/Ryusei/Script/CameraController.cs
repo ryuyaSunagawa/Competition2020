@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float turnSpeed = 6.0f;   // マウスカメラ速度
-    [SerializeField] private float conTurnSpeed = 1.0f;   // コントローラカメラ速度
+    [SerializeField] private float turnSpeed = 6.0f;   // 回転速度
+    [SerializeField] private float conTurnSpeed = 2.0f;   // 回転速度
     [SerializeField] private Transform player;         // 注視対象プレイヤー
 
     [SerializeField] private float distance = 32.0f;    // 注視対象プレイヤーからカメラを離す距離
@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour
 
     //明かりがついたらゴールを中心にカメラを回す
     [SerializeField] Transform centerObj;
+
     //ゴール時に引いて回転する処理
     public bool goalZoomOut;
 
@@ -161,15 +162,17 @@ public class CameraController : MonoBehaviour
                 rotationX = transform.localEulerAngles.x;
 
                 hRotation *= Quaternion.Euler(0, 0.5f, 0);  //垂直回転
+                // カメラの回転(transform.rotation)の更新
+                transform.rotation = hRotation * vRotation;
             }
             else
             {
                 distance += 0.2f;
                 vRotation = Quaternion.Euler(30, 0, 0);         //25度固定の垂直回転
                 hRotation = centerObj.rotation;                    //プレイヤーの向きに合わせて初期位置変更
+                // カメラの回転(transform.rotation)の更新
+                transform.rotation = hRotation * vRotation;
             }
-            // カメラの回転(transform.rotation)の更新
-            transform.rotation = hRotation * vRotation;
         }
     }
 }

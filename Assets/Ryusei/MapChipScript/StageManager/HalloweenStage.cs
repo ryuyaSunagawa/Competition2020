@@ -36,10 +36,10 @@ public class HalloweenStage : MonoBehaviour
 	
 	[SerializeField] ClearCanvasController clearCanvas;
 
-    [SerializeField] Player player;     //クリア時のアニメーション用
-    [SerializeField] private CameraController refCamera;  // カメラを参照する用
+    public int star = 0;   //獲得星数
 
-    int star = 0;   //獲得星数
+    [SerializeField] private CameraController refCamera;  // カメラを参照する用
+    [SerializeField] Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -117,10 +117,10 @@ public class HalloweenStage : MonoBehaviour
             ++star;
             hasGoalLightStar = false;
 
-            //クリアアニメーションを再生
-            player.good = true;
             //ズームアウトして回転させる
             refCamera.goalZoomOut = true;
+            //クリアアニメーション
+            player.clear = true;
 
             //クリア評価処理(ClearCanvasControllerへ)
             clearCanvas.ClearRate( star );

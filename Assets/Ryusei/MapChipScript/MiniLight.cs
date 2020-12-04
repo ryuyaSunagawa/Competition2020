@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MiniLight : MonoBehaviour
 {
-    int changeColor;
+    public int changeColor;
     int beforeColor;
 
     MeshRenderer meshRenderer;//
