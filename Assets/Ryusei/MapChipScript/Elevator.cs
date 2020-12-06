@@ -66,7 +66,7 @@ public class Elevator : MonoBehaviour
 
     void Up()
     {
-        if (transform.position.y <= FirstPosition.y + 5.2f)
+        if (transform.position.y <= FirstPosition.y + 5.0f)
         {
             transform.position += new Vector3(0, 0.03f, 0);
         }

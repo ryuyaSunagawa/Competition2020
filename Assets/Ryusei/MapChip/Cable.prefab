@@ -128,3 +128,4 @@ MonoBehaviour:
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
   hasLight: 0
+  electoronic: {fileID: 8300000, guid: 8b85c02fabf359b40af6462a9584a711, type: 3}

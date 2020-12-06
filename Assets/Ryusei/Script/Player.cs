@@ -6,15 +6,27 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Vector3 velocity;              // 移動方向
     [SerializeField] private float moveSpeed = 5.0f;        // 移動速度
-    [SerializeField] private float applySpeed = 0.2f;       // 振り向きの適用速度
+    [SerializeField] private float applySpeed = 0.2f;     // 振り向きの適用速度
     [SerializeField] private CameraController refCamera;  // カメラの水平回転を参照する用
     Animator anim;
 
     public bool clear;
 
+    //音-----------------------------------
+    AudioSource audioSource;
+    public AudioClip walkSE;
+    public AudioClip failSE;
+    public AudioClip clearSE;
+
+
+    bool isOneShot;
+    bool isSE;
+
     private void Start()
     {
-       anim = GetComponent<Animator>(); 
+       anim = GetComponent<Animator>();
+
+       audioSource = GetComponent<AudioSource>();
     }
     
     void FixedUpdate()
@@ -41,7 +53,12 @@ public class Player : MonoBehaviour
             // いずれかの方向に移動している場合
             if (velocity.magnitude > 0)
             {
-				anim.SetBool( "Idle", false );
+                if (isOneShot)
+                {
+                    audioSource.PlayOneShot(walkSE);
+                    isOneShot = false;
+                }
+                anim.SetBool( "Idle", false );
 				anim.SetBool( "Walk", true );
 				// プレイヤーの回転(transform.rotation)の更新
 				transform.rotation = Quaternion.Slerp(transform.rotation,
@@ -52,18 +69,45 @@ public class Player : MonoBehaviour
                 transform.position += refCamera.hRotation * velocity;
             } else
 			{
-				anim.SetBool( "Idle", true );
+                if (!isOneShot && !clear && !GameManager.Instance.isFail)
+                {
+                    audioSource.Stop();
+                    isOneShot = true;
+                }
+                anim.SetBool( "Idle", true );
 				anim.SetBool( "Walk", false );
 			}
         }
         if (clear)
         {
+            if (!isSE)
+            {
+                audioSource.Stop();
+                isOneShot = true;
+                isSE = true;
+            }
+            if (isOneShot)
+            {
+                audioSource.PlayOneShot(clearSE);
+                isOneShot = false;
+            }
             anim.SetBool("Idle", false);
             anim.SetBool("Walk", false);
             anim.SetBool("Clear", true);
         }
         if (GameManager.Instance.isFail)
         {
+            if (!isSE)
+            {
+                audioSource.Stop();
+                isOneShot = true;
+                isSE = true;
+            }
+            if (isOneShot)
+            {
+                audioSource.PlayOneShot(failSE);
+                isOneShot = false;
+            }
             anim.SetBool("Idle", false);
             anim.SetBool("Walk", false);
             anim.SetBool("Over", true);

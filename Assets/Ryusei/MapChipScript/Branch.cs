@@ -7,11 +7,15 @@ public class Branch : MonoBehaviour
     public int branchNum;
     public int branchRot = 0;
     bool branchFlg;
-    
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.rotation = Quaternion.Euler(0, branchRot * 90, 0);
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -22,6 +26,7 @@ public class Branch : MonoBehaviour
         {
             if (Input.GetButtonDown("RB"))
             {
+                audioSource.Play();
                 if (branchRot >= 3) branchRot = 0;
                 else branchRot += 1;
 
@@ -31,6 +36,7 @@ public class Branch : MonoBehaviour
             }
             if (Input.GetButtonDown("LB"))
             {
+                audioSource.Play();
                 if (branchRot <= 0) branchRot = 3;
                 else branchRot -= 1;
 
