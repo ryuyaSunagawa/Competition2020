@@ -13,7 +13,8 @@ public class Cable : MonoBehaviour
     [SerializeField] Material[] materials1;//
     [SerializeField] Material[] materials2;//
 
-	ParticleSystem electroShock = new ParticleSystem();
+	[SerializeField] int eShockCount = 1;
+	ParticleSystem[] electroShock;
 	bool particleIsSet = false;
 
 	public bool hasLight;
@@ -27,11 +28,14 @@ public class Cable : MonoBehaviour
 
         PowerButton = GameObject.FindGameObjectWithTag("PowerButton");
 
-		electroShock = this.GetComponentInChildren<ParticleSystem>();
-		if ( electroShock != null )
+		electroShock = GetComponentsInChildren<ParticleSystem>();
+		
+		if( electroShock.Length > 0 )		//パーティクルの初期処理
 		{
-			electroShock.Stop( true );
-			particleIsSet = true;
+			foreach( ParticleSystem esVal in electroShock )
+			{
+				esVal.Stop( true );
+			}
 		}
 	}
 
@@ -44,18 +48,26 @@ public class Cable : MonoBehaviour
             {
                 MatChange = false;
 				hasLight = false;
-				if ( particleIsSet == true )
+				//パーティクルのストップ
+				if ( electroShock.Length > 0 )
 				{
-					electroShock.Stop( true );
+					foreach( ParticleSystem esVal in electroShock )
+					{
+						esVal.Stop( true );
+					}
 				}
 			}
 			else
 			{
 				MatChange = true;
 				hasLight = true;
-				if ( particleIsSet == true )
+				//パーティクルのスタート
+				if ( electroShock.Length > 0 )
 				{
-					electroShock.Play( true );
+					foreach ( ParticleSystem esVal in electroShock )
+					{
+						esVal.Play( true );
+					}
 				}
 			}
 
