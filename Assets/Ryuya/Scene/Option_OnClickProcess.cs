@@ -58,6 +58,11 @@ public class Option_OnClickProcess : MonoBehaviour
 		SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
 	}
 
+	public void ShowOptionPanel( ReturnManager retMgr )
+	{
+		retMgr.isSelect = true;
+	}
+
 	public void GameEnd()
 	{
 #if UNITY_EDITOR

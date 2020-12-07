@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ReturnManager : MonoBehaviour
 {
+	public Selectable firstSelectable = null;
 	public Button firstButton = null;
 	public Button finishButton = null;
 
@@ -47,7 +48,14 @@ public class ReturnManager : MonoBehaviour
 		{
 			if( myCanvasGroup.alpha >= fadeLimit )
 			{
-				firstButton.Select();
+				if( firstButton != null )
+				{
+					firstButton.Select();
+				}
+				if( firstSelectable != null )
+				{
+					firstSelectable.Select();
+				}
 			} else
 			{
 				finishButton.Select();

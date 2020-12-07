@@ -1104,6 +1104,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &54172308
 Rigidbody:
@@ -1556,6 +1557,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &86550138
 Rigidbody:
@@ -3417,6 +3419,11 @@ PrefabInstance:
       value: FailedCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 2837598605664487662, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837598606093902202, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -9007,6 +9014,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &400886010
 Rigidbody:
@@ -9426,6 +9434,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &420468372
 BoxCollider:
@@ -13821,6 +13830,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &583737058
 BoxCollider:
@@ -15709,6 +15719,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &666669656
 BoxCollider:
@@ -17805,6 +17816,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &752444566
 Rigidbody:
@@ -18088,6 +18100,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &764315248
 BoxCollider:
@@ -20546,6 +20559,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &859447460
 Rigidbody:
@@ -22434,6 +22448,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &959738377
 BoxCollider:
@@ -25183,6 +25198,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1057295924
 BoxCollider:
@@ -25975,6 +25991,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1091932643
 BoxCollider:
@@ -28097,6 +28114,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1201934560
 BoxCollider:
@@ -28384,6 +28402,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &1208610404
 Rigidbody:
@@ -31631,6 +31650,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1328946771
 BoxCollider:
@@ -33550,6 +33570,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1447800330
 BoxCollider:
@@ -33956,6 +33977,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1456876339
 BoxCollider:
@@ -34652,6 +34674,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &1481205288
 Rigidbody:
@@ -44360,6 +44383,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!65 &1895584915
 BoxCollider:
@@ -46279,6 +46303,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!54 &1975078496
 Rigidbody:
