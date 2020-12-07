@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float turnSpeed = 6.0f;   // 回転速度
+    [SerializeField] private float turnSpeed = 2.0f;   // 回転速度
     [SerializeField] private float conTurnSpeed = 2.0f;   // 回転速度
     [SerializeField] private Transform player;         // 注視対象プレイヤー
 
@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
 			
 
             //マウスの処理--------------------------------------------------------------------
-            hRotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * turnSpeed, 0);  //垂直回転
+            hRotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * GameManager.Instance.cameraSensitive, 0);  //垂直回転
 
 			/*****  マウス水平回転補正処理  *****/
 			float mAxisY = Input.GetAxis( "Mouse Y" ) * turnSpeed;	//水平方向マウス移動量取得
@@ -76,7 +76,7 @@ public class CameraController : MonoBehaviour
 			vRotation *= Quaternion.Euler(mAxisY, 0, 0);  //水平回転
 
             //コントローラの処理--------------------------------------------------------------
-            hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * conTurnSpeed, 0);  //垂直回転
+            hRotation *= Quaternion.Euler(0, Input.GetAxis("R_Horizontal") * GameManager.Instance.cameraSensitive, 0);  //垂直回転
 
 			/*****  水平回転補正処理  *****/
 			float cAxisY = Input.GetAxis( "R_Vertical" ) * conTurnSpeed;   //水平方向スティック傾斜量取得

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PauseUIManager : MonoBehaviour
 {
@@ -24,14 +25,17 @@ public class PauseUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if ( ( GameManager.Instance.isPause && !pausing ) ||
-			 ( !GameManager.Instance.isPause && pausing ) )
+		if ( GameManager.Instance.isPause && !pausing )
 		{
-			GameManager.Instance.sleepOption = true;
+			FadeProcess();
+		}
+		else if( !GameManager.Instance.isPause && pausing )
+		{
+			//GameManager.Instance.sleepOption = true;
 			FadeProcess();
 		}
 
-		canvasGroup.blocksRaycasts = GameManager.Instance.isPause;
+		//canvasGroup.blocksRaycasts = GameManager.Instance.isPause;
     }
 
 	void FadeProcess()
@@ -39,12 +43,24 @@ public class PauseUIManager : MonoBehaviour
 		float fadeLimitDelta = Time.unscaledDeltaTime * fadeTime * ( pausing == false ? 1: -1 );
 		canvasGroup.alpha += fadeLimitDelta;
 
-		if( ( !pausing && ( canvasGroup.alpha >= fadeLimit ) ) ||
-			( pausing && ( canvasGroup.alpha <= 0 ) ) )
+		if( !pausing && ( canvasGroup.alpha >= fadeLimit ) ) 
 		{
 			GameManager.Instance.sleepOption = false;
+			GameManager.Instance.isPause = true;
 			pausing = !pausing;
+			//BackGameButton初期設定
+			backGameButton.interactable = true;
 			backGameButton.Select();
+			canvasGroup.blocksRaycasts = true;
+			canvasGroup.interactable = true;
+		}
+		else if( pausing && ( canvasGroup.alpha <= 0 ) )
+		{
+			GameManager.Instance.sleepOption = true;
+			EventSystem.current.currentSelectedGameObject.GetComponent<Selectable>().interactable = false;
+			pausing = !pausing;
+			canvasGroup.blocksRaycasts = false;
+			canvasGroup.interactable = false;
 		}
 	}
 }

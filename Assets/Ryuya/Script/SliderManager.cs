@@ -11,6 +11,7 @@ public class SliderManager : MonoBehaviour
 
 	Slider mySlider;
 	[SerializeField] Image backPanel;
+	[SerializeField] Text valueText;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +32,17 @@ public class SliderManager : MonoBehaviour
 	public void DeSelect()
 	{
 		backPanel.color = deselectColor;
+	}
+
+	public void ChangeVolume()
+	{
+		GameManager.Instance.soundVolume = ( mySlider.value / 100f ) * 2.0f;
+		valueText.text = ((int)mySlider.value).ToString();
+	}
+
+	public void ChangeSensitive()
+	{
+		GameManager.Instance.cameraSensitive = mySlider.value;
+		valueText.text = ( (int)mySlider.value ).ToString();
 	}
 }

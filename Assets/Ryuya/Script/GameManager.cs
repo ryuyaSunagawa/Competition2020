@@ -75,6 +75,33 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
+	//カメラ回転感度
+	float _cameraSensitive = 5f;
+	public float cameraSensitive
+	{
+		set
+		{
+			_cameraSensitive = value;
+		}
+		get
+		{
+			return _cameraSensitive;
+		}
+	}
+
+	//音量
+	float _soundVolume = 1f;
+	public float soundVolume
+	{
+		set
+		{
+			_soundVolume = value;
+		}
+		get
+		{
+			return _soundVolume;
+		}
+	}
 	
 	//シーン
 	string _nowScene = "TitleScene";
@@ -106,6 +133,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		LoadUserState.Instance.Delete();
 		LoadUserState.Instance.SetPlayerData( 2 );
 		LoadUserState.Instance.Save();
+		GameManager.Instance.soundVolume = 1f;
+		GameManager.Instance.cameraSensitive = 5f;
     }
 
     // Update is called once per frame
@@ -130,17 +159,16 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			//カーソルロックの解除
 			Cursor.lockState = CursorLockMode.None;
 		}
-		else if ( _isPlaying && _isPause && !_isClear && !_isFail && ( Input.GetButtonDown( "Cancel" ) && !sleepOption ) )
+		else if ( !_isPause && _sleepOption )
 		{
-			_isPause = false;
+			//タイムスケールの設定
 			Time.timeScale = 1f;
-			//sleepOption = false;
-
-			Debug.Log( "out" );
 			//カーソルのロック
 			Cursor.lockState = CursorLockMode.Locked;
+
+			sleepOption = false;
+			Debug.Log( "out" );
 		}
-		//Debug.Log( sleepOption );
 	}
 
 	public void ChangeScene( string stageName, bool wantAddPause )
