@@ -3421,7 +3421,7 @@ PrefabInstance:
     - target: {fileID: 2837598605664487662, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2837598606093902202, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
         type: 3}
@@ -37099,7 +37099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8943b06cedaa4814daa924a18fe1dabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 6
+  turnSpeed: 2
   conTurnSpeed: 2
   player: {fileID: 278216936}
   distance: 25

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     Animator anim;
 
     public bool clear;
+	float beforeVolume = 0f;
 
     //音-----------------------------------
     AudioSource audioSource;
@@ -24,12 +25,24 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-       anim = GetComponent<Animator>();
+	    anim = GetComponent<Animator>();
 
-       audioSource = GetComponent<AudioSource>();
+		audioSource = GetComponent<AudioSource>();
+		audioSource.volume = GameManager.Instance.soundVolume;
+		beforeVolume = GameManager.Instance.soundVolume;
     }
-    
-    void FixedUpdate()
+
+	private void Update()
+	{
+		if( beforeVolume != GameManager.Instance.soundVolume )
+		{
+			audioSource.volume = GameManager.Instance.soundVolume;
+			beforeVolume = GameManager.Instance.soundVolume;
+			Debug.Log( GameManager.Instance.soundVolume );
+		}
+	}
+
+	void FixedUpdate()
     {
         if (refCamera.startZoom && ( !GameManager.Instance.isClear && !GameManager.Instance.isFail ) ) //最初のズーム処理が終わったら動かせるようになる
         {
