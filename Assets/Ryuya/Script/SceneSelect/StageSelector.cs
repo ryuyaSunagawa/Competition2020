@@ -16,7 +16,7 @@ public class StageSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		GetComponentInChildren<Text>().text = stageName;
     }
 
     // Update is called once per frame

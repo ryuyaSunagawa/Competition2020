@@ -23,6 +23,11 @@ public class SSOverviewManager : MonoBehaviour
 
 	[SerializeField] Text stageNameText = null;
 
+	[SerializeField] Text conditionText1 = null;
+	[SerializeField] Text conditionText2 = null;
+	[SerializeField] Text conditionText3 = null;
+	[SerializeField] Text summaryText = null;
+
 	[HideInInspector] public StageSelector ss = null;
     // Start is called before the first frame update
     void Start()
@@ -44,6 +49,10 @@ public class SSOverviewManager : MonoBehaviour
 			if( isSelect != difFirstFlg )
 			{
 				stageNameText.text = ss.stageName;
+				summaryText.text = ss.stageSummary;
+				conditionText1.text = ss.star1Text;
+				conditionText2.text = ss.star2Text;
+				conditionText3.text = ss.star3Text;
 				difFirstFlg = isSelect;
 			}
 			FadeProcess();
@@ -68,6 +77,7 @@ public class SSOverviewManager : MonoBehaviour
 			myCanvasGroup.interactable = false;
 			myCanvasGroup.blocksRaycasts = false;
 			difFlg = isSelect;
+			difFirstFlg = isSelect;
 		}
 	}
 }
