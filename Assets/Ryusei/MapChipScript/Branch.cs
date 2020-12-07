@@ -10,12 +10,22 @@ public class Branch : MonoBehaviour
 
     AudioSource audioSource;
 
+    int changeColor;
+    int beforeColor;
+
+    MeshRenderer meshRenderer;//
+    bool MatChange = false;//
+    [SerializeField] Material[] materials1;//
+    [SerializeField] Material[] materials2;//
+
     // Start is called before the first frame update
     void Start()
     {
         transform.rotation = Quaternion.Euler(0, branchRot * 90, 0);
 
         audioSource = gameObject.GetComponent<AudioSource>();
+
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -45,6 +55,20 @@ public class Branch : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, branchRot * 90, 0);
             }
         }
+
+        if (beforeColor != changeColor)
+        {
+            if (changeColor == 0)
+            {
+                MatChange = false;
+            }
+            else
+            {
+                MatChange = true;
+            }
+        }
+        beforeColor = changeColor;
+        meshRenderer.materials = MatChange ? materials2 : materials1;//
     }
 
     void OnTriggerEnter(Collider other)
@@ -52,6 +76,7 @@ public class Branch : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             branchFlg = true;
+            changeColor = 1;
         }
     }
 
@@ -60,6 +85,7 @@ public class Branch : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             branchFlg = false;
+            changeColor = 0;
         }
     }
 }

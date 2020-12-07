@@ -127,6 +127,7 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
 --- !u!1 &3976290697366340015
 GameObject:
@@ -224,7 +225,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.025, y: 0.001, z: 0.025}
+  m_Size: {x: 0.025, y: 0.002, z: 0.025}
   m_Center: {x: 0, y: 0.0005, z: 0}
 --- !u!114 &4669992930480381135
 MonoBehaviour:
@@ -240,6 +241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   branchNum: 0
   branchRot: 0
+  materials1:
+  - {fileID: 2100000, guid: c71d7faa83771454fb05e7fea83c54a2, type: 2}
+  materials2:
+  - {fileID: 2100000, guid: 9d5226e91f4308245bed7f88f4c8df66, type: 2}
 --- !u!82 &6793578255286139069
 AudioSource:
   m_ObjectHideFlags: 0
@@ -250,7 +255,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b41e1032b84f8b34caafef3db46fe1e5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d208e200820b3ad42bbb3ad5601a30f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -476,4 +481,5 @@ MonoBehaviour:
   - {fileID: -1580535799172915004, guid: 00c6c5947797aed47907c610446d4f08, type: 3}
   materials2:
   - {fileID: 2100000, guid: 8922a30a473459c43957c4664f56eaa0, type: 2}
+  eShockCount: 1
   hasLight: 0
