@@ -117,6 +117,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
+	//カメラ回転判定
 	public bool canCameraRotate
 	{
 		get
@@ -125,6 +126,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
+	//ステージ情報格納
+	public SceneInformation sceneInformation
+	{
+		set; get;
+	}
+	
 	// Start is called before the first frame update
 	void Start()
     {
@@ -133,7 +140,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		LoadUserState.Instance.Delete();
 		LoadUserState.Instance.SetPlayerData( 2 );
 		LoadUserState.Instance.Save();
-		GameManager.Instance.soundVolume = 1f;
+		GameManager.Instance.soundVolume = 0.5f;
 		GameManager.Instance.cameraSensitive = 5f;
     }
 

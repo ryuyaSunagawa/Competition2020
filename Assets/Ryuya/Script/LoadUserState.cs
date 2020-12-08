@@ -29,6 +29,86 @@ public class LoadUserState : ISerializationCallbackReceiver
 	[SerializeField] public int progressedStageNum;		//ステージ進行度
 	[SerializeField] public int stageVolume;			//ステージ数
 	[SerializeField] public List<int> stageStarNum = new List<int>(6) { 0, 0, 0, 0, 0, 0 };		//スター獲得量
+	[SerializeField] public List<bool> gotStar1 = new List<bool>(6) { false, false, false, false, false, false };		//スター獲得量
+	[SerializeField] public List<bool> gotStar2 = new List<bool>(6) { false, false, false, false, false, false };		//スター獲得量
+	[SerializeField] public List<bool> gotStar3 = new List<bool>(6) { false, false, false, false, false, false };       //スター獲得量
+
+	//[Serializable]
+	//public struct StageInformation
+	//{
+	//	public int stageNumber;
+	//	public string stageName;
+	//	public string stageSceneName;
+	//	public string stageSummary;
+	//	public string star1Text;
+	//	public string star2Text;
+	//	public string star3Text;
+	//};
+
+	[SerializeField]
+	public List<SceneInformation> stageInfo = new List<SceneInformation>( 3 ) {
+		new SceneInformation{
+			stageNumber = 1,
+			stageName = "ハロウィン",
+			stageSceneName = "Halloween" ,
+			stageSummary = "ハロウィンの会場に灯りをともそう!",
+			star1Text = "お城に灯りをともす",
+			star2Text = "5つあるかぼちゃに灯りをともそう",
+			star3Text = "回転盤を?回転以内でクリア"
+		},
+		new SceneInformation{
+			stageNumber = 2,
+			stageName = "秋祭り",
+			stageSceneName = "Akimaturi" ,
+			stageSummary = "お祭りの会場に灯りをともそう!",
+			star1Text = "右の大きい屋台に灯りをともす",
+			star2Text = "左の小さい屋台2つに灯りをともす",
+			star3Text = "回転盤を?回転以内でクリア"
+		},
+		new SceneInformation{
+			stageNumber = 3,
+			stageName = "クリスマス",
+			stageSceneName = "Christmas" ,
+			stageSummary = "クリスマスの会場に灯りをともそう!",
+			star1Text = "クリスマスツリーに灯りをともす",
+			star2Text = "小さな雪だるまに灯りをともす",
+			star3Text = "回転盤を?回転以内でクリア"
+		},
+	};
+
+	//[SerializeField] public List<StageSelector> stageInformation = new List<StageSelector>( 3 )
+	//{
+	//	new StageSelector{
+	//		stageNumber = 1,
+	//		stageName = "ハロウィン",
+	//		stageSceneName = "Halloween" ,
+	//		stageSummary = "ハロウィンの会場に灯りをともそう!",
+	//		star1Text = "お城に灯りをともす",
+	//		star2Text = "5つあるかぼちゃに灯りをともそう",
+	//		star3Text = "回転盤を?回転以内でクリア"
+	//	},
+	//	new StageSelector{
+	//		stageNumber = 2,
+	//		stageName = "秋祭り",
+	//		stageSceneName = "Akimaturi" ,
+	//		stageSummary = "お祭りの会場に灯りをともそう!",
+	//		star1Text = "右の大きい屋台に灯りをともす",
+	//		star2Text = "左の小さい屋台2つに灯りをともす",
+	//		star3Text = "回転盤を?回転以内でクリア"
+	//	},
+	//	new StageSelector{
+	//		stageNumber = 3,
+	//		stageName = "クリスマス",
+	//		stageSceneName = "Christmas" ,
+	//		stageSummary = "クリスマスの会場に灯りをともそう!",
+	//		star1Text = "クリスマスツリーに灯りをともす",
+	//		star2Text = "小さな雪だるまに灯りをともす",
+	//		star3Text = "回転盤を?回転以内でクリア"
+	//	},
+	//};
+
+	//[SerializeField] public StageSelector ss = new StageSelector();
+	//[SerializeField] public StageSelector ss = new StageSelector{ stageName = "ahan" };
 
 	//-------------------------------------------
 	//シリアライズ・デシリアライズ時コールバック
@@ -36,7 +116,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 
 	/// <summary>
 	/// json->Loadに変換された後に実行
-	
+
 	/// </summary>
 	public void OnAfterDeserialize()
 	{

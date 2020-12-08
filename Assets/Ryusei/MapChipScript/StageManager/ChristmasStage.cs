@@ -56,6 +56,7 @@ public class ChristmasStage : MonoBehaviour
         }
 
         goalLightScript = goalLight.GetComponent<NoRenderGoalLight>();
+		GameManager.Instance.sceneInformation = LoadUserState.Instance.stageInfo[ 2 ];
     }
 
     // Update is called once per frame

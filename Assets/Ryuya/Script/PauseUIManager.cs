@@ -15,11 +15,18 @@ public class PauseUIManager : MonoBehaviour
 	[SerializeField] Button backGameButton;
 	float fadeVar = 0f;
 
+	[SerializeField] Text conditionText1;
+	[SerializeField] Text conditionText2;
+	[SerializeField] Text conditionText3;
+
     // Start is called before the first frame update
     void Start()
     {
 		canvasGroup.alpha = 0f;
 		canvasGroup.blocksRaycasts = false;
+		conditionText1.text = GameManager.Instance.sceneInformation.star1Text;
+		conditionText2.text = GameManager.Instance.sceneInformation.star2Text;
+		conditionText3.text = GameManager.Instance.sceneInformation.star3Text;
     }
 
     // Update is called once per frame
