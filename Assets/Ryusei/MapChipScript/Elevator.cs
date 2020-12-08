@@ -9,7 +9,6 @@ public class Elevator : MonoBehaviour
     bool ElectricFlg;
     Vector3 FirstPosition;
 
-    [SerializeField] GameObject player;
     [SerializeField] GameObject left;
 
     float time;     //エレベータの扉が閉まるのを待つ時間
@@ -35,10 +34,9 @@ public class Elevator : MonoBehaviour
         //Debug.Log("ElectricFlg" + ElectricFlg);
         //Debug.Log(timerFlg);
 
-        if (timerFlg) time += Time.deltaTime;  //扉が閉まるのを待ってから動く
-
         if (ElevatorFlg && ElectricFlg)
-        { 
+        {
+            if (timerFlg) time += Time.deltaTime;  //扉が閉まるのを待ってから動く
             //if (Input.GetMouseButtonDown(0))
             //{
             //    timerFlg = true;
@@ -50,7 +48,7 @@ public class Elevator : MonoBehaviour
             //    //}
             //}
 
-            if (2.0f < time)
+            if (1.0f < time)
             {
                 if (UpDownFlg == false) UpDownFlg = true; //昇降
                 else if (UpDownFlg == true) UpDownFlg = false; //昇降

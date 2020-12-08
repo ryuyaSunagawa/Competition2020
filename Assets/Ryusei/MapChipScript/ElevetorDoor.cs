@@ -15,6 +15,8 @@ public class ElevetorDoor : MonoBehaviour
 
     float openTime;
 
+    bool isOne;
+
     void Start()
     {
         SkinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
@@ -24,7 +26,6 @@ public class ElevetorDoor : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(player);
         if (player)
         {
             openTime += Time.deltaTime;
@@ -70,14 +71,19 @@ public class ElevetorDoor : MonoBehaviour
         //}
         if (!ElectricFlg || player)
         {
-            doorCollider.enabled = doorCollider.enabled;
-            animator.SetBool("open", false);
-            animator.SetBool("close", true);
-        }else if (ElectricFlg)
+                Debug.Log("乗ってる");
+                doorCollider.enabled = doorCollider.enabled;
+                animator.SetBool("open", false);
+                animator.SetBool("close", true);
+        }
+        else if (ElectricFlg)
         {
-            doorCollider.enabled = !doorCollider.enabled;
-            animator.SetBool("open", true);
-            animator.SetBool("close", false);
+
+                Debug.Log("乗ってない");
+                doorCollider.enabled = !doorCollider.enabled;
+                animator.SetBool("open", true);
+                animator.SetBool("close", false);
+
         }
 
     }
