@@ -11,6 +11,9 @@ public class NoRenderMiniLight : MonoBehaviour
 
     int childCount; //子オブジェクトの数
     [SerializeField]GameObject[] childObject;
+	[SerializeField] ParticleSystem steam;
+	Material normalMat;
+	[SerializeField] Material emittionMat;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class NoRenderMiniLight : MonoBehaviour
         {
             childObject[i] = transform.GetChild(i).gameObject;
         }
+		normalMat = GetComponent<MeshRenderer>().materials[ 0 ];
     }
 
     // Update is called once per frame
@@ -33,6 +37,8 @@ public class NoRenderMiniLight : MonoBehaviour
                 {
                     childObject[i].GetComponentInChildren<Light>().enabled = false;
                 }
+				GetComponent<MeshRenderer>().materials[ 0 ] = normalMat;
+				if( steam != null )	steam.Stop( true );
                 hasLight = false;
             }
             else
@@ -40,8 +46,10 @@ public class NoRenderMiniLight : MonoBehaviour
                 for (int i = 0; i < childCount; i++)
                 {
                     childObject[i].GetComponentInChildren<Light>().enabled = true;
-                }
-                hasLight = true;
+				}
+				GetComponent<MeshRenderer>().materials[ 0 ] = emittionMat;
+				hasLight = true;
+				if( steam != null )	steam.Play( true );
             }
 
         }
