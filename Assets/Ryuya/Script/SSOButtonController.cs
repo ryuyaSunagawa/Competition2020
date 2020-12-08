@@ -9,11 +9,13 @@ public class SSOButtonController : MonoBehaviour
 	{
 		ssom.isSelect = false;
 	}
-
+	
 	public void StartClicked( SSOverviewManager ssom )
 	{
 		SceneManager.LoadScene( ssom.ss.stageSceneName );
 		GameManager.Instance.nowScene = ssom.ss.stageSceneName;
+		//ステージ情報格納 
+		//GameManager.Instance.nowStageInfo = ssom.ss;
 		if ( ssom.ss.stageSceneName != "StageSelectScene" && ssom.ss.stageSceneName != "TitleScene" )
 		{
 			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );

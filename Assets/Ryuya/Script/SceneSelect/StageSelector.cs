@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class StageSelector : MonoBehaviour
 {
 	[Header( "ステージ番号" )]				public int stageNumber = 0;
@@ -16,6 +17,15 @@ public class StageSelector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		//ステージ情報取得
+		stageName = LoadUserState.Instance.stageInfo[ stageNumber - 1 ].stageName;
+		stageSceneName = LoadUserState.Instance.stageInfo[ stageNumber - 1 ].stageSceneName;
+		stageSummary = LoadUserState.Instance.stageInfo[ stageNumber - 1 ].stageSummary;
+		star1Text = LoadUserState.Instance.stageInfo[ stageNumber - 1 ].star1Text;
+		star2Text = LoadUserState.Instance.stageInfo[ stageNumber - 1 ].star2Text;
+		star3Text = LoadUserState.Instance.stageInfo[ stageNumber - 1 ].star3Text;
+
+		//ステージ名
 		GetComponentInChildren<Text>().text = stageName;
     }
 

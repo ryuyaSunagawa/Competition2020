@@ -81,6 +81,8 @@ public class AkimaturiStage : MonoBehaviour
         {
             goalLightScript[i] = goalLight[i].GetComponent<NoRenderGoalLight>();
         }
+
+		GameManager.Instance.sceneInformation = LoadUserState.Instance.stageInfo[ 1 ];
     }
 
     // Update is called once per frame

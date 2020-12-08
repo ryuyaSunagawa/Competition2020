@@ -56,6 +56,7 @@ public class HalloweenStage : MonoBehaviour
         }
 
         goalLightScript = goalLight.GetComponent<GoalLight>();
+		GameManager.Instance.sceneInformation = LoadUserState.Instance.stageInfo[ 0 ];
     }
 
     // Update is called once per frame
