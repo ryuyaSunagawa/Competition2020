@@ -47,6 +47,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
+	//失敗オブジェクトに配線した場合のフラグ
+	private bool _isConnectFailObject = false;
+	public bool isConnectFailureObject
+	{
+		set
+		{
+			_isConnectFailObject = value;
+		}
+		get
+		{
+			return _isConnectFailObject;
+		}
+	}
+
 	//クリア画面フラグ
 	bool _isClear = false;
 	public bool isClear

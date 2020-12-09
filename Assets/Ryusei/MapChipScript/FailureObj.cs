@@ -10,16 +10,36 @@ public class FailureObj : MonoBehaviour
 
 	bool failFlg = false;
 
+	[SerializeField] ParticleSystem tinyFire;
+	[SerializeField] ParticleSystem bigFire;
+	float playbackTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        //stageManager = GameObject.FindGameObjectWithTag("StageManager");
-        //failureScript = stageManager.GetComponent<Failure>();
+		//stageManager = GameObject.FindGameObjectWithTag("StageManager");
+		//failureScript = stageManager.GetComponent<Failure>();
+
+		tinyFire.Stop( true );
+		bigFire.Stop( true );
     }
 
     // Update is called once per frame
     void Update()
     {
+		if( failFlg )
+		{
+			if( !tinyFire.isPlaying )
+			{
+				tinyFire.Play( true );
+			}
+			playbackTime += Time.deltaTime;
+
+			if( !bigFire.isPlaying && ( playbackTime >= 5f ) )
+			{
+				bigFire.Play( true );
+			}
+		}
 	}
 
     private void OnTriggerStay(Collider other)
