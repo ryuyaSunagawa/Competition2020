@@ -14,15 +14,21 @@ public class Elevator : MonoBehaviour
     float time;     //エレベータの扉が閉まるのを待つ時間
     bool timerFlg;  //timeを動かすためのフラグ
 
+    BoxCollider[] col;
+    bool isCol;
+    float colTimer;
+    bool colTimerFlg;  //colTimerを動かすためのフラグ
+
     // Start is called before the first frame update
     void Start()
     {
         FirstPosition = this.transform.position;
         //Vector3 world = transform.TransformPosition;
+        col = GetComponents<BoxCollider>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //if (transform.position.y >= player.transform.position.y)
         //{
@@ -36,17 +42,22 @@ public class Elevator : MonoBehaviour
 
         if (ElevatorFlg && ElectricFlg)
         {
-            if (timerFlg) time += Time.deltaTime;  //扉が閉まるのを待ってから動く
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    timerFlg = true;
+            if (colTimerFlg) colTimer += Time.deltaTime;  //エレベータ出入口壁の当たり判定を消す
+            if (3.5f < colTimer)
+            {
+                col[3].enabled = false;
+                col[4].enabled = false;
+                colTimer = 0;
+                colTimerFlg = false;
+            }
+            if (isCol)
+            {
+                col[3].enabled = true;
+                col[4].enabled = true;
+                isCol = false;
+            }
 
-            //    //if (1 < time)
-            //    //{
-            //    //    if (UpDownFlg == false) UpDownFlg = true; //昇降
-            //    //    else if (UpDownFlg == true) UpDownFlg = false; //昇降
-            //    //}
-            //}
+            if (timerFlg) time += Time.deltaTime;  //扉が閉まるのを待ってから動く
 
             if (1.0f < time)
             {
@@ -66,7 +77,7 @@ public class Elevator : MonoBehaviour
     {
         if (transform.position.y <= FirstPosition.y + 5.0f)
         {
-            transform.position += new Vector3(0, 0.03f, 0);
+            transform.position += new Vector3(0, 0.05f, 0);
         }
     }
 
@@ -74,7 +85,7 @@ public class Elevator : MonoBehaviour
     {
         if (FirstPosition.y <= transform.position.y)
         {
-            transform.position += new Vector3(0, -0.03f, 0);
+            transform.position += new Vector3(0, -0.05f, 0);
 
         }
     }
@@ -85,6 +96,8 @@ public class Elevator : MonoBehaviour
         {
             ElevatorFlg = true;
             timerFlg = true;
+            colTimerFlg = true;
+            isCol = true;
         }
     }
 

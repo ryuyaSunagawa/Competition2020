@@ -10,8 +10,9 @@ public class ElevetorDoor : MonoBehaviour
     int start = 0;
     bool ElectricFlg;
 
-    Collider doorCollider;
-    bool player;
+    //Collider doorCollider;
+    BoxCollider[] coll;
+    bool playerHit;
 
     float openTime;
 
@@ -21,18 +22,19 @@ public class ElevetorDoor : MonoBehaviour
     {
         SkinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         animator = GetComponent<Animator>();
-        doorCollider = GetComponent<Collider>();
+        //doorCollider = GetComponent<Collider>();
+        coll = GetComponents<BoxCollider>();
     }
 
     void Update()
     {
-        if (player)
+        if (playerHit)
         {
             openTime += Time.deltaTime;
         }
         if(openTime >= 3.0f)
         {
-            player = false;
+            playerHit = false;
             openTime = 0;
         }
 
@@ -69,20 +71,19 @@ public class ElevetorDoor : MonoBehaviour
         //        animator.SetBool("close", false);
         //    }
         //}
-        if (!ElectricFlg || player)
+        if (!ElectricFlg || playerHit)
         {
-                Debug.Log("乗ってる");
-                doorCollider.enabled = doorCollider.enabled;
-                animator.SetBool("open", false);
-                animator.SetBool("close", true);
+            //doorCollider.enabled = doorCollider.enabled;
+            coll[0].enabled = true;
+            animator.SetBool("open", false);
+            animator.SetBool("close", true);
         }
         else if (ElectricFlg)
         {
-
-                Debug.Log("乗ってない");
-                doorCollider.enabled = !doorCollider.enabled;
-                animator.SetBool("open", true);
-                animator.SetBool("close", false);
+            //doorCollider.enabled = !doorCollider.enabled;
+            coll[0].enabled = false;
+            animator.SetBool("open", true);
+            animator.SetBool("close", false);
 
         }
 
@@ -104,7 +105,7 @@ public class ElevetorDoor : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            player = true;
+            playerHit = true;
         }
     }
 
@@ -112,7 +113,7 @@ public class ElevetorDoor : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            player = false;
+            playerHit = false;
         }
     }
 }
