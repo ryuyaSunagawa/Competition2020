@@ -126,6 +126,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		}
 	}
 
+	//ステージ内スター表示フラグ
+	private bool _displayStarFlg = false;
+	public bool displayStarFlg
+	{
+		//set
+		//{
+		//	_displayStarFlg = value;
+		//}
+		get
+		{
+			return ( !_isClear && !_isFail && !_isPause ) ? true : false;
+		}
+	}
+
 	//ステージ情報格納
 	public SceneInformation sceneInformation
 	{
