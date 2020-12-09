@@ -15,15 +15,24 @@ public class SceneStarUI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-		for( int i = 1; i <= 3; i++ )
-		{
-			if ( halloweenStage.star >= i )
+	// Update is called once per frame
+	void Update()
+	{
+		if ( GameManager.Instance.displayStarFlg ) {
+			for ( int i = 1; i <= 3; i++ )
 			{
-				starImg[ i - 1 ].enabled = true;
-			} else
+				if ( halloweenStage.star >= i )
+				{
+					starImg[ i - 1 ].enabled = true;
+				}
+				else
+				{
+					starImg[ i - 1 ].enabled = false;
+				}
+			}
+		} else if( !GameManager.Instance.displayStarFlg )
+		{
+			for ( int i = 1; i <= 3; i++ )
 			{
 				starImg[ i - 1 ].enabled = false;
 			}
