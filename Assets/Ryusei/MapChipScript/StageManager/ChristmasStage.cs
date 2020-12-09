@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChristmasStage : MonoBehaviour
 {
-    const int MINILIGHT = 2;    //このステージのミニライト数
+    const int MINILIGHT = 1;    //このステージのミニライト数
     const int BRANCH = 4;       //このステージの回転盤の数
     const int BRANCHLIMIT = 5;  //このステージで星獲得のために回転盤を回してもいい回数
     const int STAR = 3;         //スターの最大数
@@ -14,7 +14,7 @@ public class ChristmasStage : MonoBehaviour
     const int STAGE = 1;        //このステージの番号
     //ミニライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] miniLight;
-    MiniLight[] miniLightScript = new MiniLight[MINILIGHT];
+    NoRenderMiniLight[] miniLightScript = new NoRenderMiniLight[MINILIGHT];
 
     int lightNum = 0;
 
@@ -47,7 +47,7 @@ public class ChristmasStage : MonoBehaviour
         for (int i = 0; i < MINILIGHT; i++)
         {
             //missionLight[i] = GameObject.FindGameObjectWithTag("MiniLight");
-            miniLightScript[i] = miniLight[i].GetComponent<MiniLight>();
+            miniLightScript[i] = miniLight[i].GetComponent<NoRenderMiniLight>();
         }
 
         for (int i = 0; i < BRANCH; i++)
@@ -65,7 +65,6 @@ public class ChristmasStage : MonoBehaviour
         //Debug.Log("star"+star);
         //Debug.Log("lightnum"+lightNum);
         //Debug.Log("branchTrun" + branchTurn);
-
         //ミニライトがいくつ点灯しているか取得
         for (int i = 0; i < MINILIGHT; i++)
         {
@@ -125,14 +124,19 @@ public class ChristmasStage : MonoBehaviour
             //クリアアニメーション
             player.clear = true;
 
-            //クリア評価処理(ClearCanvasControllerへ)
-            clearCanvas.ClearRate(star);
-
-            //ステージ情報保存
-            LoadUserState.Instance.SetPlayerData(1);
-            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
-            LoadUserState.Instance.Save();
+            Invoke("DelayMethod", 0.1f);
         }
+    }
+
+    void DelayMethod()
+    {
+        //クリア評価処理(ClearCanvasControllerへ)
+        clearCanvas.ClearRate(star);
+
+        //ステージ情報保存
+        LoadUserState.Instance.SetPlayerData(1);
+        LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+        LoadUserState.Instance.Save();
     }
 
     private void OnEnable()
