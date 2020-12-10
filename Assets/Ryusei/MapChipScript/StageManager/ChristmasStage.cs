@@ -114,33 +114,37 @@ public class ChristmasStage : MonoBehaviour
         }
 
         //ゴールライトがついたかどうか
-        if (goalLightScript.hasLight && hasGoalLightStar && !GameManager.Instance.isFail)
+        if (goalLightScript.hasLight && hasGoalLightStar)
         {
+            //クリスマスステージはクリアと火薬に着火が同時にできるのでゴール判定を遅らせる
             Invoke("DelayMethod", 0.2f);
         }
     }
 
     void DelayMethod()
     {
+        //クリスマスステージはクリアと火薬に着火が同時にできるのでゴール判定を遅らせる
+        if (!GameManager.Instance.isFail)
+        {
+            ++star;
+            hasGoalLightStar = false;
 
-        ++star;
-        hasGoalLightStar = false;
-
-        //ズームアウトして回転させる
-        refCamera.goalZoomOut = true;
-        //クリアアニメーション
-        player.clear = true;
-
-
-
-        //クリア評価処理(ClearCanvasControllerへ)
-        clearCanvas.ClearRate(star);
+            //ズームアウトして回転させる
+            refCamera.goalZoomOut = true;
+            //クリアアニメーション
+            player.clear = true;
 
 
-        //ステージ情報保存
-        LoadUserState.Instance.SetPlayerData(1);
-        LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
-        LoadUserState.Instance.Save();
+
+            //クリア評価処理(ClearCanvasControllerへ)
+            clearCanvas.ClearRate(star);
+
+
+            //ステージ情報保存
+            LoadUserState.Instance.SetPlayerData(1);
+            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+            LoadUserState.Instance.Save();
+        }
     }
 
     private void OnEnable()

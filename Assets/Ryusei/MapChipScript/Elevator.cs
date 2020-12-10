@@ -20,42 +20,44 @@ public class Elevator : MonoBehaviour
 
     [SerializeField] Player playerScript;
 
+    //音-----------------------------------
+    AudioSource audioSource;
+    public AudioClip powerSE;
+    public AudioClip operationSE;
+    bool isPowerOneShot;
+    bool isOperatopnOneShot;
+    float resetTimer; //回転盤を切り替えるたびにポンポンなるのを防ぐ
+
     // Start is called before the first frame update
     void Start()
     {
         FirstPosition = this.transform.position;
-        //Vector3 world = transform.TransformPosition;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //if (transform.position.y >= player.transform.position.y)
-        //{
-        //    UpDownFlg = true;
-        //    ElevatorFlg = true;
-        //    Down();
-        //}
-        //Debug.Log("ElevatorFlg" + ElevatorFlg);
-        //Debug.Log("ElectricFlg" + ElectricFlg);
-        //Debug.Log(timerFlg);
-
         if (ElevatorFlg && ElectricFlg)
         {
             if (colTimerFlg) colTimer += Time.deltaTime;  //エレベータ出入口壁の当たり判定を消す
             if (3.5f < colTimer)
             {
                 playerScript.isElebator = false;
-                //col[3].enabled = false;
-                //col[4].enabled = false;
                 colTimer = 0;
                 colTimerFlg = false;
             }
             if (isCol)
             {
-                //col[3].enabled = true;
-                //col[4].enabled = true;
                 isCol = false;
+
+                isOperatopnOneShot = true;  //エレベータ稼働SEを1回だけならす
+
+                if (isOperatopnOneShot)
+                {
+                    audioSource.PlayOneShot(operationSE);
+                    isOperatopnOneShot = false;
+                }
             }
 
             if (timerFlg) time += Time.deltaTime;  //扉が閉まるのを待ってから動く
@@ -85,7 +87,7 @@ public class Elevator : MonoBehaviour
     void Down()
     {
         if (FirstPosition.y <= transform.position.y)
-        {
+        { 
             transform.position += new Vector3(0, -0.05f, 0);
 
         }
@@ -115,10 +117,20 @@ public class Elevator : MonoBehaviour
     {
         if (other.gameObject.tag == "EnergizedOn")
         {
+            if (isPowerOneShot)
+            {
+                audioSource.PlayOneShot(powerSE);
+                isPowerOneShot = false;
+            }
             ElectricFlg = true;
+
+            resetTimer = 0;
         }
         else if (other.gameObject.tag == "EnergizedOff")
         {
+            resetTimer += Time.deltaTime;
+
+            if (!isPowerOneShot && resetTimer >= 0.8f) isPowerOneShot = true;
             ElectricFlg = false;
         }
     }
