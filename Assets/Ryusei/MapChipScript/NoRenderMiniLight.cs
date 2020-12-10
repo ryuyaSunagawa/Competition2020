@@ -23,6 +23,7 @@ public class NoRenderMiniLight : MonoBehaviour
         {
             childObject[i] = transform.GetChild(i).gameObject;
         }
+		steam.Stop( true );
 		normalMat = GetComponent<MeshRenderer>().materials[ 0 ];
     }
 

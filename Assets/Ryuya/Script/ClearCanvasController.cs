@@ -91,7 +91,7 @@ public class ClearCanvasController : MonoBehaviour
 		}
 
 		//カーソルのロック解除
-		Cursor.lockState = CursorLockMode.None;
+		//Cursor.lockState = CursorLockMode.None;
 		//クリアフラグ有効化
 		clearFlg = true;
 		GameManager.Instance.isClear = true;
