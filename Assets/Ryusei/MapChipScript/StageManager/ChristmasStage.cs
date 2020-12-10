@@ -114,24 +114,28 @@ public class ChristmasStage : MonoBehaviour
         }
 
         //ゴールライトがついたかどうか
-        if (goalLightScript.hasLight && hasGoalLightStar)
+        if (goalLightScript.hasLight && hasGoalLightStar && !GameManager.Instance.isFail)
         {
-            ++star;
-            hasGoalLightStar = false;
-
-            //ズームアウトして回転させる
-            refCamera.goalZoomOut = true;
-            //クリアアニメーション
-            player.clear = true;
-
-            Invoke("DelayMethod", 0.1f);
+            Invoke("DelayMethod", 0.2f);
         }
     }
 
     void DelayMethod()
     {
+
+        ++star;
+        hasGoalLightStar = false;
+
+        //ズームアウトして回転させる
+        refCamera.goalZoomOut = true;
+        //クリアアニメーション
+        player.clear = true;
+
+
+
         //クリア評価処理(ClearCanvasControllerへ)
         clearCanvas.ClearRate(star);
+
 
         //ステージ情報保存
         LoadUserState.Instance.SetPlayerData(1);
