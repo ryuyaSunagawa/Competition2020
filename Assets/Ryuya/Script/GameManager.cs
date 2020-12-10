@@ -168,7 +168,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		LoadUserState.Instance.Delete();
 		LoadUserState.Instance.SetPlayerData( 2 );
 		LoadUserState.Instance.Save();
-		GameManager.Instance.soundVolume = 0.5f;
+		GameManager.Instance.soundVolume = 0.2f;
 		GameManager.Instance.cameraSensitive = 5f;
     }
 
