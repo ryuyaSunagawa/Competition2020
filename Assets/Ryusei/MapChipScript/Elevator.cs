@@ -14,17 +14,17 @@ public class Elevator : MonoBehaviour
     float time;     //エレベータの扉が閉まるのを待つ時間
     bool timerFlg;  //timeを動かすためのフラグ
 
-    BoxCollider[] col;
     bool isCol;
     float colTimer;
     bool colTimerFlg;  //colTimerを動かすためのフラグ
+
+    [SerializeField] Player playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         FirstPosition = this.transform.position;
         //Vector3 world = transform.TransformPosition;
-        col = GetComponents<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -45,15 +45,16 @@ public class Elevator : MonoBehaviour
             if (colTimerFlg) colTimer += Time.deltaTime;  //エレベータ出入口壁の当たり判定を消す
             if (3.5f < colTimer)
             {
-                col[3].enabled = false;
-                col[4].enabled = false;
+                playerScript.isElebator = false;
+                //col[3].enabled = false;
+                //col[4].enabled = false;
                 colTimer = 0;
                 colTimerFlg = false;
             }
             if (isCol)
             {
-                col[3].enabled = true;
-                col[4].enabled = true;
+                //col[3].enabled = true;
+                //col[4].enabled = true;
                 isCol = false;
             }
 
@@ -94,6 +95,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            playerScript.isElebator = true;
             ElevatorFlg = true;
             timerFlg = true;
             colTimerFlg = true;

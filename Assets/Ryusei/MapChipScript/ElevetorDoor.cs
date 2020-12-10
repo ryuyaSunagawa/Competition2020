@@ -86,7 +86,6 @@ public class ElevetorDoor : MonoBehaviour
             animator.SetBool("close", false);
 
         }
-
     }
 
     private void OnTriggerStay(Collider other)

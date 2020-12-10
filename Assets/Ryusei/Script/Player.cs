@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public bool clear;
 	float beforeVolume = 0f;
 
+    public bool isElebator;
+
     //音-----------------------------------
     AudioSource audioSource;
     public AudioClip walkSE;
@@ -44,7 +46,7 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate()
     {
-        if (refCamera.startZoom && ( !GameManager.Instance.isClear && !GameManager.Instance.isFail ) ) //最初のズーム処理が終わったら動かせるようになる
+        if (refCamera.startZoom && ( !GameManager.Instance.isClear && !GameManager.Instance.isFail )) //最初のズーム処理が終わったら動かせるようになる
         {
             // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得る
             velocity = Vector3.zero;
@@ -57,8 +59,15 @@ public class Player : MonoBehaviour
             //if (Input.GetKey(KeyCode.D))
             //    velocity.x += 1;
 
-            velocity.x = Input.GetAxis("Horizontal");
-            velocity.z = Input.GetAxis("Vertical");
+            if (!isElebator)
+            {
+                velocity.x = Input.GetAxis("Horizontal");
+                velocity.z = Input.GetAxis("Vertical");
+            }else if (isElebator)
+            {
+                anim.SetBool("Idle", true);
+                anim.SetBool("Walk", false);
+            }
 
             // 速度ベクトルの長さを1秒でmoveSpeedだけ進むように調整
             velocity = velocity.normalized * moveSpeed * Time.deltaTime;
