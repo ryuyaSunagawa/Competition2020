@@ -15,7 +15,9 @@ public class CameraController : MonoBehaviour
 
     private float scroll;   // カメラズームの取得
     int speed = 1;          // カメラズームの速度
-    int zoomMax = 4, zoomMin = 24;  //カメラの最大、最小距離
+    int zoomMax = 4, zoomMidle = 10, zoomMin = 24;  //カメラの最大,中間,最小距離
+    bool isButtonFlg;       //十字キーを押したかどうかのフラグ
+    int zoomNum = 1;        //3段階あるzoom距離(1-3)
 
     public bool startZoom;         //ゲーム開始時にズームする処理
 
@@ -54,17 +56,50 @@ public class CameraController : MonoBehaviour
             // カメラの回転(transform.rotation)の更新
             transform.rotation = hRotation * vRotation;
 
-            if ((Input.GetButtonDown("Y") || Input.GetKeyDown("z")) && isScroll)  //カメラのズームイン、ズームアウトフラグ
+            //if ((Input.GetButtonDown("Y") || Input.GetKeyDown("z")) && isScroll)  //カメラのズームイン、ズームアウトフラグ
+            //{
+            //    isScroll = false; //ズームアウト
+            //}
+            //else if ((Input.GetButtonDown("Y") || Input.GetKeyDown("z")) && !isScroll)
+            //{
+            //    isScroll = true; //ズームイン
+            //}
+
+            //カメラ距離を取る
+            if ((Input.GetAxis("Closs_Vertical") != 0 || Input.GetAxis("Mouse ScrollWheel") != 0) && !isButtonFlg)
             {
-                isScroll = false; //ズームアウト
+                zoomNum += (int)Input.GetAxis("Closs_Vertical");    //1～3で下なら-1,上なら+1
+                if (Input.GetAxis("Mouse ScrollWheel") > 0) zoomNum -= 1;
+                else if (Input.GetAxis("Mouse ScrollWheel") < 0) zoomNum += 1;
+
+                if (zoomNum < 1) zoomNum = 1;
+                else if (zoomNum > 3) zoomNum = 3;
+                isButtonFlg = true;
             }
-            else if ((Input.GetButtonDown("Y") || Input.GetKeyDown("z")) && !isScroll)
+            else if (Input.GetAxis("Closs_Vertical") == 0) isButtonFlg = false;
+
+            switch (zoomNum)    //カメラの距離
             {
-                isScroll = true; //ズームイン
+                case 1:
+                    //distance = zoomMax;
+                    if(distance - zoomMax < 0) distance += 0.5f;
+                    if (distance - zoomMax > 0) distance -= 0.5f;
+                    break;
+                case 2:
+                    //distance = zoomMidle;
+                    if (distance - zoomMidle < 0) distance += 0.5f;
+                    if (distance - zoomMidle > 0) distance -= 0.5f;
+                    break;
+                case 3:
+                    //distance = zoomMin;
+                    if (distance - zoomMin < 0) distance += 0.5f;
+                    if (distance - zoomMin > 0) distance -= 0.5f;
+                    break;
             }
 
             //ズームの最大拡大、縮小
-            if (!isScroll)  //プレイヤー追従時のカメラ処理
+            //if (!isScroll)  //プレイヤー追従時のカメラ処理
+            if(zoomNum <= 2)
             {
                 //マウスの処理--------------------------------------------------------------------
                 hRotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * GameManager.Instance.cameraSensitive, 0);  //垂直回転
@@ -79,9 +114,9 @@ public class CameraController : MonoBehaviour
                     rotationX += difRot;                                //余分回転量だけ回転を補正
                     mAxisY += difRot;                                   //余分回転量だけマウス移動量を補正
                 }
-                else if (rotationX <= -10f)
+                else if (rotationX <= 0f)
                 {
-                    float difRot = -10f - rotationX;                    //80度以上になった場合の余分回転量取得
+                    float difRot = 0f - rotationX;                    //80度以上になった場合の余分回転量取得
                     rotationX += difRot;                                //余分回転量だけ回転を補正
                     mAxisY += difRot;                                   //余分回転量だけマウス移動料を補正
                 }
@@ -102,9 +137,9 @@ public class CameraController : MonoBehaviour
                     rotationX += difRot;                                 //余分回転量だけ回転を補正
                     cAxisY += difRot;                                    //余分回転量だけコントローラー傾斜量を補正
                 }
-                else if (rotationX <= -10f)
+                else if (rotationX <= 0f)
                 {
-                    float difRot = -10f - rotationX;                     //80度以上になった場合の余分回転量取得
+                    float difRot = 0f - rotationX;                     //80度以上になった場合の余分回転量取得
                     rotationX += difRot;                                 //余分回転量だけ回転を補正
                     cAxisY += difRot;                                    //余分回転量だけコントローラー傾斜量を補正
                 }
@@ -115,9 +150,10 @@ public class CameraController : MonoBehaviour
 
                 // プレイヤー中心に見回す
                 transform.position = player.position + new Vector3(0, 1.5f, 0) - transform.rotation * Vector3.forward * distance;
-                if(distance > zoomMax) distance -= speed;
+                //if(distance > zoomMax) distance -= speed;
             }
-            else if (isScroll)  //ステージ中心に見まわしているときのカメラ処理
+            //else if (isScroll)  //ステージ中心に見まわしているときのカメラ処理
+            else if (zoomNum >= 3)  //ステージ中心に見まわしているときのカメラ処理
             {
                 //マウスの処理--------------------------------------------------------------------
                 hRotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * GameManager.Instance.cameraSensitive, 0);  //垂直回転
@@ -168,7 +204,7 @@ public class CameraController : MonoBehaviour
 
                 // ステージ中心に見回す
                 transform.position = centerObj.position + new Vector3(0, 1.5f, 0) - transform.rotation * Vector3.forward * distance;
-                if(distance < zoomMin) distance += speed;
+                //if(distance < zoomMin) distance += speed;
             }
         }
     }
