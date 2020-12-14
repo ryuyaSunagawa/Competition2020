@@ -237,9 +237,10 @@ MonoBehaviour:
   applySpeed: 0.2
   refCamera: {fileID: 0}
   clear: 0
+  isElebator: 0
   walkSE: {fileID: 8300000, guid: 19afa72db478e99478af45654633389a, type: 3}
-  failSE: {fileID: 8300000, guid: 3770134f79da29648af32b5db5b05c98, type: 3}
-  clearSE: {fileID: 8300000, guid: dd31dbf3d7a614a41bb6f80cd9a9fce8, type: 3}
+  failSE: {fileID: 8300000, guid: 0d8939681d10a2a43bdae98a2ac34229, type: 3}
+  clearSE: {fileID: 8300000, guid: 5dd1c884753b4974c966ae41bab1afd8, type: 3}
 --- !u!82 &6468822158153495215
 AudioSource:
   m_ObjectHideFlags: 0
