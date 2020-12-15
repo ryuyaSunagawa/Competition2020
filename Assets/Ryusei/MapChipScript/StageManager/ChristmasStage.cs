@@ -12,9 +12,13 @@ public class ChristmasStage : MonoBehaviour
     const int GRAYSTAR = 2;     //グレイスター最大数
 
     const int STAGE = 1;        //このステージの番号
+    //音----------------------
+    AudioSource audioSource;
+    //public AudioClip bellSE;
+    bool isBellOneShot;
     //ミニライト-------------------------------------------------------------------------------
     [SerializeField] GameObject[] miniLight;
-    NoRenderMiniLight[] miniLightScript = new NoRenderMiniLight[MINILIGHT];
+    SnowMan[] miniLightScript = new SnowMan[MINILIGHT];
 
     int lightNum = 0;
 
@@ -44,10 +48,12 @@ public class ChristmasStage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
+
         for (int i = 0; i < MINILIGHT; i++)
         {
             //missionLight[i] = GameObject.FindGameObjectWithTag("MiniLight");
-            miniLightScript[i] = miniLight[i].GetComponent<NoRenderMiniLight>();
+            miniLightScript[i] = miniLight[i].GetComponent<SnowMan>();
         }
 
         for (int i = 0; i < BRANCH; i++)
@@ -120,6 +126,13 @@ public class ChristmasStage : MonoBehaviour
             //クリスマスステージはクリアと火薬に着火が同時にできるのでゴール判定を遅らせる
             Invoke("DelayMethod", 0.2f);
             hasGoalLightStar = false; //1回だけ通す処理
+
+            if (!isBellOneShot)//ベルの音
+            {
+                //audioSource.PlayOneShot(bellSE);
+                audioSource.Play();
+                isBellOneShot = true;
+            }
         }
     }
 
