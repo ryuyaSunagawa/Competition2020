@@ -169,6 +169,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		LoadUserState.Instance.Save();
 		GameManager.Instance.soundVolume = 0.1f;
 		GameManager.Instance.cameraSensitive = 5f;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -190,14 +192,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			Time.timeScale = 0f;
 
 			//カーソルロックの解除
-			Cursor.lockState = CursorLockMode.None;
+			//Cursor.lockState = CursorLockMode.None;
 		}
 		else if ( !_isPause && _sleepOption )
 		{
 			//タイムスケールの設定
 			Time.timeScale = 1f;
 			//カーソルのロック
-			Cursor.lockState = CursorLockMode.Locked;
+			//Cursor.lockState = CursorLockMode.Locked;
 
 			sleepOption = false;
 		}

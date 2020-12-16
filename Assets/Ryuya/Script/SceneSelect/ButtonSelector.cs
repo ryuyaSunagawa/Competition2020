@@ -33,6 +33,11 @@ public class ButtonSelector : MonoBehaviour
 		retMgr.isSelect = true;
 	}
 
+	public void ReturnFailScreen( ReturnManager retMgr )
+	{
+		retMgr.isSelect = false;
+	}
+
 	public void Fail_LeaveOff( string sceneName )
 	{
 		SceneManager.LoadScene( sceneName );
@@ -66,5 +71,15 @@ public class ButtonSelector : MonoBehaviour
 		UnityEditor.EditorApplication.isPlaying = false;
 #endif
 		UnityEngine.Application.Quit();
+	}
+
+	public void SelectAnimation( LineAnimator myLine )
+	{
+		myLine.StartAnimation();
+	}
+
+	public void DeselectAnimation( LineAnimator myLine )
+	{
+		myLine.StopAnimation();
 	}
 }

@@ -71,4 +71,14 @@ public class Option_OnClickProcess : MonoBehaviour
 #endif
 		UnityEngine.Application.Quit();
 	}
+
+	public void SelectAnimation( LineAnimator myLine )
+	{
+		myLine.StartAnimation();
+	}
+
+	public void DeselectAnimation( LineAnimator myLine )
+	{
+		myLine.StopAnimation();
+	}
 }
