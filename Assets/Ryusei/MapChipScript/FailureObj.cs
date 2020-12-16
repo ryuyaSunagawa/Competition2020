@@ -14,6 +14,9 @@ public class FailureObj : MonoBehaviour
 	[SerializeField] ParticleSystem bigFire;
 	float playbackTime = 0f;
 
+    AudioSource audioSource;
+    bool isOneShot;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +25,14 @@ public class FailureObj : MonoBehaviour
 
 		tinyFire.Stop( true );
 		bigFire.Stop( true );
+
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if( failFlg )
+        if ( failFlg )
 		{
 			if( !tinyFire.isPlaying )
 			{
@@ -39,6 +44,12 @@ public class FailureObj : MonoBehaviour
 			{
 				bigFire.Play( true );
 			}
+
+            if (!isOneShot)
+            {
+                audioSource.Play();
+                isOneShot = true;
+            }
 		}
 	}
 
