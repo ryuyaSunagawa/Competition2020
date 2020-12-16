@@ -164,11 +164,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	void Start()
     {
 		DontDestroyOnLoad( this );
-		//Debug.Log( LoadUserState.Instance.stageStarNum.Capacity );
 		LoadUserState.Instance.Delete();
 		LoadUserState.Instance.SetPlayerData( 2 );
 		LoadUserState.Instance.Save();
-		GameManager.Instance.soundVolume = 0.2f;
+		GameManager.Instance.soundVolume = 0.1f;
 		GameManager.Instance.cameraSensitive = 5f;
     }
 
@@ -189,7 +188,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		{
 			_isPause = true;
 			Time.timeScale = 0f;
-			Debug.Log( "in" );
 
 			//カーソルロックの解除
 			Cursor.lockState = CursorLockMode.None;
@@ -202,7 +200,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 			Cursor.lockState = CursorLockMode.Locked;
 
 			sleepOption = false;
-			Debug.Log( "out" );
 		}
 	}
 

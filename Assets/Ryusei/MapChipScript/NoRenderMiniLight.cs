@@ -61,12 +61,10 @@ public class NoRenderMiniLight : MonoBehaviour
     {
         if (other.gameObject.tag == "EnergizedOn")  //点灯
         {
-            //GetComponent<Renderer>().material.color = Color.yellow;
             changeColor = 1;
         }
         else if (other.gameObject.tag == "EnergizedOff")    //消灯
         {
-            //GetComponent<Renderer>().material.color = Color.white;
             changeColor = 0;
         }
     }
