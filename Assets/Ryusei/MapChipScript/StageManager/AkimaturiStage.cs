@@ -160,6 +160,7 @@ public class AkimaturiStage : MonoBehaviour
         if (goalLightNum >= GOALLIGHT - 1 && hasGoalLightStar)
         {
             ++star;
+            if (star >= 3) gameObject.tag = "AllStar";
             hasGoalLightStar = false;
 
             //ズームアウトして回転させる

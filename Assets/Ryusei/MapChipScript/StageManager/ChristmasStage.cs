@@ -71,7 +71,6 @@ public class ChristmasStage : MonoBehaviour
         //Debug.Log("star"+star);
         //Debug.Log("lightnum"+lightNum);
         //Debug.Log("branchTrun" + branchTurn);
-        Debug.Log("star" + star);
         //ミニライトがいくつ点灯しているか取得
         for (int i = 0; i < MINILIGHT; i++)
         {
@@ -142,7 +141,7 @@ public class ChristmasStage : MonoBehaviour
         if (!GameManager.Instance.isFail)
         {
             ++star;
-
+            if(star >= 3)gameObject.tag = "AllStar";
             //ズームアウトして回転させる
             refCamera.goalZoomOut = true;
             //クリアアニメーション

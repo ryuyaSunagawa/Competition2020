@@ -15,6 +15,7 @@ TagManager:
   - StageManager
   - UI_Image
   - UI_Text
+  - AllStar
   layers:
   - Default
   - TransparentFX
