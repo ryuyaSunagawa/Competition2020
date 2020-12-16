@@ -28,6 +28,8 @@ public class SSOverviewManager : MonoBehaviour
 	[SerializeField] Text conditionText3 = null;
 	[SerializeField] Text summaryText = null;
 
+	[SerializeField] Image testImg = null;
+
 	[HideInInspector] public StageSelector ss = null;
     // Start is called before the first frame update
     void Start()
@@ -57,7 +59,7 @@ public class SSOverviewManager : MonoBehaviour
 			}
 			FadeProcess();
 		}
-    }
+	}
 
 	void FadeProcess()
 	{

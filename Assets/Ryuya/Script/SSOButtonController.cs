@@ -22,4 +22,14 @@ public class SSOButtonController : MonoBehaviour
 			GameManager.Instance.isPlaying = true;
 		}
 	}
+
+	public void SelectAnimation( LineAnimator myLine )
+	{
+		myLine.StartAnimation();
+	}
+
+	public void DeselectAnimation( LineAnimator myLine )
+	{
+		myLine.StopAnimation();
+	}
 }

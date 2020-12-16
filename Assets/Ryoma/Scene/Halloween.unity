@@ -51877,6 +51877,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1273638893540976415, guid: dc498e025a577694a801c2f97d583a2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1273638893540976419, guid: dc498e025a577694a801c2f97d583a2a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -51987,5 +51992,10 @@ PrefabInstance:
       propertyPath: halloweenStage
       value: 
       objectReference: {fileID: 2053825911}
+    - target: {fileID: 5722346488292178266, guid: dc498e025a577694a801c2f97d583a2a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24.900024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc498e025a577694a801c2f97d583a2a, type: 3}

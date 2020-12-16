@@ -46,7 +46,7 @@ public class AkimaturiStage : MonoBehaviour
 	[SerializeField, Header( "クリア後のライトの強さ" ), Range( 0f, 1f )] float clearLightIntencity = 1f;
 	[SerializeField, Header( "クリア後のスカイボックス" )] Material clearSkybox;
 
-    int star = 0;   //獲得星数
+    public int star = 0;   //獲得星数
 
     [SerializeField] private CameraController refCamera;  // カメラを参照する用
     [SerializeField] Player player;

@@ -30,7 +30,7 @@ public class FailUIController : MonoBehaviour
 		if( GameManager.Instance.isFail != firstFailedFlg )
 		{
 			canvasGroup.interactable = true;
-			Cursor.lockState = CursorLockMode.None;
+			//Cursor.lockState = CursorLockMode.None;
 			firstFailedFlg = true;
 		}
         if( GameManager.Instance.isFail != doneFadeFlg )

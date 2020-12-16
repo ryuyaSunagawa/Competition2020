@@ -26,7 +26,7 @@ public class TestCam : MonoBehaviour
     void Start()
     {
         // カーソルを画面中央にロックする
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         // 回転の初期化
         vRotation = Quaternion.Euler(30, 0, 0);         //25度固定の垂直回転
