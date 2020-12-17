@@ -17,6 +17,11 @@ public class SnowMan : MonoBehaviour
     int childCount; //子オブジェクトの数
     [SerializeField] GameObject[] childObject;
 
+    AudioSource audioSource;
+    public AudioClip lightSE;
+    bool isPowerOneShot;
+    float resetTimer; //回転盤を切り替えるたびにポンポンなるのを防ぐ
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +32,7 @@ public class SnowMan : MonoBehaviour
         }
 
         meshRenderer = GetComponent<MeshRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +57,12 @@ public class SnowMan : MonoBehaviour
                 }
                 MatChange = true;
                 hasLight = true;
+
+                if (isPowerOneShot)
+                {
+                    audioSource.PlayOneShot(lightSE);
+                    isPowerOneShot = false;
+                }
             }
 
         }
@@ -64,11 +76,14 @@ public class SnowMan : MonoBehaviour
         {
             //GetComponent<Renderer>().material.color = Color.yellow;
             changeColor = 1;
+            resetTimer = 0;
         }
         else if (other.gameObject.tag == "EnergizedOff")    //消灯
         {
             //GetComponent<Renderer>().material.color = Color.white;
             changeColor = 0;
+            resetTimer += Time.deltaTime;
+            if (!isPowerOneShot && resetTimer >= 0.8f) isPowerOneShot = true;
         }
     }
 }

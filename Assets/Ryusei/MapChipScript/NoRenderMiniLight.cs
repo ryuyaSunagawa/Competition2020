@@ -15,6 +15,11 @@ public class NoRenderMiniLight : MonoBehaviour
 	Material normalMat;
 	[SerializeField] Material emittionMat;
 
+    AudioSource audioSource;
+    public AudioClip lightSE;
+    bool isPowerOneShot;
+    float resetTimer; //回転盤を切り替えるたびにポンポンなるのを防ぐ
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +30,8 @@ public class NoRenderMiniLight : MonoBehaviour
         }
 		steam.Stop( true );
 		normalMat = GetComponent<MeshRenderer>().materials[ 0 ];
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +58,12 @@ public class NoRenderMiniLight : MonoBehaviour
 				GetComponent<MeshRenderer>().materials[ 0 ] = emittionMat;
 				hasLight = true;
 				if( steam != null )	steam.Play( true );
+
+                if (isPowerOneShot)
+                {
+                    audioSource.PlayOneShot(lightSE);
+                    isPowerOneShot = false;
+                }
             }
 
         }
@@ -62,10 +75,13 @@ public class NoRenderMiniLight : MonoBehaviour
         if (other.gameObject.tag == "EnergizedOn")  //点灯
         {
             changeColor = 1;
+            resetTimer = 0;
         }
         else if (other.gameObject.tag == "EnergizedOff")    //消灯
         {
             changeColor = 0;
+            resetTimer += Time.deltaTime;
+            if (!isPowerOneShot && resetTimer >= 0.8f) isPowerOneShot = true;
         }
     }
 }
