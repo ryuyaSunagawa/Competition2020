@@ -10,7 +10,12 @@ public class LineAnimator : MonoBehaviour
 	Image myImage;
 	Animator myAnimator = null;
 
-	private void Start()
+    AudioSource audioSource;
+    public AudioClip celectSE;
+    public AudioClip clickSE;
+    bool isOneShot;
+
+    private void Start()
 	{
 		myImage = GetComponent<Image>();
 		myImage.color = clear;
@@ -18,18 +23,27 @@ public class LineAnimator : MonoBehaviour
 		{
 			myAnimator.speed = 0f;
 		};
-	}
 
-	public void  StartAnimation()
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (myImage.color == opacity && Input.GetButtonDown("A")) audioSource.PlayOneShot(clickSE);
+    }
+
+    public void  StartAnimation()
 	{
-		myImage.color = opacity;
+        myImage.color = opacity;
 		myAnimator.Play( "LineAnimationR", 0, 0 );
 		myAnimator.speed = 1f;
-	}
+
+        audioSource.PlayOneShot(celectSE);
+    }
 
 	public void StopAnimation()
 	{
-		myImage.color = clear;
+        myImage.color = clear;
 		myAnimator.speed = 0;
-	}
+    }
 }
