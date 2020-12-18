@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LineAnimator : MonoBehaviour
 {
+	[SerializeField] bool isPauseMode = false;
+	
 	Color clear = new Color( 1, 1, 1, 0 );
 	Color opacity = new Color( 1, 1, 1, 1 );
 	Image myImage;

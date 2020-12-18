@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Option_OnClickProcess : MonoBehaviour
 {
-
 	//オプション画面の終了イベント
 	public void SleepOption()
 	{

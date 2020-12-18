@@ -7,9 +7,10 @@ public class FailBom : MonoBehaviour
     //GameObject stageManager;    //感電の情報を渡すオブジェクト
     //Failure failureScript;      //感電の情報を渡すスクリプト
 
-    bool failFlg = false;
+    [HideInInspector] public bool failFlg = false;
 
     float playbackTime = 0f;
+	float duration = 0f;
 
     AudioSource audioSource;
     bool isOneShot;
@@ -25,7 +26,8 @@ public class FailBom : MonoBehaviour
     {
         if (failFlg)
         {
-            if (!isOneShot)
+			duration += Time.deltaTime;
+			if ( !isOneShot && duration >= 3.5f )
             {
                 audioSource.Play();
                 isOneShot = true;

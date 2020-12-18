@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class PauseUIManager : MonoBehaviour
 {
-	bool pausing = false;
+	public bool pausing = false;
 
 	[SerializeField] CanvasGroup canvasGroup; 
 
