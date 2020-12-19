@@ -10425,6 +10425,7 @@ MonoBehaviour:
   startZoom: 0
   scrollSpeed: 0.1
   centerObj: {fileID: 701692079}
+  FailureObj: {fileID: 764241138}
   goalZoomOut: 0
 --- !u!81 &507973428
 AudioListener:
@@ -16424,13 +16425,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764241134}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 8.544093, y: -8.913221, z: 11.567827}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_Children: []
   m_Father: {fileID: 93421202}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &764241139
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -37345,6 +37345,7 @@ MonoBehaviour:
   startZoom: 0
   scrollSpeed: 0.1
   centerObj: {fileID: 744492889}
+  FailureObj: {fileID: 744492889}
   goalZoomOut: 0
 --- !u!81 &1560724854
 AudioListener:

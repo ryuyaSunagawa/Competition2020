@@ -27,6 +27,8 @@ public class CameraController : MonoBehaviour
 
     //明かりがついたらゴールを中心にカメラを回す
     [SerializeField] Transform centerObj;
+    //失敗したら失敗オブジェをみる
+    [SerializeField] Transform FailureObj;
 
     //ゴール時に引いて回転する処理
     public bool goalZoomOut;
@@ -245,11 +247,19 @@ public class CameraController : MonoBehaviour
             else
             {
                 distance += 0.2f;
-                vRotation = Quaternion.Euler(30, 0, 0);         //25度固定の垂直回転
+                vRotation = Quaternion.Euler(20, 0, 0);         //25度固定の垂直回転
                 hRotation = centerObj.rotation;                    //プレイヤーの向きに合わせて初期位置変更
                 // カメラの回転(transform.rotation)の更新
                 transform.rotation = hRotation * vRotation;
             }
+        }
+        //失敗オブジェ点灯時そこをみる
+        if (FailureObj.tag == "EnergizedOn")
+        {
+            vRotation = Quaternion.Euler(30, 0, 0);         //25度固定の垂直回転
+            hRotation = FailureObj.rotation;                    //失敗オブジェクトの向きに合わせて初期位置変更
+            transform.rotation = hRotation * vRotation;     //最終的なカメラの回転は、垂直回転してから水平回転する合成回転
+            transform.position = FailureObj.position + new Vector3(0, 0.5f, 0) - transform.rotation * Vector3.forward * 12;
         }
     }
 }

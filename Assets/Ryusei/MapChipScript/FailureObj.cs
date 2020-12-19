@@ -61,6 +61,7 @@ public class FailureObj : MonoBehaviour
 			//SceneManager.LoadScene(SceneManager.GetActiveScene().name); //シーン再読み込み(失敗)
 			GameManager.Instance.isFail = true;
 			failFlg = true;
+            this.tag = "EnergizedOn";
         }
     }
 }
