@@ -6,7 +6,7 @@ public class Elevator : MonoBehaviour
 {
     bool UpDownFlg = true;
     bool ElevatorFlg;
-    bool ElectricFlg;
+    public bool ElectricFlg;
     Vector3 FirstPosition;
 
     [SerializeField] GameObject left;
