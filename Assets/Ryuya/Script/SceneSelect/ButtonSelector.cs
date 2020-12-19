@@ -11,6 +11,7 @@ public class ButtonSelector : MonoBehaviour
 	{
 		SceneManager.LoadScene( sceneName );
 		GameManager.Instance.nowScene = sceneName;
+		GameManager.Instance.InitializeGameFlg();
 		if( sceneName != "StageSelectScene" && sceneName != "TitleScene" )
 		{
 			SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
@@ -23,9 +24,7 @@ public class ButtonSelector : MonoBehaviour
 		SceneManager.LoadScene( GameManager.Instance.nowScene );
 		SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
 		GameManager.Instance.isPlaying = true;
-		GameManager.Instance.isFail = false;
-		GameManager.Instance.isPause = false;
-		GameManager.Instance.isClear = false;
+		GameManager.Instance.InitializeGameFlg();
 	}
 
 	public void Fail_DisplayWhereBack( ReturnManager retMgr )
@@ -53,9 +52,7 @@ public class ButtonSelector : MonoBehaviour
 		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1 );
 		SceneManager.LoadScene( "PauseScene", LoadSceneMode.Additive );
 		GameManager.Instance.isPlaying = true;
-		GameManager.Instance.isFail = false;
-		GameManager.Instance.isClear = false;
-		GameManager.Instance.isPause = false;
+		GameManager.Instance.InitializeGameFlg();
 	}
 
 	public void ShowOverview( SSOverviewManager ssom )

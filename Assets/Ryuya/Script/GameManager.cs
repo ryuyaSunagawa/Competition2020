@@ -234,6 +234,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		return count;
 	}
 
+	public void InitializeGameFlg()
+	{
+		_isClear = false;
+		_isFail = false;
+		_isPause = false;
+	}
+
 	private void OnDestroy()
 	{
 	}

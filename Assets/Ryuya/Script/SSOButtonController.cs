@@ -14,6 +14,7 @@ public class SSOButtonController : MonoBehaviour
 	{
 		SceneManager.LoadScene( ssom.ss.stageSceneName );
 		GameManager.Instance.nowScene = ssom.ss.stageSceneName;
+		GameManager.Instance.InitializeGameFlg();
 		//ステージ情報格納 
 		//GameManager.Instance.nowStageInfo = ssom.ss;
 		if ( ssom.ss.stageSceneName != "StageSelectScene" && ssom.ss.stageSceneName != "TitleScene" )

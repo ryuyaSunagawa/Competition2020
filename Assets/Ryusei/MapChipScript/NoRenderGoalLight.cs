@@ -12,6 +12,8 @@ public class NoRenderGoalLight : MonoBehaviour
 
     int childCount; //子オブジェクトの数
     [SerializeField] GameObject[] childObject;
+	MeshRenderer myMesh;
+	float duration = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +23,19 @@ public class NoRenderGoalLight : MonoBehaviour
         {
             childObject[i] = transform.GetChild(i).gameObject;
         }
+		myMesh = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (beforeColor != changeColor)
+		//敗北判定(クリスマスオンリー)
+		if ( GameManager.Instance.isFail && GameManager.Instance.nowScene == "Christmas" )
+		{
+			changeColor = 2;
+		}
+
+		if (beforeColor != changeColor)
         {
             if (changeColor == 0)
             {
@@ -36,7 +45,7 @@ public class NoRenderGoalLight : MonoBehaviour
                 }
                 hasLight = false;
             }
-            else
+            else if( changeColor == 1 )
             {
                 for (int i = 0; i < childCount; i++)
                 {
@@ -44,9 +53,19 @@ public class NoRenderGoalLight : MonoBehaviour
                 }
                 hasLight = true;
             }
-
-        }
-        beforeColor = changeColor;
+			else if( changeColor == 2 )
+			{
+				duration += Time.deltaTime;
+			}
+		}
+		if( changeColor != 2 || ( changeColor == 2 && duration >= 3.6f ) )
+		{
+			if ( changeColor == 2 )
+			{
+				myMesh.material.color = new Color( 0.356f, 0.043f, 0.035f, 1 );
+			}
+			beforeColor = changeColor;
+		}
     }
 
     private void OnTriggerStay(Collider other)
