@@ -439,6 +439,8 @@ MonoBehaviour:
   halloweenStage: {fileID: 0}
   akimaturiStage: {fileID: 0}
   christmasStage: {fileID: 0}
+  greyStarImage: {fileID: 21300000, guid: 2a01ce7bee90009469c618441d4f8d7a, type: 3}
+  glowStarImage: {fileID: 21300000, guid: 4fbc95f88881dfc47ade23c8261811bc, type: 3}
 --- !u!1 &9082080215865837155
 GameObject:
   m_ObjectHideFlags: 0

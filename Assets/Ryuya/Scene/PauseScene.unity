@@ -1274,6 +1274,12 @@ MonoBehaviour:
   conditionText1: {fileID: 1686168901}
   conditionText2: {fileID: 443670693}
   conditionText3: {fileID: 355180116}
+  conditionStar:
+  - {fileID: 570970538}
+  - {fileID: 110402477}
+  - {fileID: 75582962}
+  greyStarSprite: {fileID: 21300000, guid: 2a01ce7bee90009469c618441d4f8d7a, type: 3}
+  glowStarSprite: {fileID: 21300000, guid: 4fbc95f88881dfc47ade23c8261811bc, type: 3}
 --- !u!1 &249751768
 GameObject:
   m_ObjectHideFlags: 0

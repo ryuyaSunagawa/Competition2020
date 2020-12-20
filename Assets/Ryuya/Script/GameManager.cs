@@ -144,14 +144,25 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	private bool _displayStarFlg = false;
 	public bool displayStarFlg
 	{
-		//set
-		//{
-		//	_displayStarFlg = value;
-		//}
 		get
 		{
 			return ( !_isClear && !_isFail && !_isPause ) ? true : false;
 		}
+	}
+
+	public bool[] starInfo1
+	{
+		get; set;
+	}
+
+	public bool[] starInfo2
+	{
+		get; set;
+	}
+
+	public bool[] starInfo3
+	{
+		get; set;
 	}
 
 	//ステージ情報格納
@@ -171,6 +182,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		GameManager.Instance.cameraSensitive = 5f;
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+
+		starInfo1 = LoadUserState.Instance.gotStar1.ToArray();
+		starInfo2 = LoadUserState.Instance.gotStar2.ToArray();
+		starInfo3 = LoadUserState.Instance.gotStar3.ToArray();
     }
 
     // Update is called once per frame

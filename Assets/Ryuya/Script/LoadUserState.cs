@@ -28,22 +28,10 @@ public class LoadUserState : ISerializationCallbackReceiver
 	//保存されるデータ群
 	[SerializeField] public int progressedStageNum;		//ステージ進行度
 	[SerializeField] public int stageVolume;			//ステージ数
-	[SerializeField] public List<int> stageStarNum = new List<int>(6) { 0, 0, 0, 0, 0, 0 };		//スター獲得量
-	[SerializeField] public List<bool> gotStar1 = new List<bool>(6) { false, false, false, false, false, false };		//スター獲得量
-	[SerializeField] public List<bool> gotStar2 = new List<bool>(6) { false, false, false, false, false, false };		//スター獲得量
-	[SerializeField] public List<bool> gotStar3 = new List<bool>(6) { false, false, false, false, false, false };       //スター獲得量
-
-	//[Serializable]
-	//public struct StageInformation
-	//{
-	//	public int stageNumber;
-	//	public string stageName;
-	//	public string stageSceneName;
-	//	public string stageSummary;
-	//	public string star1Text;
-	//	public string star2Text;
-	//	public string star3Text;
-	//};
+	[SerializeField] public List<int> stageStarNum = new List<int>(3) { 0, 0, 0 };		//スター獲得量
+	[SerializeField] public List<bool> gotStar1 = new List<bool>(3) { false, false, false };		//スター獲得量(クリア)
+	[SerializeField] public List<bool> gotStar2 = new List<bool>(3) { false, false, false };		//スター獲得量
+	[SerializeField] public List<bool> gotStar3 = new List<bool>(3) { false, false, false };       //スター獲得量
 
 	[SerializeField]
 	public List<SceneInformation> stageInfo = new List<SceneInformation>( 3 ) {

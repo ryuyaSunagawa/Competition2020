@@ -49671,7 +49671,7 @@ GameObject:
   - component: {fileID: 2053825911}
   m_Layer: 0
   m_Name: StageManager
-  m_TagString: Untagged
+  m_TagString: StageManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49702,6 +49702,8 @@ MonoBehaviour:
   star: 0
   refCamera: {fileID: 1560724853}
   player: {fileID: 648167231}
+  star2: 0
+  star3: 0
 --- !u!4 &2053825912
 Transform:
   m_ObjectHideFlags: 0

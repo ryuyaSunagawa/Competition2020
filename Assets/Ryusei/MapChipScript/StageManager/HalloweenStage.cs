@@ -41,6 +41,9 @@ public class HalloweenStage : MonoBehaviour
     [SerializeField] private CameraController refCamera;  // カメラを参照する用
     [SerializeField] Player player;
 
+	public bool star2 = false;
+	public bool star3 = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +60,8 @@ public class HalloweenStage : MonoBehaviour
 
         goalLightScript = goalLight.GetComponent<GoalLight>();
 		GameManager.Instance.sceneInformation = LoadUserState.Instance.stageInfo[ 0 ];
+		star2 = LoadUserState.Instance.gotStar2[ 0 ];
+		star3 = LoadUserState.Instance.gotStar3[ 0 ];
     }
 
     // Update is called once per frame
@@ -85,16 +90,26 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasLightStar = false;
-        }
-        else if(lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
+			if ( !LoadUserState.Instance.gotStar2[ 0 ] )
+			{
+				star2 = true;
+				GameManager.Instance.starInfo2[ 0 ] = true;
+			}
+		}
+		else if(lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
         {
             --star;
             hasLightStar = true;
-        }
+			if ( !LoadUserState.Instance.gotStar2[ 0 ] )
+			{
+				star2 = false;
+				GameManager.Instance.starInfo2[ 0 ] = false;
+			}
+		}
 
-        //回転盤を何回回転させたか取得
-        //branchTrun = branchScript[0].branchNum + branchScript[1].branchNum + branchScript[2].branchNum;
-        int ahan = 0;
+		//回転盤を何回回転させたか取得
+		//branchTrun = branchScript[0].branchNum + branchScript[1].branchNum + branchScript[2].branchNum;
+		int ahan = 0;
         foreach( Branch br in branchScript )
         {
             ahan += br.branchNum;
@@ -106,14 +121,25 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasBranchStar = false;
-        }else if(branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
+			if ( !LoadUserState.Instance.gotStar3[ 0 ] )
+			{
+				star3 = true;
+				GameManager.Instance.starInfo3[ 0 ] = true;
+			}
+		}
+		else if(branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
         {
             --star;
             hasBranchStar = true;
-        }
+			if ( !LoadUserState.Instance.gotStar3[ 0 ] )
+			{
+				star3 = false;
+				GameManager.Instance.starInfo3[ 0 ] = false;
+			}
+		}
 
-        //ゴールライトがついたかどうか
-        if (goalLightScript.hasLight && hasGoalLightStar)
+		//ゴールライトがついたかどうか
+		if (goalLightScript.hasLight && hasGoalLightStar)
         {
             ++star;
             hasGoalLightStar = false;
@@ -127,11 +153,20 @@ public class HalloweenStage : MonoBehaviour
             clearCanvas.ClearRate( star );
 
 			//ステージ情報保存
-			LoadUserState.Instance.SetPlayerData( 1 );
-			LoadUserState.Instance.stageStarNum[ STAGE - 1 ] = star;
-			LoadUserState.Instance.Save();
+			SaveClearInformation();
 		}
     }
+
+	private void SaveClearInformation()
+	{
+		LoadUserState.Instance.gotStar1[ 0 ] = true;
+		GameManager.Instance.starInfo1[ 0 ] = true;
+		LoadUserState.Instance.gotStar2[ 0 ] = GameManager.Instance.starInfo2[ 0 ];
+		LoadUserState.Instance.gotStar3[ 0 ] = GameManager.Instance.starInfo3[ 0 ];
+		LoadUserState.Instance.SetPlayerData( 1 );
+		LoadUserState.Instance.stageStarNum[ STAGE - 1 ] = star;
+		LoadUserState.Instance.Save();
+	}
 
 	private void OnEnable()
 	{
@@ -146,4 +181,5 @@ public class HalloweenStage : MonoBehaviour
 		GameManager.Instance.isClear = false;
 		Time.timeScale = 1f;
 	}
+
 }

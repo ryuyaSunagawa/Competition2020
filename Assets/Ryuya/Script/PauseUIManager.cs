@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -18,6 +19,10 @@ public class PauseUIManager : MonoBehaviour
 	[SerializeField] Text conditionText1;
 	[SerializeField] Text conditionText2;
 	[SerializeField] Text conditionText3;
+	[SerializeField] Image[] conditionStar = new Image[ 3 ];
+
+	[SerializeField] Sprite greyStarSprite;
+	[SerializeField] Sprite glowStarSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +32,70 @@ public class PauseUIManager : MonoBehaviour
 		conditionText1.text = GameManager.Instance.sceneInformation.star1Text;
 		conditionText2.text = GameManager.Instance.sceneInformation.star2Text;
 		conditionText3.text = GameManager.Instance.sceneInformation.star3Text;
+		for( int i = 0; i < 3; i++ )
+		{
+			if( i == 0 && GameManager.Instance.starInfo1[ 0 ] )
+			{
+				conditionStar[ i ].sprite = glowStarSprite;
+			}
+			else if( i == 0 && !GameManager.Instance.starInfo1[ 0 ] )
+			{
+				conditionStar[ i ].sprite = greyStarSprite;
+			}
+
+			if( i == 1 && GameManager.Instance.starInfo2[ 0 ] )
+			{
+				conditionStar[ i ].sprite = glowStarSprite;
+			}
+			else if( i == 1 && !GameManager.Instance.starInfo2[ 0 ] )
+			{
+				conditionStar[ i ].sprite = greyStarSprite;
+			}
+
+			if ( i == 2 && GameManager.Instance.starInfo3[ 0 ] )
+			{
+				conditionStar[ i ].sprite = glowStarSprite;
+			}
+			else if( i == 2 && !GameManager.Instance.starInfo3[ 0 ] )
+			{
+				conditionStar[ i ].sprite = greyStarSprite;
+			}
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
+		for ( int i = 0; i < 3; i++ )
+		{
+			if ( i == 0 && GameManager.Instance.starInfo1[ 0 ] )
+			{
+				conditionStar[ i ].sprite = glowStarSprite;
+			}
+			else if ( i == 0 && !GameManager.Instance.starInfo1[ 0 ] )
+			{
+				conditionStar[ i ].sprite = greyStarSprite;
+			}
+
+			if ( i == 1 && GameManager.Instance.starInfo2[ 0 ] )
+			{
+				conditionStar[ i ].sprite = glowStarSprite;
+			}
+			else if ( i == 1 && !GameManager.Instance.starInfo2[ 0 ] )
+			{
+				conditionStar[ i ].sprite = greyStarSprite;
+			}
+
+			if ( i == 2 && GameManager.Instance.starInfo3[ 0 ] )
+			{
+				conditionStar[ i ].sprite = glowStarSprite;
+			}
+			else if ( i == 2 && !GameManager.Instance.starInfo3[ 0 ] )
+			{
+				conditionStar[ i ].sprite = greyStarSprite;
+			}
+		}
+
 		if ( GameManager.Instance.isPause && !pausing )
 		{
 			FadeProcess();

@@ -14,6 +14,9 @@ public class SceneStarUI : MonoBehaviour
 	[SerializeField] AkimaturiStage akimaturiStage;
 	[SerializeField] ChristmasStage christmasStage;
 
+	[SerializeField, Space( 10 )] Sprite greyStarImage;
+	[SerializeField] Sprite glowStarImage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,44 +41,105 @@ public class SceneStarUI : MonoBehaviour
 	/// <param name="displayFlg"></param>
 	void JudgeDisplayState( string nowScene, bool displayFlg )
 	{
-		if( displayFlg ) {
-			for ( int i = 1; i <= 3; i++ )
+		if( displayFlg )
+		{
+			if( !starImg[ 0 ].enabled )
 			{
-				if( nowScene == "HalloweenStage" ) { 
-					if ( halloweenStage.star >= i )
-					{
-						starImg[ i - 1 ].enabled = true;
-					}
-					else
-					{
-						starImg[ i - 1 ].enabled = false;
-					}
-				}
-				else if ( nowScene == "AkimaturiStage" )
+				foreach( Image star in starImg )
 				{
-					if ( akimaturiStage.star >= i )
-					{
-						starImg[ i - 1 ].enabled = true;
-					}
-					else
-					{
-						starImg[ i - 1 ].enabled = false;
-					}
-				} else if( nowScene == "ChristmasStage" ) { 
-					if ( christmasStage.star >= i )
-					{
-						starImg[ i - 1 ].enabled = true;
-					}
-					else
-					{
-						starImg[ i - 1 ].enabled = false;
-					}
+					star.enabled = true;
 				}
 			}
-
 			clearConditionImg.enabled = true;
 			clearConditionText.enabled = true;
-		} else
+
+			if ( nowScene == "Halloween" )
+			{
+				Debug.Log( GameManager.Instance.displayStarFlg );
+				if ( GameManager.Instance.starInfo2[ 0 ] )
+				{
+					starImg[ 0 ].sprite = glowStarImage;
+				} else if( !GameManager.Instance.starInfo2[ 0 ] )
+				{
+					starImg[ 0 ].sprite = greyStarImage;
+				}
+
+				if ( GameManager.Instance.starInfo3[ 0 ] )
+				{
+					starImg[ 1 ].sprite = glowStarImage;
+				} else if( !GameManager.Instance.starInfo3[ 0 ] )
+				{
+					starImg[ 1 ].sprite = greyStarImage;
+				}
+
+				if ( LoadUserState.Instance.gotStar1[ 0 ] )
+				{
+					starImg[ 2 ].sprite = glowStarImage;
+				} else if( !LoadUserState.Instance.gotStar1[ 0 ] )
+				{
+					starImg[ 2 ].sprite = greyStarImage;
+				}
+			}
+			else if ( nowScene == "Akimaturi" )
+			{
+				if ( GameManager.Instance.starInfo2[ 1 ] )
+				{
+					starImg[ 0 ].sprite = glowStarImage;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 1 ] )
+				{
+					starImg[ 0 ].sprite = greyStarImage;
+				}
+
+				if ( GameManager.Instance.starInfo3[ 1 ] )
+				{
+					starImg[ 1 ].sprite = glowStarImage;
+				}
+				else if ( !GameManager.Instance.starInfo3[ 1 ] )
+				{
+					starImg[ 1 ].sprite = greyStarImage;
+				}
+
+				if ( LoadUserState.Instance.gotStar1[ 1 ] )
+				{
+					starImg[ 2 ].sprite = glowStarImage;
+				}
+				else if ( !LoadUserState.Instance.gotStar1[ 1 ] )
+				{
+					starImg[ 2 ].sprite = greyStarImage;
+				}
+			}
+			else if( nowScene == "Christmas" )
+			{
+				if ( GameManager.Instance.starInfo2[ 2 ] )
+				{
+					starImg[ 0 ].sprite = glowStarImage;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 2 ] )
+				{
+					starImg[ 0 ].sprite = greyStarImage;
+				}
+
+				if ( GameManager.Instance.starInfo3[ 2 ] )
+				{
+					starImg[ 1 ].sprite = glowStarImage;
+				}
+				else if ( !GameManager.Instance.starInfo3[ 2 ] )
+				{
+					starImg[ 1 ].sprite = greyStarImage;
+				}
+
+				if ( LoadUserState.Instance.gotStar1[ 2 ] )
+				{
+					starImg[ 2 ].sprite = glowStarImage;
+				}
+				else if ( !LoadUserState.Instance.gotStar1[ 2 ] )
+				{
+					starImg[ 2 ].sprite = greyStarImage;
+				}
+			}
+		}
+		else
 		{
 			for ( int i = 1; i <= 3; i++ )
 			{

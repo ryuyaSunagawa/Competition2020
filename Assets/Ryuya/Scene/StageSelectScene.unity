@@ -385,6 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b19a600e81314993fc483e1edaa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPauseMode: 0
   celectSE: {fileID: 8300000, guid: cc14fb8d5975654409e73bcc43196707, type: 3}
   clickSE: {fileID: 8300000, guid: 839b0e581b4f8814f9c58c85fdde4d98, type: 3}
 --- !u!82 &207725930
@@ -805,7 +806,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_HighlightedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_PressedColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
     m_SelectedColor: {r: 1, g: 0.93989503, b: 0, a: 1}
@@ -1156,7 +1157,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1413,6 +1414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b19a600e81314993fc483e1edaa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPauseMode: 0
   celectSE: {fileID: 8300000, guid: cc14fb8d5975654409e73bcc43196707, type: 3}
   clickSE: {fileID: 8300000, guid: 839b0e581b4f8814f9c58c85fdde4d98, type: 3}
 --- !u!95 &645476432
@@ -1597,6 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b19a600e81314993fc483e1edaa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPauseMode: 0
   celectSE: {fileID: 8300000, guid: cc14fb8d5975654409e73bcc43196707, type: 3}
   clickSE: {fileID: 8300000, guid: 839b0e581b4f8814f9c58c85fdde4d98, type: 3}
 --- !u!95 &730767696
@@ -1971,7 +1974,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_HighlightedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_PressedColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
     m_SelectedColor: {r: 1, g: 0.93989503, b: 0, a: 1}
@@ -2882,7 +2885,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_HighlightedColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     m_PressedColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
     m_SelectedColor: {r: 1, g: 0.93989503, b: 0, a: 1}
@@ -3059,6 +3062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b19a600e81314993fc483e1edaa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPauseMode: 0
   celectSE: {fileID: 8300000, guid: cc14fb8d5975654409e73bcc43196707, type: 3}
   clickSE: {fileID: 8300000, guid: 839b0e581b4f8814f9c58c85fdde4d98, type: 3}
 --- !u!95 &1505127617
@@ -3699,6 +3703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b19a600e81314993fc483e1edaa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPauseMode: 0
   celectSE: {fileID: 8300000, guid: cc14fb8d5975654409e73bcc43196707, type: 3}
   clickSE: {fileID: 8300000, guid: 839b0e581b4f8814f9c58c85fdde4d98, type: 3}
 --- !u!95 &1817621167
@@ -4190,6 +4195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778b19a600e81314993fc483e1edaa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPauseMode: 0
   celectSE: {fileID: 8300000, guid: cc14fb8d5975654409e73bcc43196707, type: 3}
   clickSE: {fileID: 8300000, guid: 839b0e581b4f8814f9c58c85fdde4d98, type: 3}
 --- !u!95 &2125153998
