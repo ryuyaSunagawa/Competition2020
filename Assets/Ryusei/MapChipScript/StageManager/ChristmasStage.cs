@@ -91,12 +91,22 @@ public class ChristmasStage : MonoBehaviour
         {
             ++star;
             hasLightStar = false;
-        }
+			if ( !LoadUserState.Instance.gotStar2[ 2 ] )
+			{
+				GameManager.Instance.starInfo2[ 2 ] = true;
+				Debug.Log( "GetLightStar" );
+			}
+		}
         else if (lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
         {
             --star;
             hasLightStar = true;
-        }
+			if ( !LoadUserState.Instance.gotStar2[ 2 ] )
+			{
+				GameManager.Instance.starInfo2[ 2 ] = false;
+				Debug.Log( "LeaveLightStar" );
+			}
+		}
 
         //回転盤を何回回転させたか取得
         //branchTrun = branchScript[0].branchNum + branchScript[1].branchNum + branchScript[2].branchNum;
@@ -112,12 +122,22 @@ public class ChristmasStage : MonoBehaviour
         {
             ++star;
             hasBranchStar = false;
-        }
+			if ( !LoadUserState.Instance.gotStar3[ 2 ] )
+			{
+				//star3 = true;
+				GameManager.Instance.starInfo3[ 2 ] = true;
+			}
+		}
         else if (branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
         {
             --star;
             hasBranchStar = true;
-        }
+			if ( !LoadUserState.Instance.gotStar3[ 2 ] )
+			{
+				//star3 = false;
+				GameManager.Instance.starInfo3[ 2 ] = false;
+			}
+		}
 
         //ゴールライトがついたかどうか
         if (goalLightScript.hasLight && hasGoalLightStar)
@@ -153,10 +173,11 @@ public class ChristmasStage : MonoBehaviour
             clearCanvas.ClearRate(star);
 
 
-            //ステージ情報保存
-            LoadUserState.Instance.SetPlayerData(1);
-            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
-            LoadUserState.Instance.Save();
+			//ステージ情報保存
+			GameManager.Instance.SaveClearInformation( 2, star );
+            //LoadUserState.Instance.SetPlayerData(2);
+            //LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+            //LoadUserState.Instance.Save();
         }
     }
 

@@ -32,69 +32,14 @@ public class PauseUIManager : MonoBehaviour
 		conditionText1.text = GameManager.Instance.sceneInformation.star1Text;
 		conditionText2.text = GameManager.Instance.sceneInformation.star2Text;
 		conditionText3.text = GameManager.Instance.sceneInformation.star3Text;
-		for( int i = 0; i < 3; i++ )
-		{
-			if( i == 0 && GameManager.Instance.starInfo1[ 0 ] )
-			{
-				conditionStar[ i ].sprite = glowStarSprite;
-			}
-			else if( i == 0 && !GameManager.Instance.starInfo1[ 0 ] )
-			{
-				conditionStar[ i ].sprite = greyStarSprite;
-			}
 
-			if( i == 1 && GameManager.Instance.starInfo2[ 0 ] )
-			{
-				conditionStar[ i ].sprite = glowStarSprite;
-			}
-			else if( i == 1 && !GameManager.Instance.starInfo2[ 0 ] )
-			{
-				conditionStar[ i ].sprite = greyStarSprite;
-			}
-
-			if ( i == 2 && GameManager.Instance.starInfo3[ 0 ] )
-			{
-				conditionStar[ i ].sprite = glowStarSprite;
-			}
-			else if( i == 2 && !GameManager.Instance.starInfo3[ 0 ] )
-			{
-				conditionStar[ i ].sprite = greyStarSprite;
-			}
-		}
+		JudgeStarCondition( true, "none" );
     }
 
     // Update is called once per frame
     void Update()
     {
-		for ( int i = 0; i < 3; i++ )
-		{
-			if ( i == 0 && GameManager.Instance.starInfo1[ 0 ] )
-			{
-				conditionStar[ i ].sprite = glowStarSprite;
-			}
-			else if ( i == 0 && !GameManager.Instance.starInfo1[ 0 ] )
-			{
-				conditionStar[ i ].sprite = greyStarSprite;
-			}
-
-			if ( i == 1 && GameManager.Instance.starInfo2[ 0 ] )
-			{
-				conditionStar[ i ].sprite = glowStarSprite;
-			}
-			else if ( i == 1 && !GameManager.Instance.starInfo2[ 0 ] )
-			{
-				conditionStar[ i ].sprite = greyStarSprite;
-			}
-
-			if ( i == 2 && GameManager.Instance.starInfo3[ 0 ] )
-			{
-				conditionStar[ i ].sprite = glowStarSprite;
-			}
-			else if ( i == 2 && !GameManager.Instance.starInfo3[ 0 ] )
-			{
-				conditionStar[ i ].sprite = greyStarSprite;
-			}
-		}
+		JudgeStarCondition( false, GameManager.Instance.nowScene );
 
 		if ( GameManager.Instance.isPause && !pausing )
 		{
@@ -132,6 +77,112 @@ public class PauseUIManager : MonoBehaviour
 			pausing = !pausing;
 			canvasGroup.blocksRaycasts = false;
 			canvasGroup.interactable = false;
+		}
+	}
+
+	/// <summary>
+	/// 星の状態を反映
+	/// </summary>
+	/// <param name="forceDelete"></param>
+	/// <param name="stageName"></param>
+	void JudgeStarCondition( bool forceDelete, string stageName )
+	{
+		if( !forceDelete ) { 
+			if ( stageName == "Halloween" )
+			{
+				if ( GameManager.Instance.starInfo1[ 0 ] )
+				{
+					conditionStar[ 0 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo1[ 0 ] )
+				{
+					conditionStar[ 0 ].sprite = greyStarSprite;
+				}
+
+				if ( GameManager.Instance.starInfo2[ 0 ] )
+				{
+					conditionStar[ 1 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 0 ] )
+				{
+					conditionStar[ 1 ].sprite = greyStarSprite;
+				}
+
+				if ( GameManager.Instance.starInfo3[ 0 ] )
+				{
+					conditionStar[ 2 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 0 ] )
+				{
+					conditionStar[ 2 ].sprite = greyStarSprite;
+				}
+			}
+			else if ( stageName == "Akimaturi" )
+			{
+				if ( GameManager.Instance.starInfo1[ 1 ] )
+				{
+					conditionStar[ 0 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo1[ 1 ] )
+				{
+					conditionStar[ 0 ].sprite = greyStarSprite;
+				}
+
+				if ( GameManager.Instance.starInfo2[ 1 ] )
+				{
+					conditionStar[ 1 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 1 ] )
+				{
+					conditionStar[ 1 ].sprite = greyStarSprite;
+				}
+
+				if ( GameManager.Instance.starInfo3[ 1 ] )
+				{
+					conditionStar[ 2 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 1 ] )
+				{
+					conditionStar[ 2 ].sprite = greyStarSprite;
+				}
+			}
+			else if ( stageName == "Christmas" )
+			{
+				if ( GameManager.Instance.starInfo1[ 2 ] )
+				{
+					conditionStar[ 0 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo1[ 2 ] )
+				{
+					conditionStar[ 0 ].sprite = greyStarSprite;
+				}
+
+				if ( GameManager.Instance.starInfo2[ 2 ] )
+				{
+					conditionStar[ 1 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 2 ] )
+				{
+					conditionStar[ 1 ].sprite = greyStarSprite;
+				}
+
+				if ( GameManager.Instance.starInfo3[ 2 ] )
+				{
+					conditionStar[ 2 ].sprite = glowStarSprite;
+				}
+				else if ( !GameManager.Instance.starInfo2[ 2 ] )
+				{
+					conditionStar[ 2 ].sprite = greyStarSprite;
+				}
+			}
+		}
+
+		if( forceDelete )
+		{
+			foreach( Image star in conditionStar )
+			{
+				star.sprite = greyStarSprite;
+			}
 		}
 	}
 }

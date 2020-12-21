@@ -175,9 +175,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	void Start()
     {
 		DontDestroyOnLoad( this );
-		LoadUserState.Instance.Delete();
-		LoadUserState.Instance.SetPlayerData( 2 );
-		LoadUserState.Instance.Save();
+		if( LoadUserState.Instance.firstGameStart )
+		{
+			LoadUserState.Instance.Delete();
+			LoadUserState.Instance.firstGameStart = false;
+			LoadUserState.Instance.SetPlayerData( 0 );
+			LoadUserState.Instance.Save();
+		}
 		GameManager.Instance.soundVolume = 0.1f;
 		GameManager.Instance.cameraSensitive = 5f;
 		Cursor.lockState = CursorLockMode.Locked;
@@ -254,6 +258,23 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 		_isClear = false;
 		_isFail = false;
 		_isPause = false;
+	}
+
+	public void SaveClearInformation( int stageNum, int starNum )
+	{
+		LoadUserState.Instance.gotStar1[ stageNum ] = true;
+		GameManager.Instance.starInfo1[ stageNum ] = true;
+		LoadUserState.Instance.gotStar2[ stageNum ] = GameManager.Instance.starInfo2[ stageNum ];
+		LoadUserState.Instance.gotStar3[ stageNum ] = GameManager.Instance.starInfo3[ stageNum ];
+		LoadUserState.Instance.SetPlayerData( stageNum + 1 );
+		LoadUserState.Instance.stageStarNum[ stageNum ] = starNum;
+		LoadUserState.Instance.Save();
+	}
+
+	public void ResetClearInformationBuffer()
+	{
+		starInfo1 = LoadUserState.Instance.gotStar1.ToArray();
+		starInfo2 = LoadUserState.Instance.gotStar2.ToArray();
 	}
 
 	private void OnDestroy()

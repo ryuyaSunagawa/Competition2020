@@ -112,12 +112,20 @@ public class AkimaturiStage : MonoBehaviour
         {
             ++star;
             hasLightStar = false;
-        }
+			if ( !LoadUserState.Instance.gotStar2[ STAGE - 1 ] )
+			{
+				GameManager.Instance.starInfo2[ STAGE - 1 ] = true;
+			}
+		}
         else if (miniLightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
         {
             --star;
             hasLightStar = true;
-        }
+			if ( !LoadUserState.Instance.gotStar2[ STAGE - 1 ] )
+			{
+				GameManager.Instance.starInfo2[ STAGE - 1 ] = false;
+			}
+		}
 
         //回転盤を何回回転させたか取得
         //branchTrun = branchScript[0].branchNum + branchScript[1].branchNum + branchScript[2].branchNum;
@@ -134,12 +142,22 @@ public class AkimaturiStage : MonoBehaviour
         {
             ++star;
             hasBranchStar = false;
-        }
+			if ( !LoadUserState.Instance.gotStar3[ STAGE - 1 ] )
+			{
+				//star3 = true;
+				GameManager.Instance.starInfo3[ STAGE - 1 ] = true;
+			}
+		}
         else if (branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
         {
             --star;
             hasBranchStar = true;
-        }
+			if ( !LoadUserState.Instance.gotStar3[ STAGE - 1 ] )
+			{
+				//star3 = false;
+				GameManager.Instance.starInfo3[ STAGE - 1 ] = false;
+			}
+		}
 
         //ミニライトがいくつ点灯しているか取得
         for (int i = 0; i < GOALLIGHT; i++)
@@ -176,9 +194,10 @@ public class AkimaturiStage : MonoBehaviour
 			dirLight.intensity = clearLightIntencity;
 
 			//Invoke("DelayHyouka", 0.1f);
-            LoadUserState.Instance.SetPlayerData(1);
-            LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
-            LoadUserState.Instance.Save();
+			GameManager.Instance.SaveClearInformation( 1, star );
+			//LoadUserState.Instance.SetPlayerData(2);
+   //         LoadUserState.Instance.stageStarNum[STAGE - 1] = star;
+   //         LoadUserState.Instance.Save();
         }
     }
 

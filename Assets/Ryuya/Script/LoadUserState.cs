@@ -26,6 +26,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 	[SerializeField] private static string _jsonText = "";
 
 	//保存されるデータ群
+	[SerializeField] public bool firstGameStart = true;
 	[SerializeField] public int progressedStageNum;		//ステージ進行度
 	[SerializeField] public int stageVolume;			//ステージ数
 	[SerializeField] public List<int> stageStarNum = new List<int>(3) { 0, 0, 0 };		//スター獲得量

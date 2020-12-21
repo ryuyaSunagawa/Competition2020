@@ -60,8 +60,8 @@ public class HalloweenStage : MonoBehaviour
 
         goalLightScript = goalLight.GetComponent<GoalLight>();
 		GameManager.Instance.sceneInformation = LoadUserState.Instance.stageInfo[ 0 ];
-		star2 = LoadUserState.Instance.gotStar2[ 0 ];
-		star3 = LoadUserState.Instance.gotStar3[ 0 ];
+		//star2 = LoadUserState.Instance.gotStar2[ 0 ];
+		//star3 = LoadUserState.Instance.gotStar3[ 0 ];
     }
 
     // Update is called once per frame
@@ -90,20 +90,20 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasLightStar = false;
-			if ( !LoadUserState.Instance.gotStar2[ 0 ] )
+			if ( !LoadUserState.Instance.gotStar2[ STAGE - 1 ] )
 			{
-				star2 = true;
-				GameManager.Instance.starInfo2[ 0 ] = true;
+				//star2 = true;
+				GameManager.Instance.starInfo2[ STAGE - 1 ] = true;
 			}
 		}
 		else if(lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
         {
             --star;
             hasLightStar = true;
-			if ( !LoadUserState.Instance.gotStar2[ 0 ] )
+			if ( !LoadUserState.Instance.gotStar2[ STAGE - 1 ] )
 			{
-				star2 = false;
-				GameManager.Instance.starInfo2[ 0 ] = false;
+				//star2 = false;
+				GameManager.Instance.starInfo2[ STAGE - 1 ] = false;
 			}
 		}
 
@@ -121,20 +121,20 @@ public class HalloweenStage : MonoBehaviour
         {
             ++star;
             hasBranchStar = false;
-			if ( !LoadUserState.Instance.gotStar3[ 0 ] )
+			if ( !LoadUserState.Instance.gotStar3[ STAGE - 1 ] )
 			{
-				star3 = true;
-				GameManager.Instance.starInfo3[ 0 ] = true;
+				//star3 = true;
+				GameManager.Instance.starInfo3[ STAGE - 1 ] = true;
 			}
 		}
 		else if(branchTurn > BRANCHLIMIT && !hasBranchStar) //8手以上でスター失点
         {
             --star;
             hasBranchStar = true;
-			if ( !LoadUserState.Instance.gotStar3[ 0 ] )
+			if ( !LoadUserState.Instance.gotStar3[ STAGE - 1 ] )
 			{
-				star3 = false;
-				GameManager.Instance.starInfo3[ 0 ] = false;
+				//star3 = false;
+				GameManager.Instance.starInfo3[ STAGE - 1 ] = false;
 			}
 		}
 
@@ -153,7 +153,8 @@ public class HalloweenStage : MonoBehaviour
             clearCanvas.ClearRate( star );
 
 			//ステージ情報保存
-			SaveClearInformation();
+			//SaveClearInformation();
+			GameManager.Instance.SaveClearInformation( STAGE - 1, star );
 		}
     }
 
