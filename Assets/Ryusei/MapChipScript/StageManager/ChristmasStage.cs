@@ -94,7 +94,6 @@ public class ChristmasStage : MonoBehaviour
 			if ( !LoadUserState.Instance.gotStar2[ 2 ] )
 			{
 				GameManager.Instance.starInfo2[ 2 ] = true;
-				Debug.Log( "GetLightStar" );
 			}
 		}
         else if (lightNum < MINILIGHT && !hasLightStar)   //ミニライト全点灯の星を失点
@@ -104,7 +103,6 @@ public class ChristmasStage : MonoBehaviour
 			if ( !LoadUserState.Instance.gotStar2[ 2 ] )
 			{
 				GameManager.Instance.starInfo2[ 2 ] = false;
-				Debug.Log( "LeaveLightStar" );
 			}
 		}
 

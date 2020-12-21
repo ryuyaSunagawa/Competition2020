@@ -2446,6 +2446,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodStalls3
       objectReference: {fileID: 0}
+    - target: {fileID: 4814614513477654514, guid: 84426bfdb35975a44a9465060f666a41,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6327178374697475902, guid: 84426bfdb35975a44a9465060f666a41,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7518553554023509325, guid: 84426bfdb35975a44a9465060f666a41,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84426bfdb35975a44a9465060f666a41, type: 3}
 --- !u!1 &113323114 stripped
@@ -13177,13 +13192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644674697}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.49, y: 4.29, z: -0.51}
+  m_LocalRotation: {x: -0.3677452, y: 0.1831789, z: 0.14004606, w: 0.9008863}
+  m_LocalPosition: {x: -2.578, y: 0.502, z: -2.5699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 987689688}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45.553, y: 18.919, z: 9.669001}
 --- !u!108 &644674699
 Light:
   m_ObjectHideFlags: 0
@@ -13193,12 +13208,12 @@ Light:
   m_GameObject: {fileID: 644674697}
   m_Enabled: 0
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.23113209, b: 0.44339538, a: 1}
-  m_Intensity: 4
-  m_Range: 20
-  m_SpotAngle: 30
+  m_Color: {r: 1, g: 0.5525776, b: 0.41037738, a: 1}
+  m_Intensity: 3
+  m_Range: 16
+  m_SpotAngle: 74.831955
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -17742,6 +17757,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FoodStalls1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5693649884052127136, guid: cf4fb10ab89b1154ba8904ca29d2b28b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623786586696393620, guid: cf4fb10ab89b1154ba8904ca29d2b28b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315075720815445791, guid: cf4fb10ab89b1154ba8904ca29d2b28b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf4fb10ab89b1154ba8904ca29d2b28b, type: 3}
@@ -27872,10 +27902,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 535613792}
     m_Modifications:
+    - target: {fileID: 385647252121055125, guid: b5c8c02407ec5e84db987e6bd529d43a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172146948860356441, guid: b5c8c02407ec5e84db987e6bd529d43a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3449105143735457066, guid: b5c8c02407ec5e84db987e6bd529d43a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4179932102711605390, guid: b5c8c02407ec5e84db987e6bd529d43a,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265520673583319838, guid: b5c8c02407ec5e84db987e6bd529d43a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4864054111563141276, guid: b5c8c02407ec5e84db987e6bd529d43a,
         type: 3}
@@ -27941,6 +27991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396015835131756233, guid: b5c8c02407ec5e84db987e6bd529d43a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c8c02407ec5e84db987e6bd529d43a, type: 3}
@@ -29846,13 +29901,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491242820}
-  m_LocalRotation: {x: 0.7973316, y: -0.14609374, z: 0.21364434, w: 0.5452294}
+  m_LocalRotation: {x: 0.8080173, y: 0.06471753, z: 0.34717068, w: 0.47158483}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 111.27, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 134.179, y: -63.204987, z: -38.309998}
 --- !u!1001 &1503531426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31644,13 +31699,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573177541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.63, y: 4.29, z: -0.51}
+  m_LocalRotation: {x: -0.39067107, y: -0.03322734, z: -0.0010864727, w: 0.91992986}
+  m_LocalPosition: {x: 2.1049998, y: 0.502, z: -2.5699995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 987689688}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45.960003, y: -4.9750004, z: 1.9750001}
 --- !u!108 &1573177543
 Light:
   m_ObjectHideFlags: 0
@@ -31660,12 +31715,12 @@ Light:
   m_GameObject: {fileID: 1573177541}
   m_Enabled: 0
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 0.23113209, b: 0.44339538, a: 1}
-  m_Intensity: 4
-  m_Range: 20
-  m_SpotAngle: 30
+  m_Color: {r: 1, g: 0.5525776, b: 0.41037738, a: 1}
+  m_Intensity: 3
+  m_Range: 16
+  m_SpotAngle: 71.39153
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:

@@ -28,28 +28,38 @@ public class decorationLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (goalLightScript.hasLight)  //点灯
-        {
-            //GetComponent<Renderer>().material.color = Color.yellow;
-            changeColor = 1;
-        }
-        else if (!goalLightScript.hasLight)    //消灯
-        {
-            //GetComponent<Renderer>().material.color = Color.white;
-            changeColor = 0;
-        }
+		if( GameManager.Instance.nowScene == "Halloween" )
+		{
+			if ( goalLightScript.hasLight && LoadUserState.Instance.stageStarNum[ 0 ] == 3 )  //点灯
+			{
+				changeColor = 1;
+			}
+			else if ( !goalLightScript.hasLight )    //消灯
+			{
+				changeColor = 0;
+			}
+		}
+		else
+		{
+			if ( goalLightScript.hasLight )  //点灯
+			{
+				changeColor = 1;
+			}
+			else if ( !goalLightScript.hasLight )    //消灯
+			{
+				changeColor = 0;
+			}
+		}
 
         if (beforeColor != changeColor)
         {
             if (changeColor == 0)
             {
-                //GetComponent<Renderer>().material.color = Color.white;
                 MatChange = false;
                 hasLight = false;
             }
             else
             {
-                //GetComponent<Renderer>().material.color = Color.yellow;
                 MatChange = true;
                 hasLight = true;
             }
