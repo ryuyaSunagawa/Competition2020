@@ -52589,6 +52589,11 @@ PrefabInstance:
       propertyPath: halloweenStage
       value: 
       objectReference: {fileID: 2053825911}
+    - target: {fileID: 2901575032104728786, guid: dc498e025a577694a801c2f97d583a2a,
+        type: 3}
+      propertyPath: m_Name
+      value: TextBackPanel
+      objectReference: {fileID: 0}
     - target: {fileID: 5722346488292178266, guid: dc498e025a577694a801c2f97d583a2a,
         type: 3}
       propertyPath: m_AnchoredPosition.y

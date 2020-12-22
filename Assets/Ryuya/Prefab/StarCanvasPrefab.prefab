@@ -108,7 +108,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1273638893540976419}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -182,7 +182,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1273638893540976419}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -256,7 +256,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1273638893540976419}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -332,10 +332,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2367032996536088840}
   - {fileID: 1273638893414689115}
   - {fileID: 1273638892869366456}
   - {fileID: 1273638892118567975}
+  - {fileID: 2367032996536088840}
   - {fileID: 4310527278808634754}
   - {fileID: 5722346488292178266}
   m_Father: {fileID: 0}
@@ -437,6 +437,7 @@ MonoBehaviour:
   - {fileID: 1273638892118567976}
   clearConditionImg: {fileID: 1236155962276781851}
   clearConditionText: {fileID: 5612294035712735883}
+  textBackPanel: {fileID: 7073790993310675738}
   halloweenStage: {fileID: 0}
   akimaturiStage: {fileID: 0}
   christmasStage: {fileID: 0}
@@ -454,7 +455,7 @@ GameObject:
   - component: {fileID: 2980827511128474373}
   - component: {fileID: 7073790993310675738}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: TextBackPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -472,7 +473,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1273638893540976419}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}

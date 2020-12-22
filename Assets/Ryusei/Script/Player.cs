@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 		{
 			audioSource.volume = GameManager.Instance.soundVolume;
 			beforeVolume = GameManager.Instance.soundVolume;
-			Debug.Log( GameManager.Instance.soundVolume );
+			//Debug.Log( GameManager.Instance.soundVolume );
 		}
 	}
 

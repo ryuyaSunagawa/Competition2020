@@ -10,6 +10,7 @@ public class SceneStarUI : MonoBehaviour
 	[SerializeField, Header( "星画像" )] Image[] starImg = new Image[ 3 ];
 	[SerializeField] Image clearConditionImg;
 	[SerializeField] Text clearConditionText;
+	[SerializeField] Image textBackPanel;
 	[SerializeField, Space( 15 )] HalloweenStage halloweenStage;
 	[SerializeField] AkimaturiStage akimaturiStage;
 	[SerializeField] ChristmasStage christmasStage;
@@ -52,10 +53,10 @@ public class SceneStarUI : MonoBehaviour
 			}
 			clearConditionImg.enabled = true;
 			clearConditionText.enabled = true;
+			textBackPanel.enabled = true;
 
 			if ( nowScene == "Halloween" )
 			{
-				Debug.Log( GameManager.Instance.displayStarFlg );
 				if ( GameManager.Instance.starInfo2[ 0 ] )
 				{
 					starImg[ 0 ].sprite = glowStarImage;
@@ -149,6 +150,7 @@ public class SceneStarUI : MonoBehaviour
 			//クリア条件の非表示
 			clearConditionImg.enabled = false;
 			clearConditionText.enabled = false;
+			textBackPanel.enabled = false;
 		}
 	}
 }

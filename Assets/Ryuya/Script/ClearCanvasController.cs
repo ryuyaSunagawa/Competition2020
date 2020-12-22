@@ -60,7 +60,6 @@ public class ClearCanvasController : MonoBehaviour
 		//キャンバスグループ有効化が完了したら
 		if( myCanvasGroup.alpha >= 1 )
 		{
-			Debug.Log( "ahan" );
 			//クリアボタングループの有効化
 			clearButton.changing = true;
 			//Invoke( "RaiseFrag", 0.5f );
