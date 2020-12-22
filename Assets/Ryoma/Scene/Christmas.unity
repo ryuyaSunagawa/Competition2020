@@ -24435,6 +24435,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StarCanvasPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 1273638893540976415, guid: dc498e025a577694a801c2f97d583a2a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1273638893540976419, guid: dc498e025a577694a801c2f97d583a2a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30131,6 +30136,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FailedCanvas (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2837598605664487662, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a8e7f9b0ca63e4199d3e475a722f10, type: 3}
 --- !u!1 &1499699955
@@ -35355,6 +35365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ClearCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232076994247102999, guid: a1ed9c64320cce24398127d6d7e6543d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1586441976811948787, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}

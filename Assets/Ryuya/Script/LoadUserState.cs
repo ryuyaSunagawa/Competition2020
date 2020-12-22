@@ -43,7 +43,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 			stageSummary = "ハロウィンの会場に灯りをともそう!",
 			star1Text = "お城に灯りをともす",
 			star2Text = "5つあるかぼちゃに灯りをともそう",
-			star3Text = "回転盤を?回転以内でクリア"
+			star3Text = "回転盤を8回転以内でクリア"
 		},
 		new SceneInformation{
 			stageNumber = 2,
@@ -52,7 +52,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 			stageSummary = "お祭りの会場に灯りをともそう!",
 			star1Text = "右の大きい屋台に灯りをともす",
 			star2Text = "左の小さい屋台2つに灯りをともす",
-			star3Text = "回転盤を?回転以内でクリア"
+			star3Text = "回転盤を8回転以内でクリア"
 		},
 		new SceneInformation{
 			stageNumber = 3,
@@ -61,7 +61,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 			stageSummary = "クリスマスの会場に灯りをともそう!",
 			star1Text = "クリスマスツリーに灯りをともす",
 			star2Text = "小さな雪だるまに灯りをともす",
-			star3Text = "回転盤を?回転以内でクリア"
+			star3Text = "回転盤を6回転以内でクリア"
 		},
 	};
 

@@ -11432,6 +11432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1232076994247102999, guid: a1ed9c64320cce24398127d6d7e6543d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3525375222633624695, guid: a1ed9c64320cce24398127d6d7e6543d,
         type: 3}
       propertyPath: firstButton
@@ -41667,6 +41672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FailedCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837598605664487662, guid: 15a8e7f9b0ca63e4199d3e475a722f10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a8e7f9b0ca63e4199d3e475a722f10, type: 3}

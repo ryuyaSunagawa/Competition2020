@@ -175,7 +175,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 	void Start()
     {
 		DontDestroyOnLoad( this );
-		if( LoadUserState.Instance.firstGameStart )
+		if ( LoadUserState.Instance.firstGameStart )
 		{
 			LoadUserState.Instance.Delete();
 			LoadUserState.Instance.firstGameStart = false;
