@@ -40,9 +40,9 @@ public class LoadUserState : ISerializationCallbackReceiver
 			stageNumber = 1,
 			stageName = "ハロウィン",
 			stageSceneName = "Halloween" ,
-			stageSummary = "ハロウィンの会場に灯りをともそう!",
-			star1Text = "お城に灯りをともす",
-			star2Text = "5つあるかぼちゃに灯りをともそう",
+			stageSummary = "ハロウィンの会場に灯りをともそう",
+			star1Text = "大きなお城に灯りをともす",
+			star2Text = "4つのかぼちゃに灯りをともす",
 			star3Text = "回転盤を8回転以内でクリア"
 		},
 		new SceneInformation{
@@ -60,7 +60,7 @@ public class LoadUserState : ISerializationCallbackReceiver
 			stageSceneName = "Christmas" ,
 			stageSummary = "クリスマスの会場に灯りをともそう!",
 			star1Text = "クリスマスツリーに灯りをともす",
-			star2Text = "小さな雪だるまに灯りをともす",
+			star2Text = "雪だるまに灯りをともす",
 			star3Text = "回転盤を6回転以内でクリア"
 		},
 	};
